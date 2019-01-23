@@ -17,12 +17,12 @@ git push
 
 DATE=$(date +"%D %T")
 echo "$(tput setaf 2)
-Committed to fdtv on $DATE $(tput sgr 0)"
+Committed to fdch.github.io on $DATE $(tput sgr 0)"
 while [ $i -gt 0 ]
 do
 sleep 0.3
 echo -ne "="
 i=$[$i-1]
 done
-open http://fdch.github.io/tv
+open http://fdch.github.io
 exit

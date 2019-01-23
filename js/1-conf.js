@@ -31,11 +31,11 @@ var widthFactor = 0.9;
 var hAlpha = 1.0;
 var minHHeight = 55;
 
-var url = "https://fdch.github.io/tv";
+var url = "https://fdch.github.io";
 var repo = "https://github.com/fdch/";
 var cv = url+"/cv/";
 var raw = "https://raw.githubusercontent.com/fdch/";
-var imgpath = "tv/master/img/";
+var imgpath = "fdch.github.io/master/img/";
 var blog = "http://ffddcchh.tumblr.com/";
 var scloud = "https://soundcloud.com/ffddcchh";
 var video = "https://vimeo.com/fdch";
