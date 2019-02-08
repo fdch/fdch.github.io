@@ -137,7 +137,7 @@ function displayUnwork(target,source) {
     let sectTag = element('section','', x);
     target.appendChild(sectTag);
 
-    sectTag.setAttribute('class', cate.join(" "));
+    sectTag.setAttribute('class', 'unwork-wrapper');
 
     let headTag = element('header');
     sectTag.appendChild(headTag);
