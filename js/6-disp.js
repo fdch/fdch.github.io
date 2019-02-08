@@ -15,8 +15,9 @@ function display(x) {
       mainTag.style.background = 'none';
       break;
     case "touch" :
-      article.innerHTML = contactMessage.join("");
-      mainTag.style.background = 'none';
+      displayTouch(article);
+      // article.innerHTML = contactMessage.join("");
+      mainTag.style.background = 'background-image:url("")';
       break;
     case "bio"   :
       displayBiogra(article);
@@ -99,6 +100,25 @@ function resetDisplay(x){
     console.log("could not remove elements and create article");
     return void 0; //there was an error
   }
+}
+function displayTouch(target) {
+  let sectTag = element('section');
+  target.appendChild(sectTag);
+
+  let headTag = element('header');
+  let artiTag = element('article');
+  sectTag.appendChild(headTag);
+  sectTag.appendChild(artiTag);
+
+  let alltags = new Array();
+  alltags.push(element('p',contactMessage[0],'touch-spa'));
+  alltags.push(element('p',contactMessage[1],'touch-eng'));
+  alltags.push(element('p',contactMessage[2],'follow-eng'));
+  var lk = Object.keys(mylinks);
+  for (let k in lk) 
+    alltags.push(element("button",k,'', "window.open(\'"+mylinks[k]+"\', '_top');"))
+  alltags.push(img(contactGif, articleWidth(maxWidth)/3.0,"touch..."));
+  for (let i in alltags) artiTag.appendChild(alltags[i]);
 }
 function displayBiogra(target) {
   let sectTag = element('section');

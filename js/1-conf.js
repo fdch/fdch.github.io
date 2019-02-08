@@ -117,18 +117,18 @@ var personal = [
 "Undergraduate : " +uncTitle + " at the " +unc+ " (2006-12)",
 ];
 
-var mylinks = [
-	linkify("Instagram", instagram,1),
-	linkify("SoundCloud",scloud,1),
-	linkify("Github",repo,1),
-	linkify("Vimeo",video,1),
-	linkify("Youtube",yt,1),
-	linkify("Tumblr",blog,1),
-	linkify("Facebook",facebookUrl,1),
-	linkify("Twitter",twitter,1),
-	linkify("Flickr",flickr,1),
-	linkify("LinkedIn", linkedin,1)
-]
+var mylinks = {
+	"Instagram"	:instagram,
+	"SoundCloud":scloud,
+	"Github"	:repo,
+	"Vimeo"		:video,
+	"Youtube"	:yt,
+	"Tumblr"	:blog,
+	"Facebook"	:facebookUrl,
+	"Twitter"	:twitter,
+	"Flickr"	:flickr,
+	"LinkedIn"	:linkedin,
+}
 
 var vimeo = [
 "https://player.vimeo.com/video/",
@@ -269,15 +269,11 @@ var formLinks = {
 };
 
 var contactMessage = [
- "<h3>contact</h3>",
- "<p>Send me an email at "+nyuid+" and I will get in touch with you\
-  (as fast as nonhumanly possible :)</p>",
- "<p>Mandá(me) una correa electrónica a "+nyuid+" así me pongo en contacto\
-  lo más rápido que pueda (dentro de lo nohumánamente posible ;)</p>",
- imgify(contactGif,200),
- "</br>",
- tag("p",tag("i","Follow me on social media :)")),
- tag("address", mylinks.join(" ~ "))
+ "Send me an email at "+nyuid+" and I will get in touch with you\
+  (as fast as nonhumanly possible :)",
+ "Mandáme una correa electrónica a "+nyuid+" así me pongo en contacto\
+  lo más rápido que pueda (dentro de lo nohumánamente posible ;)",
+  "Follow me on social media :)"
 ]
 
 ///make this better:
