@@ -298,8 +298,13 @@ function element(tag,text,id,onclick,width) {
   let node = document.createTextNode(text?text:'');
   elem.setAttribute('id',id?id:'');
   elem.setAttribute('onclick',onclick?onclick:'');
-  // elem.setAttribute('width',width?width:'inherit');
-  elem.setAttribute('style',"width:"+(width?width+"px;":'inherit;'));
+  if (width) {
+    elem.setAttribute('width', width);
+    elem.setAttribute('style',"width: " + width + "px; ");
+  } else {
+    elem.setAttribute('width', 'inherit');
+    elem.setAttribute('style', 'width:inherit');
+  }
   elem.appendChild(node);
   return elem;
 }
