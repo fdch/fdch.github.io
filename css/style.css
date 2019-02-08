@@ -8,6 +8,8 @@ body {
   left:0;
   width:100%;
   overflow:hidden;
+  background-image: url("https://raw.githubusercontent.com/fdch/orkna/master/img/orkna-1.png");
+
 }
 main {
   padding:10px;
