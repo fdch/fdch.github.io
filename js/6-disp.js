@@ -116,7 +116,7 @@ function displayTouch(target) {
   alltags.push(element('p',contactMessage[2],'follow-eng'));
   var lk = Object.keys(mylinks);
   for (let k in lk) 
-    alltags.push(element("button",lk[k],'', "window.open(\'"+mylinks[lk[k]]+"\', '_top');"))
+    alltags.push(element("button",lk[k],'', "window.open(\'"+mylinks[lk[k]]+"\', '_top');", articleWidth(maxWidth)/mylinks.length))
   alltags.push(img(contactGif, articleWidth(maxWidth)/3.0,"touch..."));
   for (let i in alltags) artiTag.appendChild(alltags[i]);
 }
