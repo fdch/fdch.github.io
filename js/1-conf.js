@@ -276,17 +276,8 @@ var contactMessage = [
   lo más rápido que pueda (dentro de lo nohumánamente posible ;)</p>",
  imgify(contactGif,200),
  "</br>",
- "</br>",
- tag("p",tag("i","And, follow me on social media:")),
- tag("address",tag("blockquote",mylinks.join(" ~ "))),
- "</br></br>",
- tag("span","And... I have some")+tag("b","<span "+onclickify("display","games")+">\
- 	fun</span>")+tag("span","every now and then..."),
- "</br></br></br></br>",
- // formMenu[allCVsections[1]],
- // formMenu[allCVsections[2]],
- // formMenu[allCVsections[4]],
- // formMenu[allCVsections[5]],
+ tag("p",tag("i","Follow me on social media :)")),
+ tag("address", mylinks.join(" ~ "))
 ]
 
 ///make this better:
