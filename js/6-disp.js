@@ -17,7 +17,7 @@ function display(x) {
     case "touch" :
       displayTouch(article);
       // article.innerHTML = contactMessage.join("");
-      mainTag.style.background = 'background-image:url("")';
+      mainTag.style.background = 'background-image:url(\"'+bkgImage+'\")';
       break;
     case "bio"   :
       displayBiogra(article);

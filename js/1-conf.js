@@ -1,4 +1,5 @@
 var latest_bio_pic = "bio_vienna.jpg";
+var latest_bkg_pic = ["orkna", "orkna-1.png"];
 
 var htmlTag, bodyTag, headerTag, mainTag, footerTag;
 var h1titlTag, navigaTag, iframeTag, rotImgTag, 
@@ -55,6 +56,7 @@ var loadingUrl 	=  raw + imgpath + "fdch.gif";
 
 var backImg 	= "url(\'"+loadingUrl+"\') center no-repeat;";
 var bioImage 	=  raw + imgpath + latest_bio_pic;
+var bkgImage 	=  raw + latest_bkg_pic[0]+ "/master/img/" + latest_bkg_pic[1];
 
 var rotImgStyle= [
 	"float:left",
