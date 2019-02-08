@@ -1,3 +1,5 @@
+var latest_bio_pic = "bio_vienna.jpg";
+
 var htmlTag, bodyTag, headerTag, mainTag, footerTag;
 var h1titlTag, navigaTag, iframeTag, rotImgTag, 
 navSelTag, imgDivTag, catDivTag,catSelTag;
@@ -31,28 +33,28 @@ var widthFactor = 0.9;
 var hAlpha = 1.0;
 var minHHeight = 55;
 
-var url = "https://fdch.github.io";
-var repo = "https://github.com/fdch/";
-var cv = url+"/cv/";
-var raw = "https://raw.githubusercontent.com/fdch/";
-var imgpath = "fdch.github.io/master/img/";
-var blog = "http://ffddcchh.tumblr.com/";
-var scloud = "https://soundcloud.com/ffddcchh";
-var video = "https://vimeo.com/fdch";
-var nyuid = "fch226((at))nyu.edu";
-var email = "fch226@nyu.edu";
+var url 		= "https://fdch.github.io";
+var repo 		= "https://github.com/fdch/";
+var cv 			=  url + "/cv/";
+var raw 		= "https://raw.githubusercontent.com/fdch/";
+var imgpath 	= "fdch.github.io/master/img/";
+var blog 		= "http://ffddcchh.tumblr.com/";
+var scloud 		= "https://soundcloud.com/ffddcchh";
+var video 		= "https://vimeo.com/fdch";
+var nyuid 		= "fch226((at))nyu.edu";
+var email 		= "fch226@nyu.edu";
 var facebookUrl = "https://www.facebook.com/fedecamarahalac/";
-var twitter = "http://www.twitter.com/ffddcchh";
-var yt = "https://www.youtube.com/channel/UCzOx-iKaNx9ruddNI6ykTIA";
-var flickr = "http://www.flickr.com/federicocamarahalac";
-var linkedin = "http://linkedin.com/in/fedecamarahalac";
-var instagram = "https://instagram.com/ffddcchh";
+var twitter 	= "http://www.twitter.com/ffddcchh";
+var yt 			= "https://www.youtube.com/channel/UCzOx-iKaNx9ruddNI6ykTIA";
+var flickr 		= "http://www.flickr.com/federicocamarahalac";
+var linkedin 	= "http://linkedin.com/in/fedecamarahalac";
+var instagram 	= "https://instagram.com/ffddcchh";
 
-var contactGif = raw+imgpath+"zissou.gif";
-var loadingUrl = raw+imgpath+"fdch.gif";
+var contactGif 	=  raw + imgpath + "zissou.gif";
+var loadingUrl 	=  raw + imgpath + "fdch.gif";
 
-var backImg = "url(\'"+loadingUrl+"\') center no-repeat;";
-var bioImage = raw + imgpath + "bio.jpg";
+var backImg 	= "url(\'"+loadingUrl+"\') center no-repeat;";
+var bioImage 	=  raw + imgpath + latest_bio_pic;
 
 var rotImgStyle= [
 	"float:left",
@@ -77,19 +79,19 @@ var color_preset = {
 	rand : [255,0,255,0]
 };
 
-var title = "fdch";
-var subtitle = "Fede Cámara Halac";
-var unclink = "http://artes.unc.edu.ar/";
-var nyulink = "http://gsas.nyu.edu/";
-var unc = "La Universidad Nacional de Córdoba (Argentina)";
-var nyuTitle = "Music Composition & Theory";
-var uncTitle = "Licenciatura en Composición Musical";
-var nyu = "New York University (GSAS)";
-var advisors = ["Jaime Oliver La Rosa","Elizabeth Hoffman"];
-var currently = ["PhD Candidate","Candidato de PhD"];
-var tesis = [
-	"Database Multimedia Composition",
-	"Composición Multimedial con Base de Datos"
+var title 		= "fdch";
+var subtitle 	= "Fede Cámara Halac";
+var unclink 	= "http://artes.unc.edu.ar";
+var nyulink 	= "http://gsas.nyu.edu";
+var unc 		= "La Universidad Nacional de Córdoba";
+var nyuTitle 	= "Music Composition & Theory";
+var uncTitle 	= "Licenciatura en Composición Musical";
+var nyu 		= "New York University";
+var advisors 	= ["Jaime Oliver","Elizabeth Hoffman"];
+var currently 	= ["PhD Candidate","Candidato de PhD"];
+var tesis 		= [
+					"Database Music",
+					"Música con Base de Datos"
 ];
 var bday = new Date(1988, 5, 8, 12, 1, 13, 128);
 
@@ -115,20 +117,18 @@ var personal = [
 "Undergraduate : " +uncTitle + " at the " +unc+ " (2006-12)",
 ];
 
-var footer = [
-	"I still have "          	+linkify("Tumblr",blog,1)+" because I'm old",
- 	"Currently, my code is on "	+linkify("Github",repo,1)+" ...but I'll change\
- 	 this soon, because EvilCorp just bought it..",
-	"Most videos are on "     	+linkify("Vimeo",video,1)+" and on: "+linkify("Youtube",yt,1),
-	"Some music is on "       	+linkify("SoundCloud",scloud,1),
-	"I post pictures on "   	+linkify("Instagram", instagram,1),
-	"Oddly enough, I still have some pics on "+linkify("Flickr",flickr,1),
-	"When I get like "+tag("i","professional")+" and all, I go to \
-	"+linkify("LinkedIn", linkedin,1),
-	"I rarely use "             +linkify("Twitter",twitter,1)+", \
-	but I post things on occasions",
-	"Finally, you can become my friend on "+linkify("Facebook",facebookUrl,1)
-];
+var mylinks = [
+	linkify("Instagram", instagram,1),
+	linkify("SoundCloud",scloud,1),
+	linkify("Github",repo,1),
+	linkify("Vimeo",video,1),
+	linkify("Youtube",yt,1),
+	linkify("Tumblr",blog,1),
+	linkify("Facebook",facebookUrl,1),
+	linkify("Twitter",twitter,1),
+	linkify("Flickr",flickr,1),
+	linkify("LinkedIn", linkedin,1)
+]
 
 var vimeo = [
 "https://player.vimeo.com/video/",
@@ -277,8 +277,8 @@ var contactMessage = [
  imgify(contactGif,200),
  "</br>",
  "</br>",
- tag("p",tag("i","Yes, I'm in social media.....")),
- tag("address",tag("blockquote",footer.join(". "))),
+ tag("p",tag("i","And, follow me on social media:")),
+ tag("address",tag("blockquote",mylinks.join(" ~ "))),
  "</br></br>",
  tag("span","And... I have some")+tag("b","<span "+onclickify("display","games")+">\
  	fun</span>")+tag("span","every now and then..."),
