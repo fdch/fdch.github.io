@@ -56,6 +56,7 @@ function loadAll(sheets, callback) {
       allPapers[npid]["apPubl"] = e.gsx$published.$t;
       allPapers[npid]["apDown"] = e.gsx$download.$t;
       allPapers[npid]["apDate"] = e.gsx$date.$t;
+      allPapers[npid]["apiURL"] = e.gsx$imageurl.$t;
     }//end loop
   });
   //events

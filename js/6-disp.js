@@ -200,6 +200,7 @@ function displayPapers(target,source) {
     let time = source[x]["apTime"];
     let link = source[x]["apLink"];
     let date = source[x]["apDate"];
+    var iurl = source[x]["apiURL"];
 
     let sectTag = element('section','', x);
     target.appendChild(sectTag);
@@ -213,6 +214,12 @@ function displayPapers(target,source) {
 
     let htitle = element("h3",titl+" ("+date+")",'',"window.open(\'"+link+"\',\'_top\');");
     headTag.appendChild(htitle);
+
+    if(iurl)
+    {
+      let imagen = img(iurl,articleWidth(maxWidth/3),titl);
+      artiTag.appendChild(imagen); 
+    }
 
     let descrip = element('p',desc);
     artiTag.appendChild(descrip);
