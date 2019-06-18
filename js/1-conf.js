@@ -295,7 +295,7 @@ raw+imgpath+"droplets.png",
 ];
 
 var gameType = [
-"<button onclick=\"window.open(\'"+gameDraw[6]+"\')\" >draw</button>\
+"<button onclick=\"window.open(\'"+gameDraw[6]+"\')\" >droplets</button>\
 	<p>"+gameDraw[8]+"</p>\
 	<img onclick=\"window.open(\'"+gameDraw[6]+"\')\" src=\""+gameDraw[7]+"\" width=200/>",
 
