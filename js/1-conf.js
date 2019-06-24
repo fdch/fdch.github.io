@@ -103,7 +103,7 @@ var nyu 		= [
 ];
 var advisors 	= [
 					"Jaime Oliver",
-					// "Elizabeth Hoffman",
+					"Elizabeth Hoffman",
 					// "Martin Daughtry",
 					// "Robert Rowe",
 					// "William Brent"
@@ -133,8 +133,8 @@ var personal = [
 "Phone Number : (1) 347-302-0982",
 "E-mail : "+ email,
 "Website : "+ linkify(url,url),
-"Graduate Education : "+ currently[0] + " in "+nyuTitle+" at "+nyu+" (2013-2019)",
-"Undergraduate : " +uncTitle + " at the " +unc+ " (2006-12)",
+"Graduate Education : "+ currently[0] + " in "+nyuTitle[0]+" at "+nyu[0]+" (2013-2019)",
+"Undergraduate : " +uncTitle[0] + " at the " +unc[0]+ " (2006-12)",
 ];
 
 var mylinks = {
