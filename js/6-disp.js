@@ -132,7 +132,7 @@ function displayBiogra(target) {
   sectTag.appendChild(artiTag);
 
   let alltags = new Array();
-  alltags.push(img(bioImage, articleWidth(maxWidth)/3.0,"Fede Camara Halac"));
+  alltags.push(img(bioImage, articleWidth(maxWidth)/2.0,subtitle));
   alltags.push(element('p',bioSpanish,'bio-spa'));
   alltags.push(element('p',bioEnglish,'bio-eng'));
   alltags.push(element("button","CV",'', "window.open(\'"+cv+"\', '_top');")); 

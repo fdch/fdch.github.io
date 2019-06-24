@@ -43,7 +43,7 @@ var blog 		= "http://ffddcchh.tumblr.com/";
 var scloud 		= "https://soundcloud.com/ffddcchh";
 var video 		= "https://vimeo.com/fdch";
 var nyuid 		= "fch226((at))nyu.edu";
-var email 		= "fch226@nyu.edu";
+var email 		= "fch226((at))nyu.edu";
 var facebookUrl = "https://www.facebook.com/fedecamarahalac/";
 var twitter 	= "http://www.twitter.com/ffddcchh";
 var yt 			= "https://www.youtube.com/channel/UCzOx-iKaNx9ruddNI6ykTIA";
@@ -85,11 +85,29 @@ var title 		= "fdch";
 var subtitle 	= "Fede Cámara Halac";
 var unclink 	= "http://artes.unc.edu.ar";
 var nyulink 	= "http://gsas.nyu.edu";
-var unc 		= "La Universidad Nacional de Córdoba";
-var nyuTitle 	= "Music Composition & Theory";
-var uncTitle 	= "Licenciatura en Composición Musical";
-var nyu 		= "New York University";
-var advisors 	= ["Jaime Oliver","Elizabeth Hoffman"];
+var unc 		= [
+					"Universidad Nacional de Córdoba",
+					"National University of Córdoba"
+];
+var nyuTitle 	= [
+					"Music Composition and Theory",
+					"Composición y Teoría Musical"
+];
+var uncTitle 	= [
+					"Licenciatura en Composición Musical",
+					"Licenciate in Music Composition"
+];
+var nyu 		= [
+					"New York University",
+					"Universidad de Nueva York"
+];
+var advisors 	= [
+					"Jaime Oliver",
+					// "Elizabeth Hoffman",
+					// "Martin Daughtry",
+					// "Robert Rowe",
+					// "William Brent"
+];
 var currently 	= ["PhD","PhD"];
 var tesis 		= [
 					"Database Music",
@@ -97,13 +115,13 @@ var tesis 		= [
 ];
 var bday = new Date(1988, 5, 8, 12, 1, 13, 128);
 
-var bioEnglish = subtitle+" studied "+uncTitle+" at "+unc+".\
- He has a "+currently[0]+" in "+nyuTitle+" at "+nyu+" with "+advisors.join(" and ")+".\
+var bioEnglish = subtitle+" studied at the "+uncTitle[0]+" at "+unc[0]+".\
+ He has a "+currently[0]+" in "+nyuTitle[0]+" at "+nyu[0]+" with "+advisors[0]+".\
  His research focuses on "+tesis[0]+".\
  His work is available at "+url;
 
-var bioSpanish = subtitle+" estudió "+uncTitle+" en "+unc+".\
- Tiene un "+currently[1]+" de "+nyuTitle+" en "+nyu+" con "+advisors.join(" y ")+".\
+var bioSpanish = subtitle+" estudió en la "+uncTitle[0]+" en "+unc[1]+".\
+ Tiene un "+currently[1]+" de "+nyuTitle[1]+" en "+nyu[1]+" con "+advisors[0]+".\
  Su investigación se centra en la "+tesis[1]+".\
  Su trabajo se encuentra disponible en "+url;
 
