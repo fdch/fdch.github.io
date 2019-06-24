@@ -90,7 +90,7 @@ var nyuTitle 	= "Music Composition & Theory";
 var uncTitle 	= "Licenciatura en Composición Musical";
 var nyu 		= "New York University";
 var advisors 	= ["Jaime Oliver","Elizabeth Hoffman"];
-var currently 	= ["PhD Candidate","Candidato de PhD"];
+var currently 	= ["PhD","PhD"];
 var tesis 		= [
 					"Database Music",
 					"Música con Base de Datos"
@@ -98,12 +98,12 @@ var tesis 		= [
 var bday = new Date(1988, 5, 8, 12, 1, 13, 128);
 
 var bioEnglish = subtitle+" studied "+uncTitle+" at "+unc+".\
- He is a "+currently[0]+" in "+nyuTitle+" at "+nyu+" with "+advisors.join(" and ")+".\
+ He has a "+currently[0]+" in "+nyuTitle+" at "+nyu+" with "+advisors.join(" and ")+".\
  His research focuses on "+tesis[0]+".\
  His work is available at "+url;
 
 var bioSpanish = subtitle+" estudió "+uncTitle+" en "+unc+".\
- Es "+currently[1]+" de "+nyuTitle+" en "+nyu+" con "+advisors.join(" y ")+".\
+ Tiene un "+currently[1]+" de "+nyuTitle+" en "+nyu+" con "+advisors.join(" y ")+".\
  Su investigación se centra en la "+tesis[1]+".\
  Su trabajo se encuentra disponible en "+url;
 
