@@ -116,12 +116,12 @@ var tesis 		= [
 var bday = new Date(1988, 5, 8, 12, 1, 13, 128);
 
 var bioEnglish = subtitle+" studied at the "+uncTitle[0]+" at "+unc[0]+".\
- He has a "+currently[0]+" in "+nyuTitle[0]+" at "+nyu[0]+" with "+advisors[0]+".\
+ He has a "+currently[0]+" in "+nyuTitle[0]+" at "+nyu[0]+", where he studied with "+advisors.join(" and ")+".\
  His research focuses on "+tesis[0]+".\
  His work is available at "+url;
 
 var bioSpanish = subtitle+" estudió en la "+uncTitle[0]+" en "+unc[1]+".\
- Tiene un "+currently[1]+" de "+nyuTitle[1]+" en "+nyu[1]+" con "+advisors[0]+".\
+ Tiene un "+currently[1]+" de "+nyuTitle[1]+" en la "+nyu[1]+" donde estudió con "+advisors.join(" y ")+".\
  Su investigación se centra en la "+tesis[1]+".\
  Su trabajo se encuentra disponible en "+url;
 
