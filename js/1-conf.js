@@ -1,3 +1,5 @@
+var mobile = mobileCheck();
+
 var latest_bio_pic = "fdchmac.png";
 var latest_bkg_pic = ["orkna", "orkna-1.png"];
 
