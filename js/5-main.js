@@ -76,7 +76,7 @@ function main(vid)
   footerTag.style.background   = "black";
   footerTag.style.color        = "white";
   footerTag.style.bottom       = "0px";
-  footerTag.innerHTML          = "Copyright © "+tday.getFullYear()+" - "+ repo
+  footerTag.innerHTML          = "Copyleft © "+tday.getFullYear()
   footerTag.style.left         = "50%";
   let pw                       = footerTag.getBoundingClientRect();
   let mw                       = w/2-pw.width/2+"px";
