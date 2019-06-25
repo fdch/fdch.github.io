@@ -1,76 +1,83 @@
 function display(x) {
+  let section;
+
   if (typeof x == 'string' || x instanceof String) {
     x = x;
   } else {
     x = x.value;
   }
+
+  htmlTag.style.fontFamily = fonts[pdRandom(fonts.length)];
+  
+  
   // currpage = mitem.findIndex(item => item === x);
   // console.log("Display \'"+x+"\', currpage: "+currpage);
-  mainTag.style.background = backImg;
-  htmlTag.style.fontFamily = fonts[pdRandom(fonts.length)];
-  //console.log(currpage);
-  article = resetDisplay(x);
-  let section;
-  switch (x) {
-    case "games" :
-      article.innerHTML = gameType.join("<br/>");
-      break;
-    case "touch" :
-      tuneUp(displayTouch(article));
-      break;
-    case "bio"   :
-      tuneUp(displayBiogra(article));
-      break;
-    case "unwork":
-      //extra stuff for the category selectbox
-      
-      if(!catDivTag)
-      {
-        catDivTag = document.createElement('nav');
-        catSelTag = makeDropdowns('category', catDivTag, uCategories, 'getValue(this)');
-        //makeDropdowns('title', formTag, allTitles);
-        catDivTag.autofocus = true;
-        catDivTag.className = "headtitle";
-        headerTag[0].appendChild(catDivTag)
-      } else {
-        catDivTag.style.display = 'inline';
-      }
+  // console.log(currpage);
 
-      displayUnwork(article,allUnwork);
+  
+  article = resetDisplay(x);
+  
+  if(article) {
+    switch (x) {
+      case "games" :
+        article.innerHTML = gameType.join("<br/>");
+        break;
+      case "touch" :
+        tuneUp(displayTouch(article));
+        break;
+      case "bio"   :
+        tuneUp(displayBiogra(article));
+        break;
+      case "unwork":
+        //extra stuff for the category selectbox
+        
+        if(!catDivTag)
+        {
+          catDivTag = document.createElement('nav');
+          catSelTag = makeDropdowns('category', catDivTag, uCategories, 'getValue(this)');
+          //makeDropdowns('title', formTag, allTitles);
+          catSelTag.autofocus = true;
+          catDivTag.className = "headtitle";
+          catDivTag.style.display = "inline";
+          navigaTag.appendChild(catDivTag)
+        } else {
+          catDivTag.style.display = 'inline';
+        }
+
+        displayUnwork(article,allUnwork);
+        break;
+      case "papers":
+        displayPapers(article,allPapers);
+        break;
+      case "events":
+        displayEvents(article,allEvents);
+        break;
+      case "people":
+        displayPeople(article,allPeople);
+        break;
+      case "cv"    :
+        window.open(cv,"_top");
+        break;
+      case "video" :
+        displayMedia(article,allVideos, 'video');
+        break;
+      case "audio" :
+        displayMedia(article,allAudios, 'audio');
+        break;
+      default:
       break;
-    case "papers":
-      displayPapers(article,allPapers);
-      break;
-    case "events":
-      displayEvents(article,allEvents);
-      break;
-    case "people":
-      displayPeople(article,allPeople);
-      break;
-    case "init"  :
-      main(featURL[pdRandom(featURL.length)]);
-      if(catDivTag) catDivTag.style.display = "none";
-      break;
-    case "cv"    :
-      window.open(cv,"_top");
-      break;
-    case "video" :
-      displayMedia(article,allVideos, 'video');
-      break;
-    case "audio" :
-      displayMedia(article,allAudios, 'audio');
-      break;
-    default:
-    break;
-  }
+      }
+    } else {
+      myurl = featURL[pdRandom(featURL.length)];
+      console.log("running main("+featURL[pdRandom(featURL.length)]+")");
+      main(myurl);
+    }
 }
 function resetDisplay(x){ 
   //remove previous stuff
   var c;
   if (removeChilds(mainTag)) {
     if( !x.localeCompare('init') ) {
-        // console.log("comparison rendered: \'"+c+"\'");
-        // console.log("exiting because we are on \'"+x+"\' page");
         return void 0; // we are on init page
       } else {
         //remove backvid
@@ -234,6 +241,7 @@ function displayUnwork(target,source) {
      
     let timest = element('h6',time);
     footTag.appendChild(timest);
+    sectTag.style.borderBottom = "10px dotted black";
     tuneUp(sectTag);
   }
 }

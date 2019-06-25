@@ -13,6 +13,8 @@ function main(vid)
   } 
   if(!headerTag) {
     headerTag = document.getElementsByTagName('header');
+    headerTag[0].style.borderBottom = "10px dotted black";
+    headerTag[0].style.paddingBottom = "10px";
   }
 
   resized(); // needs to be after headerTag
@@ -31,9 +33,7 @@ function main(vid)
   } else {
     v = featURL[featURL.length-1];
   }
-  if(!iframeTag){
-    iframeTag=makeBackVideo("bkvid",mainTag,v);
-  }
+
   if(!h1titlTag) {
     h1titlTag = document.getElementsByTagName('h1')[0];
     h1titlTag.style.display = "inline";
@@ -52,13 +52,12 @@ function main(vid)
     footerTag=document.getElementsByTagName('footer')[0];
   }
 
-  userLang = navigator.language || navigator.userLanguage; 
-  mobile = mobileCheck();
+  
   navSelTag.autofocus = true;
   navigaTag.style.display = "inline";
-  navSelTag.style.height = "40px";
-  navSelTag.style.width = "100px";
-  
+  navigaTag.style.position = "relative";
+  navigaTag.style.bottom = "5px";
+
   loadAll(allGS);
 
   randomColor(color_preset["high"], [bodyTag, headerTag[0]] );
@@ -88,19 +87,25 @@ function main(vid)
 
   headerTag[0].style.background= "";
   
-
+  iframeTag                    = makeBackVideo("",mainTag,v);
   iframeTag.style.display      = 'inline';
+  iframeTag.style.background   = "url(\'"+bkgImage+"\')";
   iframeTag.style.position     = "absolute";
   iframeTag.style.minWidth     = "100%";
-  iframeTag.style.minHeight    = "50%";
+  iframeTag.style.minHeight    = "100%";
   iframeTag.style.border       = "none";
-  iframeTag.style.marginTop    = "50px";
+  iframeTag.style.marginTop    = "10px";
 
   setInterval( function(){ funImage(rotImg) }, t);
 
-  console.log("Your browser language is: " + userLang);
-  console.log("You are on a "+(mobile?"mobile":"desktop")+" device");
-  console.log(navigator.vendor)
-  console.log(navigator.userAgent);
-
+  if(!notified)
+  {
+    userLang = navigator.language || navigator.userLanguage; 
+    mobile = mobileCheck();
+    console.log("Your browser language is: " + userLang);
+    console.log("You are on a "+(mobile?"mobile":"desktop")+" device");
+    console.log(navigator.vendor)
+    console.log(navigator.userAgent);
+    notified=1;
+  }
 }

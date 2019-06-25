@@ -9,6 +9,7 @@ var mitem = [
 var currpage    = 0;
 var loaded      = 0;
 var loading     = 0;
+var notified    = 0;
 
 var w, h;
 var t           = 4333;
