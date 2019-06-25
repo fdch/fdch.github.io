@@ -40,5 +40,5 @@ function main() {
   footerTag.setAttribute('style', 'display:none');
   resized();
   iframeTag.style.background = '';
-  window.alert("You are on a "+(mobile?"mobile":"desktop")+" device");
+  // window.alert("You are on a "+(mobile?"mobile":"desktop")+" device");
 }
