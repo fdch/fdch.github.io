@@ -1,4 +1,4 @@
-var latest_bio_pic = "bio_vienna.jpg";
+var latest_bio_pic = "fdchmac.jpg";
 var latest_bkg_pic = ["orkna", "orkna-1.png"];
 
 var mitem = [
