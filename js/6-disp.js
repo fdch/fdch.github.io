@@ -7,26 +7,25 @@ function display(x) {
   // currpage = mitem.findIndex(item => item === x);
   // console.log("Display \'"+x+"\', currpage: "+currpage);
   mainTag.style.background = backImg;
+  htmlTag.style.fontFamily = fonts[pdRandom(fonts.length)];
   //console.log(currpage);
   article = resetDisplay(x);
+  let section;
   switch (x) {
     case "games" :
       article.innerHTML = gameType.join("<br/>");
-      mainTag.style.background = 'none';
       break;
     case "touch" :
-      displayTouch(article);
-      // article.innerHTML = contactMessage.join("");
-      mainTag.style.background = 'background-image:url(\"'+bkgImage+'\")';
+      tuneUp(displayTouch(article));
       break;
     case "bio"   :
-      displayBiogra(article);
-      mainTag.style.background = 'none';
+      tuneUp(displayBiogra(article));
       break;
     case "unwork":
       //extra stuff for the category selectbox
       
-      if(!catDivTag) {
+      if(!catDivTag)
+      {
         catDivTag = document.createElement('nav');
         catSelTag = makeDropdowns('category', catDivTag, uCategories, 'getValue(this)');
         //makeDropdowns('title', formTag, allTitles);
@@ -38,36 +37,28 @@ function display(x) {
       }
 
       displayUnwork(article,allUnwork);
-      mainTag.style.background = 'none';
       break;
     case "papers":
       displayPapers(article,allPapers);
-      mainTag.style.background = 'none';
       break;
     case "events":
       displayEvents(article,allEvents);
-      mainTag.style.background = 'none';
       break;
     case "people":
       displayPeople(article,allPeople);
-      mainTag.style.background = 'none';
       break;
     case "init"  :
-      main();
-      iframeTag.src = featURL[pdRandom(featURL.length)];
-      mainTag.style.background = 'none';
-      iframeTag.style.background = 'none';
-      break
+      main(featURL[pdRandom(featURL.length)]);
+      if(catDivTag) catDivTag.style.display = "none";
+      break;
     case "cv"    :
       window.open(cv,"_top");
       break;
     case "video" :
       displayMedia(article,allVideos, 'video');
-      mainTag.style.background = 'none';
       break;
     case "audio" :
       displayMedia(article,allAudios, 'audio');
-      mainTag.style.background = 'none';
       break;
     default:
     break;
@@ -80,10 +71,14 @@ function resetDisplay(x){
     if( !x.localeCompare('init') ) {
         // console.log("comparison rendered: \'"+c+"\'");
         // console.log("exiting because we are on \'"+x+"\' page");
-        return void 0;//we are on init page
+        return void 0; // we are on init page
       } else {
         //remove backvid
-        iframeTag.src = '';
+        
+        if (iframeTag) {
+          iframeTag.style.display = 'none';
+          iframeTag.src = '';
+        }
         if(catDivTag) catDivTag.style.display = "none";
         //the header
         var headTag = element('header');
@@ -101,7 +96,42 @@ function resetDisplay(x){
     return void 0; //there was an error
   }
 }
-function displayTouch(target) {
+
+function tuner(pars)
+{
+  if (pars)
+  {
+    for (let i=0;i<pars.length;i++)
+    {
+      pars[i].style.backgroundColor = "#000000";
+      pars[i].style.padding         = "4px";
+      pars[i].style.borderRadius    = bRad;
+    }
+  }
+}
+
+function tuneUp(section)
+{
+  section.style.marginBottom = "100px";
+  tuner(section.getElementsByTagName('p'));
+  tuner(section.getElementsByTagName('h3'));
+  tuner(section.getElementsByTagName('h4'));
+  tuner(section.getElementsByTagName('h5'));
+  tuner(section.getElementsByTagName('h6'));
+  let lnk = section.getElementsByTagName("a");
+  if (lnk)
+  {
+    for (let i=0;i<lnk.length;i++)
+    {
+      lnk[i].style.backgroundColor = "#000000";
+      lnk[i].style.borderRadius    = "4px";
+      lnk[i].style.color           = "lightblue";
+    }
+  }
+}
+
+function displayTouch(target)
+{
   let sectTag = element('section');
   target.appendChild(sectTag);
 
@@ -111,18 +141,32 @@ function displayTouch(target) {
   sectTag.appendChild(artiTag);
 
   let alltags = new Array();
-  alltags.push(img(contactGif, articleWidth(maxWidth)/3.0,"touch..."));
+  
   alltags.push(element('p',contactMessage[0],'touch-spa'));
   alltags.push(element('p',contactMessage[1],'touch-eng'));
   alltags.push(element('p',contactMessage[2],'follow-eng'));
 
   var lk = Object.keys(mylinks);
-  for (let k in lk) { 
-    alltags.push(element("button",lk[k],'', "window.open(\'"+mylinks[lk[k]]+"\', '_top');", articleWidth(maxWidth)/mylinks.length));
+  for (let k in lk)
+  { 
+    alltags.push(element(
+        "button",
+        lk[k],
+        '',
+        "window.open(\'"+mylinks[lk[k]]+"\', '_top');",
+        ""
+    ));
   }
-  for (let i in alltags) artiTag.appendChild(alltags[i]);
+  alltags.push(img(contactGif, articleWidth(maxWidth),"touch..."));
+  
+  for (let i in alltags) 
+    artiTag.appendChild(alltags[i]);
+  
+  return sectTag;
 }
-function displayBiogra(target) {
+
+function displayBiogra(target)
+{
   let sectTag = element('section');
   target.appendChild(sectTag);
 
@@ -132,29 +176,32 @@ function displayBiogra(target) {
   sectTag.appendChild(artiTag);
 
   let alltags = new Array();
-  alltags.push(img(bioImage, articleWidth(maxWidth)/2.0,subtitle));
   alltags.push(element('p',bioSpanish,'bio-spa'));
   alltags.push(element('p',bioEnglish,'bio-eng'));
   alltags.push(element("button","CV",'', "window.open(\'"+cv+"\', '_top');")); 
+  alltags.push(img(bioImage, articleWidth(maxWidth),subtitle));
   for (let i in alltags) artiTag.appendChild(alltags[i]);
+
+  return sectTag;
 }
+
 function displayUnwork(target,source) {
   var keys = Object.keys(source);
   for (var i in keys) {
     let x = keys[i];
-    let titl = source[x]["awTitl"]; ////////////
+    let titl = source[x]["awTitl"];
     let time = source[x]["awTime"];
-    let date = source[x]["awDate"]; ////////////
-    let perf = source[x]["awPerf"]; ////////////
-    let cate = source[x]["awCate"]; ////////////
-    let desc = source[x]["awDesc"]; ////////////
-    let prog = source[x]["awProg"]; ////////////
-    let iurl = source[x]["awIurl"]; ////////////
-    let vurl = source[x]["awVurl"]; ////////////
-    let aurl = source[x]["awAurl"]; ////////////
-    let surl = source[x]["awSurl"]; ////////////
-    let loca = source[x]["awLoca"]; ////////////
-    let dura = source[x]["awDura"]; 
+    let date = source[x]["awDate"];
+    let perf = source[x]["awPerf"];
+    let cate = source[x]["awCate"];
+    let desc = source[x]["awDesc"];
+    let prog = source[x]["awProg"];
+    let iurl = source[x]["awIurl"];
+    let vurl = source[x]["awVurl"];
+    let aurl = source[x]["awAurl"];
+    let surl = source[x]["awSurl"];
+    let loca = source[x]["awLoca"];
+    let dura = source[x]["awDura"];
 
     let sectTag = element('section','', x);
     target.appendChild(sectTag);
@@ -187,6 +234,7 @@ function displayUnwork(target,source) {
      
     let timest = element('h6',time);
     footTag.appendChild(timest);
+    tuneUp(sectTag);
   }
 }
 function displayPapers(target,source) {
@@ -217,7 +265,7 @@ function displayPapers(target,source) {
 
     if(iurl)
     {
-      let imagen = img(iurl,articleWidth(maxWidth/3),titl);
+      let imagen = img(iurl,articleWidth(maxWidth),titl);
       artiTag.appendChild(imagen); 
     }
 
@@ -231,6 +279,7 @@ function displayPapers(target,source) {
     aaa.push(element('h6',time));
              
     for (let j in aaa) {footTag.appendChild(aaa[j]);}
+    tuneUp(sectTag);
   }
 }
 function displayEvents(target,source) {
@@ -264,14 +313,15 @@ function displayEvents(target,source) {
     for (let j in aaa) headTag.appendChild(aaa[j]);
     
 
-    let imagen = img(iurl,articleWidth(maxWidth/3),titl);
+    let imagen = img(iurl,articleWidth(maxWidth),titl);
     artiTag.appendChild(imagen); 
 
-    let descrip = element('blockquote',desc);
+    let descrip = element('p',desc);
     artiTag.appendChild(descrip);
 
     let footer = element('h6',time);
     footTag.appendChild(footer);
+    tuneUp(sectTag);
   }
 }
 function displayPeople(target,source) {
@@ -290,8 +340,6 @@ function displayPeople(target,source) {
     sectTag.appendChild(headTag);
     let artiTag = element('article');
     sectTag.appendChild(artiTag);
-    let footTag = element('footer');
-    sectTag.appendChild(footTag);
 
     switch (last) {
       case "Ensemble":
@@ -299,14 +347,12 @@ function displayPeople(target,source) {
         var name = titl;
         break
       default:
-        var name = titl + " " + last;
+        var name = last + ", " + titl;
         break;
     }
 
-    let htitle = element("span",name,'',"window.open(\'"+webs+"\', \'_top\');");
+    let htitle = element("button",name,'',"window.open(\'"+webs+"\', \'_top\');");
     headTag.appendChild(htitle);
-    // let footer = element('h6',time);
-    // footTag.appendChild(footer);
    }
 }
 function displayCV(x) {
@@ -352,12 +398,12 @@ function displayCVTeachi(target,source,id){
   for (var i in keys) {
     var x = keys[i];
     var time = source[x]["aTTime"];
-    var type = source[x]["aTType"];///
-    var clas = source[x]["aTClas"];///
-    var inst = source[x]["aTInst"];///
-    var dept = source[x]["aTDept"];///
-    var term = source[x]["aTTerm"];///
-    var year = source[x]["aTYear"];///
+    var type = source[x]["aTType"];
+    var clas = source[x]["aTClas"];
+    var inst = source[x]["aTInst"];
+    var dept = source[x]["aTDept"];
+    var term = source[x]["aTTerm"];
+    var year = source[x]["aTYear"];
     
     let headTag = element('header');
     sectTag.appendChild(headTag);
@@ -371,7 +417,7 @@ function displayCVTeachi(target,source,id){
     headTag.appendChild(htitle);
 
     let job = clas + " at " + dept + " of " + inst;
-    let descrip = element("blockquote",job);
+    let descrip = element("p",job);
 
     artiTag.appendChild(descrip);
 
@@ -408,7 +454,7 @@ function displayCVAwards(target,source,id){
     let htitle = element("h3",awar);
     headTag.appendChild(htitle);
 
-    let descrip = element("blockquote",desc);
+    let descrip = element("p",desc);
     let refer = element("i", whoo, "", "window.open("+urll+",\'_top\')");
     descrip.appendChild(refer);
     artiTag.appendChild(descrip);
@@ -425,18 +471,18 @@ function displayCVUnwork(target,source,id){
   // console.log(keys);
   for (var i in keys) {
     let x = keys[i];
-    let titl = source[x]["awTitl"]; ////////////
+    let titl = source[x]["awTitl"];
     let time = source[x]["awTime"];
-    let date = source[x]["awDate"]; ////////////
-    let perf = source[x]["awPerf"]; ////////////
-    let cate = source[x]["awCate"]; ////////////
-    let desc = source[x]["awDesc"]; ////////////
-    let prog = source[x]["awProg"]; ////////////
-    let iurl = source[x]["awIurl"]; ////////////
-    let vurl = source[x]["awVurl"]; ////////////
-    let aurl = source[x]["awAurl"]; ////////////
-    let surl = source[x]["awSurl"]; ////////////
-    let loca = source[x]["awLoca"]; ////////////
+    let date = source[x]["awDate"];
+    let perf = source[x]["awPerf"];
+    let cate = source[x]["awCate"];
+    let desc = source[x]["awDesc"];
+    let prog = source[x]["awProg"];
+    let iurl = source[x]["awIurl"];
+    let vurl = source[x]["awVurl"];
+    let aurl = source[x]["awAurl"];
+    let surl = source[x]["awSurl"];
+    let loca = source[x]["awLoca"];
     let dura = source[x]["awDura"]; 
 
     let headTag = element('header');
@@ -496,7 +542,7 @@ function displayCVCollab(target,source,id){
     let htitle = element("h3",colla);
     headTag.appendChild(htitle);
 
-    let descrip = element("blockquote",desc);
+    let descrip = element("p",desc);
     artiTag.appendChild(descrip);
 
     let footer = element('h6',time);
@@ -530,7 +576,7 @@ function displayCVPerfor(target,source,id){
     let htitle = element("h3",event);
     headTag.appendChild(htitle);
 
-    let descrip = element("blockquote",howw);
+    let descrip = element("p",howw);
     let perfor = element("i", "Performed: "+inst+".");
     artiTag.appendChild(descrip);
     descrip.appendChild(perfor);
@@ -545,11 +591,11 @@ function displayMedia(target,source,type) {
     let medi = element(type);
     medi.src = source[i+1];
     medi.width = target.clientWidth/2;
-    medi.style.border = "none";
-    medi.style.padding = "none";
-    medi.style.margin = "none";
+    medi.style.border   = "none";
+    medi.style.padding  = "none";
+    medi.style.margin   = "none";
     medi.style.position = "relative";
-    medi.style.float = "left";
+    medi.style.float    = "left";
 
     // video.overflow = false;
     // video.scrolling = "no";

@@ -1,5 +1,3 @@
-var mobile = mobileCheck();
-
 var latest_bio_pic = "fdchmac.png";
 var latest_bkg_pic = ["orkna", "orkna-1.png"];
 
@@ -8,14 +6,19 @@ var mitem = [
 "events", "people", "touch", "cv", "games",  // "audio", // "video"
 ];
 
-var currpage=0, loaded=0, loading=0;
+var currpage    = 0;
+var loaded      = 0;
+var loading     = 0;
 
-var w, h, t = 4333;
-var maxWidth = 850;
-var maxHeight = 600;
-var widthFactor = 0.9;
-var hAlpha = 1.0;
-var minHHeight = 55;
+var w, h;
+var t           = 4333;
+var maxWidth    = 800;
+var maxHeight   = 600;
+var widthFactor = 1.1;
+var hAlpha      = 1.0;
+var minHHeight  = 55;
+var mypad       = 15;
+var bRad        = 20;
 
 var url 		= "https://fdch.github.io";
 var repo 		= "https://github.com/fdch/";
@@ -38,9 +41,9 @@ var contactGif 	=  raw + imgpath + "zissou.gif";
 var loadingUrl 	=  raw + imgpath + "fdch.gif";
 
 var color_preset = {
-	mid  : [55,200,100,20],
-	high : [30,200,50,100],
-	rand : [255,0,255,0]
+	"mid"  : [55,200,100,20],
+	"high" : [30,200,50,100],
+	"rand" : [255,0,255,0]
 };
 
 var title 		= "fdch";
@@ -76,7 +79,7 @@ var tesis 		= [
 "Música con Base de Datos"
 ];
 var bday = new Date(1988, 5, 8, 12, 1, 13, 128);
-
+var tday = new Date();
 var bioSpanish = 
 " Fede Cámara Halac investiga y hace sonidos, navega y diseña imágenes, y juega con bases de datos y multimedia. Obtuvo un PhD en Composición y Teoría Musical de la Universidad de Nueva York donde estudió con Jaime Oliver y Elizabeth Hoffman. Estudió Composición Musical en la Universidad Nacional de Córdoba. Su trabajo se encuentra disponible en https://fdch.github.io"
 

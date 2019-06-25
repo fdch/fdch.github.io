@@ -23,11 +23,11 @@ function makeMenu(input, target) {
 function makeRot(input, target){ 
   var imgTag = document.createElement('img');
 
-  imgTag.setAttribute('src', input[0]);
-  imgTag.setAttribute('id', input[3]);
-  imgTag.setAttribute('width', "30");
-  imgTag.setAttribute('style', input[2]);
-  imgTag.setAttribute('title', input[4]);
+  imgTag.setAttribute('src',     input[0]);
+  imgTag.setAttribute('id',      input[3]);
+  imgTag.setAttribute('width',   "30");
+  imgTag.setAttribute('style',   input[2]);
+  imgTag.setAttribute('title',   input[4]);
   imgTag.setAttribute('onclick', input[5]);
   
   // target.insertAdjacentElement('afterbegin', imgTag);
@@ -39,7 +39,6 @@ function makeBackVideo(id, target, source, loading) {
   iframeTag = document.createElement('iframe');
   iframeTag.setAttribute('id', id);
   iframeTag.setAttribute('src', source);
-  iframeTag.style.background = loading;
   target.appendChild(iframeTag);
   return iframeTag;
 }

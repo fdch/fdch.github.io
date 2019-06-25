@@ -12,7 +12,7 @@ body {
 
 }
 main {
-  padding:10px;
+  padding:20px;
 }
 h1, h2, h3, h4, h5, h6{
   cursor:pointer;
@@ -20,8 +20,8 @@ h1, h2, h3, h4, h5, h6{
   padding:0;
 }
 h1 {
-  font-size:0.9em;
-  margin: 2.5px 0 0 5px;
+  font-size:2em;
+  margin: 5px 0 0 5px;
   display:inline;
   float:left;
 }
@@ -73,6 +73,23 @@ a {
 ul {
   list-style: none;
 }
+
+nav {
+  padding:10px;
+}
+#navseltag,#category {
+  float:left;
+  /*padding:10px;*/
+  background:white;
+  color:black;
+  border:2px solid white;
+  /*width:200px;*/
+  /*height:30px;*/
+}
+#navseltag:focus,#category:focus{
+  border:2px solid black;
+}
+
 #bkvid {
   position: fixed;
   top: 50%;
