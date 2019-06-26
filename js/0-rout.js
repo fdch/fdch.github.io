@@ -37,21 +37,6 @@ function onclickify(func,src,arg)
   }   
 }
 
-function linkify(x,y,blank)
-{
-  var target;
-  var thelink;
-  if (blank) {
-    target="_blank";
-  } else {
-    target="_top";
-  }
-  var title = y.length>44?y.slice(0, 44)+"...":y;
-  thelink = "<a target=\""+target+"\" href=\""+y+"\" alt=\""+x+"\" title=\""+title+"\" rel=\"nofollow\"  >"+x+"</a>";
-  
-  return thelink;
-}
-
 function tag(tag,text)
 {
   return "<"+tag+">"+text+"</"+tag+">";
