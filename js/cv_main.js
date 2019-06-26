@@ -15,7 +15,7 @@ function mainCV() {
   if(!headerTag) headerTag = document.getElementsByTagName('header');
   if(!mainTag)   mainTag   = document.getElementsByTagName('main')[0];
   if(!footerTag) footerTag = document.getElementsByTagName('footer')[0];
-  footerTag.setAttribute('style', 'display:none');  
+  footerTag.style.display = 'none';  
   headerTag[0].setAttribute('onclick',"displayCV(\'reset\');");
   resized();
   mainBack = document.createAttribute('style');
