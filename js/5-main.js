@@ -8,6 +8,8 @@
 function main(vid)
 {
   let v;
+  if(!loaded) loadAll(allGS);
+  
   if(!htmlTag) {
     htmlTag =document.getElementsByTagName('html')[0];
   } 
@@ -58,7 +60,7 @@ function main(vid)
   navigaTag.style.position = "relative";
   navigaTag.style.bottom = "5px";
 
-  if(!loaded) loadAll(allGS);
+  
 
   randomColor(color_preset["high"], [bodyTag, headerTag[0]] );
 
