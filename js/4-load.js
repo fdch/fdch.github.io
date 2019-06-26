@@ -2,7 +2,8 @@ function loadAll(sheets, callback) {
   loading = 1;
   //works
   loadJSON("data/global.json", function(response) { 
-    loadGlobals(JSON.parse(response));
+    g = JSON.parse(response)
+    loadGlobals(g);
   });
   loadJSON(sheets[0], function(response) {
     var f, e, i, entry;

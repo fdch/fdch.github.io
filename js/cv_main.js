@@ -8,6 +8,8 @@
 //////////////////////////////        ///////////
 
 function mainCV() {
+  if(!loaded) loadAll(allGS,loadCV());
+
   if(!htmlTag)   htmlTag   = document.getElementsByTagName('html')[0];
   htmlTag.style.fontFamily = fonts[2];
 
@@ -24,7 +26,6 @@ function mainCV() {
       
   randomColor(color_preset["mid"], [bodyTag, headerTag[0]] );
 
-  if(!loaded) loadAll(allGS);
   
   // var check = 0;
   // if (check=loadAll(allGS)) {

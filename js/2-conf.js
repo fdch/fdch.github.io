@@ -1,9 +1,7 @@
-// load global data
-
+var g={}; // load global data
 var userLang;
 var latest_bio_pic = "fdchmac.png";
 var latest_bkg_pic = ["orkna", "orkna-1.png"];
-
 var contactMessage,personal,cv,contactGif,loadingUrl, mainBack;
 var htmlTag, bodyTag, headerTag, mainTag, footerTag;
 var h1titlTag, navigaTag, iframeTag, rotImgTag; 
