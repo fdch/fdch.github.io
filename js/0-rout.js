@@ -380,6 +380,7 @@ function img(src,width,titl,id,tURL)
   let tag = document.createElement('img');
   let div = document.createElement('div');
   tag.setAttribute('src', src);
+  let anc = anchor(src);
   if (width)
   { 
     tag.setAttribute('width', width+bRad);
@@ -387,11 +388,7 @@ function img(src,width,titl,id,tURL)
   }
   if (titl)  tag.setAttribute('title', titl);
   if (id)    tag.setAttribute('id',id);
-  if (tURL) {
-    let anc = anchor(tURL);
-  } else {
-    let anc = anchor(src);
-  }
+  if (tURL)  anc = anchor(tURL);
   div.style.overflow = "hidden";
   div.style.borderRadius = bRad+"px";
   anc.appendChild(tag);
