@@ -183,8 +183,8 @@ function displayBiogra(target)
   sectTag.appendChild(artiTag);
 
   let alltags = new Array();
-  alltags.push(element('p',g["descripcion"],'bio-spa'));
-  alltags.push(element('p',g["description"],'bio-eng'));
+  alltags.push(element('p',bio_es,'bio-spa'));
+  alltags.push(element('p',bio_en,'bio-eng'));
   alltags.push(element("button","CV",'', "window.open(\'"+cv+"\', '_top');")); 
   alltags.push(img(bioImage, articleWidth(maxWidth),g.shortname));
   for (let i in alltags) artiTag.appendChild(alltags[i]);

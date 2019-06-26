@@ -94,4 +94,6 @@ function loadGlobals(g)
 		g["raw"]+g["imgpath"]+"droplets.png",
 		"Touch the floating droplets and move them around.",
 	];
+	bio_en = g["description"];
+	bio_es = g["descripcion"];
 }
