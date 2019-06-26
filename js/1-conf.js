@@ -5,13 +5,6 @@ loadJSON("data/global.json", function(response) {
 	g = f; 
 });
 
-
-
-
-
-
-
-
 if (Object.keys(g).length === 0 && g.constructor === Object)
 {
 	console.log("global object is empty");
@@ -19,18 +12,6 @@ if (Object.keys(g).length === 0 && g.constructor === Object)
 } else {
 	console.log(g);
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 var contactMessage = [
 	"Send me an email at "+g["email"]+" and I will get in touch with you\
