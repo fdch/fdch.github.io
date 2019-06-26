@@ -1,27 +1,28 @@
 // load global data
 var g={}; // all global variables
+var userLang;
+
+var contactMessage,personal,cv,contactGif,loadingUrl, mainBack;
+var htmlTag, bodyTag, headerTag, mainTag, footerTag;
+var h1titlTag, navigaTag, iframeTag, rotImgTag; 
+var navSelTag, imgDivTag, catDivTag, catSelTag;
+var allUnwork={}, allPapers={}, allEvents={}, allPeople={};
+var allPerfor={}, allAwards={}, allCollab={}, allTeachi={};
+var allCategories=[], allTitles=[],allWorkId=[],uCategories=[];
+var allVideos=[], allAudios=[];
+var submit,imgArray=[], mylinks={}, rotImg=[], backImg, bioImage, bkgImage;
 loadJSON("data/global.json", function(response) { 
 	let f = JSON.parse(response);
 	g = f;
-	console.log(f);
-});
 
-// if (Object.keys(g).length === 0 && g.constructor === Object)
-// {
-// 	console.log("global object is empty");
-
-// } else {
-// 	console.log(g);
-// }
-
-var contactMessage = [
+	contactMessage = [
 	"Send me an email at "+g["email"]+" and I will get in touch with you\
 	 (as fast as nonhumanly possible :)",
 	"Mandáme una correa electrónica a "+g["email"]+" así me pongo en contacto\
 	 lo más rápido que pueda (dentro de lo nohumánamente posible ;)",
 	 "Follow me on social media :)"
-]
-var personal = [
+	]
+	personal = [
 	"Full Name: "+g["fullname"],
 	"Date of Birth : <a href=\'"+g["may8th"]+"\' target=\'_blank\''>"+new Date(g["bday"])+"</a>",
 	"Country of Birth : " +g["nationality"],
@@ -31,7 +32,54 @@ var personal = [
 	"Website : <a href=\'"+g["url"]+"\'>"+g["url"]+"</a>",
 	"Graduate Education : <ul><li>"+g["grad"][0]+"</li><li>"+g["grad"][1]+"</li></ul>",
 	"Undergraduate :"+g["undergrad"],
-];
+	];
+	cv 			=  g["url"]+ "/cv/";
+	contactGif 	=  g["raw"]+g["imgpath"] + "zissou.gif";
+	loadingUrl 	=  g["raw"]+g["imgpath"] + "fdch.gif";
+	submit = [
+	"\"No, what is important is neither linearity or non-linearity, \
+	but the change, the degree of change from something that doesn't move \
+	to other events with different tempos in particular.\"",
+	"\"I no longer limit myself.\"",
+	"<head><meta name=\"viewport\" \
+	content=\"width=device-width, initial-scale=1\">\
+	<link rel=stylesheet href=\""+g["repo"]+"/css/style.css\"></style>"+disableEnter.join("")+"\
+	<link rel='shortcut icon' href=\""+g["raw"]+g["imgpath"]+"imgone.png\"></link>\
+	<title>Submit Form</title></head><body><h2>Submit Form</h2><div id=maindiv>\
+	<form><h3>Enter password:</h3>\
+	<input type=password id=krl size=12/><p>Click Submit when done</p>\
+	<input type=button value=Submit id=authOK /></form></div></body>",somestring,
+	"width=200, height=200, location=0, toolbar=0, resizable=0, scrollbars=0"
+	];
+
+	imgArray = [
+		g["raw"]+g["imgpath"]+"imgone.png",
+		g["raw"]+g["imgpath"]+"imgtwo.png"
+	];
+	mylinks = {
+		"Instagram"	:g["instagram"],
+		"SoundCloud":g["scloud"],
+		"Github"	:g["repo"],
+		"Vimeo"		:g["video"],
+		"Youtube"	:g["yt"],
+		"Tumblr"	:g["blog"],
+		"Facebook"	:g["facebookUrl"],
+		"Twitter"	:g["twitter"],
+		"Flickr"	:g["flickr"],
+		"LinkedIn"	:g["linkedin"],
+	}
+	rotImg = [
+		g["raw"]+g["imgpath"]+"imgone-76.png",
+		g["raw"]+g["imgpath"]+"imgone-76-i.png",
+		rotImgStyle.join(";"),
+		"rotImgId",
+		g["name"],
+		"imgClicker(this);"
+	];
+	backImg  = "url(\'"+loadingUrl+"\') center no-repeat;";
+	bioImage = g["raw"]+g["imgpath"]+latest_bio_pic;
+	bkgImage = g["raw"]+latest_bkg_pic[0]+"/master/img/"+latest_bkg_pic[1];
+});
 
 
 var mitem = [
@@ -52,9 +100,6 @@ var hAlpha      = 1.0;
 var minHHeight  = 55;
 var mypad       = 15;
 var bRad        = 20;
-var cv 			=  g["url"]+ "/cv/";
-var contactGif 	=  g["raw"]+g["imgpath"] + "zissou.gif";
-var loadingUrl 	=  g["raw"]+g["imgpath"] + "fdch.gif";
 var color_preset = {
 	"mid"  : [55,200,100,20],
 	"high" : [30,200,50,100],

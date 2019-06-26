@@ -1,49 +1,11 @@
-
-var htmlTag, bodyTag, headerTag, mainTag, footerTag;
-var h1titlTag, navigaTag, iframeTag, rotImgTag; 
-var navSelTag, imgDivTag, catDivTag, catSelTag;
-var mainBack;
-var allUnwork={}, allPapers={}, allEvents={}, allPeople={};
-var allPerfor={}, allAwards={}, allCollab={}, allTeachi={};
-var allCategories=[], allTitles=[],allWorkId=[],uCategories=[];
-var allVideos=[], allAudios=[];
-
-
-var userLang;
-
-var backImg  = "url(\'"+loadingUrl+"\') center no-repeat;";
-var bioImage =  g.raw + g.imgpath + latest_bio_pic;
-var bkgImage =  g.raw + latest_bkg_pic[0]+ "/master/img/" + latest_bkg_pic[1];
-
 var rotImgStyle= [
 	"float:left",
 	"margin:5px 0 0 5px",
 	"clip-path:circle(30% at 50% 50%)",
 	"-webkit-clip-path:circle(50% at 50% 50%)"
 ];
-var rotImg = [
-	g["raw"]+g["imgpath"]+"imgone-76.png",
-	g["raw"]+g["imgpath"]+"imgone-76-i.png",
-	rotImgStyle.join(";"),
-	"rotImgId",
-	g["name"],
-	"imgClicker(this);"
-];
 
 var tilde = " ~ ";
-
-var mylinks = {
-	"Instagram"	:g["instagram"],
-	"SoundCloud":g["scloud"],
-	"Github"	:g["repo"],
-	"Vimeo"		:g["video"],
-	"Youtube"	:g["yt"],
-	"Tumblr"	:g["blog"],
-	"Facebook"	:g["facebookUrl"],
-	"Twitter"	:g["twitter"],
-	"Flickr"	:g["flickr"],
-	"LinkedIn"	:g["linkedin"],
-}
 
 var vimeo = [
 "https://player.vimeo.com/video/",
@@ -89,7 +51,6 @@ var allGS = [
 	spreadsheets+cvID   +"4"+altjson
 ];
 
-
 var allCVsections = [
 	"Personal",
 	"Teachings",
@@ -128,10 +89,6 @@ var fonts = [
 "\'Palatino\'"
 ];
 
-var imgArray = [
-	g["raw"]+g["imgpath"]+"imgone.png",
-	g["raw"]+g["imgpath"]+"imgtwo.png"
-];
 var somestring='kontakte';
 var disableEnter = [
 	"<script>",
@@ -142,23 +99,6 @@ var disableEnter = [
 	"     }",
 	"});",
 	"</s" + "cript>",
-];
-
-
-var submit = [
-	"\"No, what is important is neither linearity or non-linearity, \
-	but the change, the degree of change from something that doesn't move \
-	to other events with different tempos in particular.\"",
-	"\"I no longer limit myself.\"",
-	"<head><meta name=\"viewport\" \
-	content=\"width=device-width, initial-scale=1\">\
-	<link rel=stylesheet href=\""+g["repo"]+"/css/style.css\"></style>"+disableEnter.join("")+"\
-	<link rel='shortcut icon' href=\""+g["raw"]+g["imgpath"]+"imgone.png\"></link>\
-	<title>Submit Form</title></head><body><h2>Submit Form</h2><div id=maindiv>\
-	<form><h3>Enter password:</h3>\
-	<input type=password id=krl size=12/><p>Click Submit when done</p>\
-	<input type=button value=Submit id=authOK /></form></div></body>",somestring,
-	"width=200, height=200, location=0, toolbar=0, resizable=0, scrollbars=0"
 ];
 
 var forms = {
@@ -183,5 +123,4 @@ var formLinks = {
 	"games"           :"",
 	[mitem[5]]        :"",
 	[mitem[0]]        :""
-
 };
