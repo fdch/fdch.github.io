@@ -22,27 +22,27 @@ var rotImgStyle= [
 	"-webkit-clip-path:circle(50% at 50% 50%)"
 ];
 var rotImg = [
-	g.raw+g.imgpath+"imgone-76.png",
-	g.raw+g.imgpath+"imgone-76-i.png",
+	g["raw"]+g["imgpath"]+"imgone-76.png",
+	g["raw"]+g["imgpath"]+"imgone-76-i.png",
 	rotImgStyle.join(";"),
 	"rotImgId",
-	g.name,
+	g["name"],
 	"imgClicker(this);"
 ];
 
 var tilde = " ~ ";
 
 var mylinks = {
-	"Instagram"	:g.instagram,
-	"SoundCloud":g.scloud,
-	"Github"	:g.repo,
-	"Vimeo"		:g.video,
-	"Youtube"	:g.yt,
-	"Tumblr"	:g.blog,
-	"Facebook"	:g.facebookUrl,
-	"Twitter"	:g.twitter,
-	"Flickr"	:g.flickr,
-	"LinkedIn"	:g.linkedin,
+	"Instagram"	:g["instagram"],
+	"SoundCloud":g["scloud"],
+	"Github"	:g["repo"],
+	"Vimeo"		:g["video"],
+	"Youtube"	:g["yt"],
+	"Tumblr"	:g["blog"],
+	"Facebook"	:g["facebookUrl"],
+	"Twitter"	:g["twitter"],
+	"Flickr"	:g["flickr"],
+	"LinkedIn"	:g["linkedin"],
 }
 
 var vimeo = [
@@ -128,7 +128,10 @@ var fonts = [
 "\'Palatino\'"
 ];
 
-var imgArray = [g.raw+g.imgpath+"imgone.png",g.raw+g.imgpath+"imgtwo.png"];
+var imgArray = [
+	g["raw"]+g["imgpath"]+"imgone.png",
+	g["raw"]+g["imgpath"]+"imgtwo.png"
+];
 var somestring='kontakte';
 var disableEnter = [
 	"<script>",
@@ -149,8 +152,8 @@ var submit = [
 	"\"I no longer limit myself.\"",
 	"<head><meta name=\"viewport\" \
 	content=\"width=device-width, initial-scale=1\">\
-	<link rel=stylesheet href=\""+g.repo+"/css/style.css\"></style>"+disableEnter.join("")+"\
-	<link rel='shortcut icon' href=\""+g.raw+g.imgpath+"imgone.png\"></link>\
+	<link rel=stylesheet href=\""+g["repo"]+"/css/style.css\"></style>"+disableEnter.join("")+"\
+	<link rel='shortcut icon' href=\""+g["raw"]+g["imgpath"]+"imgone.png\"></link>\
 	<title>Submit Form</title></head><body><h2>Submit Form</h2><div id=maindiv>\
 	<form><h3>Enter password:</h3>\
 	<input type=password id=krl size=12/><p>Click Submit when done</p>\
