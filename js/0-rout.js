@@ -380,7 +380,7 @@ function img(src,width,titl,id,url)
   let tag = document.createElement('img');
   let div = document.createElement('div');
   if (url) {
-    let anc = anchor(url)
+    let anc = anchor(url);
   } else {
     let anc = anchor(src);
   }
