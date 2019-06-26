@@ -1,14 +1,14 @@
 
 var gameDraw = [
 "draw/",
-raw+imgpath+"draw.png",
+g.raw+g.imgpath+"draw.png",
 "Draw concentrical polygons as they get smaller. Print page when you are done.",
-repo + "misc/tree/master/pong",
-raw  + "misc/master/pong/screen1.jpg",
+g.repo + "misc/tree/master/pong",
+g.raw  + "misc/master/pong/screen1.jpg",
 "A Pd Vanilla + Gem version of the pong game.",
 
 "droplets/",
-raw+imgpath+"droplets.png",
+g.raw+g.imgpath+"droplets.png",
 "Touch the floating droplets and move them around.",
 
 ];

@@ -8,11 +8,12 @@ var allPerfor={}, allAwards={}, allCollab={}, allTeachi={};
 var allCategories=[], allTitles=[],allWorkId=[],uCategories=[];
 var allVideos=[], allAudios=[];
 
+
 var userLang;
 
-var backImg 	= "url(\'"+loadingUrl+"\') center no-repeat;";
-var bioImage 	=  raw + imgpath + latest_bio_pic;
-var bkgImage 	=  raw + latest_bkg_pic[0]+ "/master/img/" + latest_bkg_pic[1];
+var backImg  = "url(\'"+loadingUrl+"\') center no-repeat;";
+var bioImage =  g.raw + g.imgpath + latest_bio_pic;
+var bkgImage =  g.raw + latest_bkg_pic[0]+ "/master/img/" + latest_bkg_pic[1];
 
 var rotImgStyle= [
 	"float:left",
@@ -21,27 +22,27 @@ var rotImgStyle= [
 	"-webkit-clip-path:circle(50% at 50% 50%)"
 ];
 var rotImg = [
-	raw+imgpath+"imgone-76.png",
-	raw+imgpath+"imgone-76-i.png",
+	g.raw+g.imgpath+"imgone-76.png",
+	g.raw+g.imgpath+"imgone-76-i.png",
 	rotImgStyle.join(";"),
 	"rotImgId",
-	"fdch~",
+	g.name,
 	"imgClicker(this);"
 ];
 
 var tilde = " ~ ";
 
 var mylinks = {
-	"Instagram"	:instagram,
-	"SoundCloud":scloud,
-	"Github"	:repo,
-	"Vimeo"		:video,
-	"Youtube"	:yt,
-	"Tumblr"	:blog,
-	"Facebook"	:facebookUrl,
-	"Twitter"	:twitter,
-	"Flickr"	:flickr,
-	"LinkedIn"	:linkedin,
+	"Instagram"	:g.instagram,
+	"SoundCloud":g.scloud,
+	"Github"	:g.repo,
+	"Vimeo"		:g.video,
+	"Youtube"	:g.yt,
+	"Tumblr"	:g.blog,
+	"Facebook"	:g.facebookUrl,
+	"Twitter"	:g.twitter,
+	"Flickr"	:g.flickr,
+	"LinkedIn"	:g.linkedin,
 }
 
 var vimeo = [
@@ -69,13 +70,13 @@ vimeo[0]   + "128082938"   + vimeo[1]  ,
 vimeo[0]   + "128763368"   + vimeo[1]  ,
 vimeo[0]   + "103288412"   + vimeo[1]  ,
 vimeo[0]   + "93202065"    + vimeo[1]  ,
-vimeo[0]   + "300566098"    + vimeo[1]   
+vimeo[0]   + "300566098"   + vimeo[1]   
 ];
 
 var spreadsheets = "https://spreadsheets.google.com/feeds/list/";
-var sheetID = "1e5dh1sZX1QuFFioC-1ofcPIPhwU9i-lvUzOzn4_3SLQ/";
-var cvID = "1vViMWDsMRnbGUgP44XNDlQrLQ3MsdgO9W91mM4MxJtw/";
-var altjson = "/public/values?alt=json";
+var sheetID      = "1e5dh1sZX1QuFFioC-1ofcPIPhwU9i-lvUzOzn4_3SLQ/";
+var cvID         = "1vViMWDsMRnbGUgP44XNDlQrLQ3MsdgO9W91mM4MxJtw/";
+var altjson      = "/public/values?alt=json";
 
 var allGS = [
 	spreadsheets+sheetID+"1"+altjson,
@@ -127,7 +128,7 @@ var fonts = [
 "\'Palatino\'"
 ];
 
-var imgArray = [raw+imgpath+"imgone.png",raw+imgpath+"imgtwo.png"];
+var imgArray = [g.raw+g.imgpath+"imgone.png",g.raw+g.imgpath+"imgtwo.png"];
 var somestring='kontakte';
 var disableEnter = [
 	"<script>",
@@ -148,8 +149,8 @@ var submit = [
 	"\"I no longer limit myself.\"",
 	"<head><meta name=\"viewport\" \
 	content=\"width=device-width, initial-scale=1\">\
-	<link rel=stylesheet href=\""+repo+"/css/style.css\"></style>"+disableEnter.join("")+"\
-	<link rel='shortcut icon' href=\""+raw+imgpath+"imgone.png\"></link>\
+	<link rel=stylesheet href=\""+g.repo+"/css/style.css\"></style>"+disableEnter.join("")+"\
+	<link rel='shortcut icon' href=\""+g.raw+g.imgpath+"imgone.png\"></link>\
 	<title>Submit Form</title></head><body><h2>Submit Form</h2><div id=maindiv>\
 	<form><h3>Enter password:</h3>\
 	<input type=password id=krl size=12/><p>Click Submit when done</p>\

@@ -1,23 +1,38 @@
 {
-	"name"	 	   : "fdch",
-	"shortname"    : "Fede Cámara Halac",
-	"fullname" 	   : "Federico Nicolás Cámara Halac",
-	"@type"        : "WebSite",
-	"bday"         : "1988-05-08T12:01:30.45+01:00",
-	"url"          : "https://fdch.github.io",
-	"email"        : "fch226 (at) nyu (dot) edu",
-	"headline"     : "Fede Cámara Halac [fdch~ ]",
-	"nationality"  : "Argentina",
-	"phone"        : "(1) 347-302-0982",
-	"address"      : "24 Waverly Place r.268. New York, NY 10003. USA",
-	"graduate"     : [
-		"Postdoctoral Researcher in the School of Music within the College of Arts and Sciences at Ohio State University (2019-20)",
-		"PhD in Music Composition and Theory at New York University (2013-19)"
-		],
-	"undergraduate": "Licenciate in Music Composition at the National University of Córdoba (2006-12)",
+    "name"         : "fdch",
+    "shortname"    : "Fede Cámara Halac",
+    "fullname"     : "Federico Nicolás Cámara Halac",
+    "@type"        : "WebSite",
+    "bday"         : "1988-05-08T12:01:30.45Z",
+    "url"          : "https://fdch.github.io",
+    "email"        : "fch226 (at) nyu (dot) edu",
+    "headline"     : "Fede Cámara Halac [fdch~ ]",
+    "nationality"  : "Argentina",
+    "phone"        : "(1) 347-302-0982",
+    "address"      : "24 Waverly Place r.268. New York, NY 10003. USA",
+    "grad"         : [
+        "Postdoctoral Researcher in the School of Music within the College of Arts and Sciences at Ohio State University (2019-20)",
+        "PhD in Music Composition and Theory at New York University (2013-19)"
+        ],
+    "undergrad"    : "Licenciate in Music Composition at the National University of Córdoba (2006-12)",
 
-	"descripcion"  : "Fede Cámara Halac investiga y hace sonidos, navega y diseña imágenes, y juega con bases de datos y multimedia. Obtuvo un PhD en Composición y Teoría Musical de la Universidad de Nueva York donde estudió con Jaime Oliver y Elizabeth Hoffman. Estudió Composición Musical en la Universidad Nacional de Córdoba con José Halac. Su trabajo se encuentra disponible en https://fdch.github.io.",
-	
-	"description"  : "Fede Cámara Halac researches and makes sounds, navigates and designs images, and plays with databases and multimedia. He earned a PhD in Composition and Music Theory from New York University where he studied with Jaime Oliver and Elizabeth Hoffman. He studied Music Composition at the National University of Córdoba with José Halac. His work is available at https://fdch.github.io.",
-	"@context"    : "http://schema.org"
+    "descripcion"  : "Fede Cámara Halac investiga y hace sonidos, navega y diseña imágenes, y juega con bases de datos y multimedia. Obtuvo un PhD en Composición y Teoría Musical de la Universidad de Nueva York donde estudió con Jaime Oliver y Elizabeth Hoffman. Estudió Composición Musical en la Universidad Nacional de Córdoba con José Halac. Su trabajo se encuentra disponible en https://fdch.github.io.",
+    
+    "description"  : "Fede Cámara Halac researches and makes sounds, navigates and designs images, and plays with databases and multimedia. He earned a PhD in Composition and Music Theory from New York University where he studied with Jaime Oliver and Elizabeth Hoffman. He studied Music Composition at the National University of Córdoba with José Halac. His work is available at https://fdch.github.io.",
+    "@context"    : "http://schema.org",
+    "repo"        : "https://github.com/fdch/",
+    "raw"         : "https://raw.githubusercontent.com/fdch/",
+    "imgpath"     : "fdch.github.io/master/img/",
+    "blog"        : "http://ffddcchh.tumblr.com/",
+    "scloud"      : "https://soundcloud.com/ffddcchh",
+    "video"       : "https://vimeo.com/fdch",
+    "facebookUrl" : "https://www.facebook.com/fedecamarahalac/",
+    "twitter"     : "http://www.twitter.com/ffddcchh",
+    "yt"          : "https://www.youtube.com/channel/UCzOx-iKaNx9ruddNI6ykTIA",
+    "flickr"      : "http://www.flickr.com/federicocamarahalac",
+    "linkedin"    : "http://linkedin.com/in/fedecamarahalac",
+    "instagram"   : "https://instagram.com/ffddcchh",
+    "unclink"     : "http://artes.unc.edu.ar",
+    "nyulink"     : "http://gsas.nyu.edu",
+    "may8th"      : "https://en.wikipedia.org/wiki/May_8",
 }

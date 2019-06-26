@@ -1,11 +1,5 @@
 function loadAll(sheets, callback) {
   loading = 1;
-  loadJSON("data/global.json", function(response) {
-    var f = JSON.parse(response);
-    // allGlobals={};
-    console.log(f);
-  });
-
   //works
   loadJSON(sheets[0], function(response) {
     var f, e, i, entry;
