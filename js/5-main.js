@@ -56,10 +56,10 @@ function main(vid)
   }
 
   
-  navSelTag.autofocus = true;
-  navigaTag.style.display = "inline";
+  navSelTag.autofocus      = true;
+  navigaTag.style.display  = "inline";
   navigaTag.style.position = "relative";
-  navigaTag.style.bottom = "5px";
+  navigaTag.style.bottom   = "5px";
 
   
 

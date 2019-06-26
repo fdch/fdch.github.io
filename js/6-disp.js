@@ -640,7 +640,7 @@ function displayMedia(target,source,type) {
   }
 }
 function loadCV() {
-  mainBack.value='';
+  // mainBack.value='';
   for (var i in allCVsections)
     displayCV(allCVsections[i]);
 }

@@ -18,16 +18,18 @@ function mainCV() {
   footerTag.style.display = 'none';  
   headerTag[0].setAttribute('onclick',"displayCV(\'reset\');");
   resized();
-  mainBack = document.createAttribute('style');
-  mainBack.value = backImg+"width:"+w+"px;height:"+h+"px;";
-  mainTag.setAttributeNode(mainBack);
+  // mainBack = document.createAttribute('style');
+  // mainBack.value = backImg+"width:"+w+"px;height:"+h+"px;";
+  // mainTag.setAttributeNode(mainBack);
       
   randomColor(color_preset["mid"], [bodyTag, headerTag[0]] );
 
-  var check = 0;
-  if (check=loadAll(allGS)) {
-    setTimeout(function(){
-      loadCV();
-    }, 3000);
-  }
+  if(!loaded) loadAll(allGS);
+  
+  // var check = 0;
+  // if (check=loadAll(allGS)) {
+    // setTimeout(function(){
+      // loadCV();
+    // }, 3000);
+  // }
 }
