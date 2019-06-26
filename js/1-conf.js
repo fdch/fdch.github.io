@@ -1,8 +1,36 @@
 // load global data
 var g={}; // all global variables
-loadJSON("data/global.json", function(response) { g=JSON.parse(response); });
+loadJSON("data/global.json", function(response) { 
+	let f = JSON.parse(response);
+	g = f; 
+});
 
-console.log(g);
+
+
+
+
+
+
+
+if (Object.keys(g).length === 0 && g.constructor === Object)
+{
+	console.log("global object is empty");
+
+} else {
+	console.log(g);
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 var contactMessage = [
 	"Send me an email at "+g["email"]+" and I will get in touch with you\
@@ -14,10 +42,10 @@ var contactMessage = [
 var personal = [
 	"Full Name: "+g["fullname"],
 	"Date of Birth : <a href=\'"+g["may8th"]+"\' target=\'_blank\''>"+new Date(g["bday"])+"</a>",
-	"Country of Birth : "+g["nationality"],
-	"Mailing Address : " +g["address"],
-	"Phone Number : "    +g["phone"],
-	"E-mail : "          +g["email"],
+	"Country of Birth : " +g["nationality"],
+	"Mailing Address : "  +g["address"],
+	"Phone Number : "     +g["phone"],
+	"E-mail : "           +g["email"],
 	"Website : <a href=\'"+g["url"]+"\'>"+g["url"]+"</a>",
 	"Graduate Education : <ul><li>"+g["grad"][0]+"</li><li>"+g["grad"][1]+"</li></ul>",
 	"Undergraduate :"+g["undergrad"],
@@ -42,7 +70,7 @@ var hAlpha      = 1.0;
 var minHHeight  = 55;
 var mypad       = 15;
 var bRad        = 20;
-var cv 			=  g["url"] + "/cv/";
+var cv 			=  g["url"]+ "/cv/";
 var contactGif 	=  g["raw"]+g["imgpath"] + "zissou.gif";
 var loadingUrl 	=  g["raw"]+g["imgpath"] + "fdch.gif";
 var color_preset = {
