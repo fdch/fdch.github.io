@@ -1,7 +1,7 @@
 function loadAll(sheets, callback) {
   loading = 1;
   //works
-  loadJSON("data/global.json", function(response) { 
+  loadJSON("https://fdch.github.io/data/global.json", function(response) { 
     g = JSON.parse(response)
     loadGlobals(g);
   });
