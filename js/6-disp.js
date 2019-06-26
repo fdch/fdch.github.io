@@ -203,13 +203,13 @@ function displayGames(target)
   sectTag.appendChild(artiTag);
 
   let alltags = new Array();
-  alltags.push(img(gameDraw[7], articleWidth(maxWidth),'droplets',"window.open(\'"+gameDraw[6]+"\');"));
+  alltags.push(img(gameDraw[7], articleWidth(maxWidth),'drop','',gameDraw[6]));
   alltags.push(element('p',gameDraw[8]));
 
-  alltags.push(img(gameDraw[1], articleWidth(maxWidth),'draw',"window.open(\'"+gameDraw[0]+"\');"));
+  alltags.push(img(gameDraw[1], articleWidth(maxWidth),'draw','',gameDraw[0]));
   alltags.push(element('p',gameDraw[2]));
 
-  alltags.push(img(gameDraw[4], articleWidth(maxWidth),'pong',"window.open(\'"+gameDraw[3]+"\');"));
+  alltags.push(img(gameDraw[4], articleWidth(maxWidth),'pong','',gameDraw[3]));
   alltags.push(element('p',gameDraw[5]));
 
   for (let i in alltags) artiTag.appendChild(alltags[i]);

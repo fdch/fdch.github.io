@@ -375,11 +375,15 @@ function element(tag,text,id,onclick,width)
   return elem;
 }
 
-function img(src,width,titl,id)
+function img(src,width,titl,id,url)
 {
   let tag = document.createElement('img');
   let div = document.createElement('div');
-  let anc = anchor(src);
+  if (url) {
+    let anc = anchor(url)
+  } else {
+    let anc = anchor(src);
+  }
   if (id)    tag.setAttribute('id',id);
   if (src)   tag.setAttribute('src', src);
   if (width) tag.setAttribute('width', width+bRad);
