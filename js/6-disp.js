@@ -20,7 +20,7 @@ function display(x) {
   if(article) {
     switch (x) {
       case "games" :
-        article.innerHTML = gameType.join("<br/>");
+        tuneUp(displayGames(article));
         break;
       case "touch" :
         tuneUp(displayTouch(article));
@@ -183,10 +183,35 @@ function displayBiogra(target)
   sectTag.appendChild(artiTag);
 
   let alltags = new Array();
-  alltags.push(element('p',g.descripcion,'bio-spa'));
-  alltags.push(element('p',g.description,'bio-eng'));
+  alltags.push(element('p',g["descripcion"],'bio-spa'));
+  alltags.push(element('p',g["description"],'bio-eng'));
   alltags.push(element("button","CV",'', "window.open(\'"+cv+"\', '_top');")); 
   alltags.push(img(bioImage, articleWidth(maxWidth),g.shortname));
+  for (let i in alltags) artiTag.appendChild(alltags[i]);
+
+  return sectTag;
+}
+
+function displayGames(target)
+{
+  let sectTag = element('section');
+  target.appendChild(sectTag);
+
+  let headTag = element('header');
+  let artiTag = element('article');
+  sectTag.appendChild(headTag);
+  sectTag.appendChild(artiTag);
+
+  let alltags = new Array();
+  alltags.push(img(gameDraw[7], articleWidth(maxWidth),'droplets',"window.open(\'"+gameDraw[6]+"\');"));
+  alltags.push(element('p',gameDraw[8]));
+
+  alltags.push(img(gameDraw[1], articleWidth(maxWidth),'draw',"window.open(\'"+gameDraw[0]+"\');"));
+  alltags.push(element('p',gameDraw[2]));
+
+  alltags.push(img(gameDraw[4], articleWidth(maxWidth),'pong',"window.open(\'"+gameDraw[3]+"\');"));
+  alltags.push(element('p',gameDraw[5]));
+
   for (let i in alltags) artiTag.appendChild(alltags[i]);
 
   return sectTag;

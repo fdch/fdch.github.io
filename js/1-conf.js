@@ -1,6 +1,8 @@
 // load global data
 var g={}; // all global variables
 var userLang;
+var latest_bio_pic = "fdchmac.png";
+var latest_bkg_pic = ["orkna", "orkna-1.png"];
 
 var contactMessage,personal,cv,contactGif,loadingUrl, mainBack;
 var htmlTag, bodyTag, headerTag, mainTag, footerTag;
@@ -11,6 +13,7 @@ var allPerfor={}, allAwards={}, allCollab={}, allTeachi={};
 var allCategories=[], allTitles=[],allWorkId=[],uCategories=[];
 var allVideos=[], allAudios=[];
 var submit,imgArray=[], mylinks={}, rotImg=[], backImg, bioImage, bkgImage;
+var gameDraw;
 loadJSON("data/global.json", function(response) { 
 	let f = JSON.parse(response);
 	g = f;
@@ -79,32 +82,17 @@ loadJSON("data/global.json", function(response) {
 	backImg  = "url(\'"+loadingUrl+"\') center no-repeat;";
 	bioImage = g["raw"]+g["imgpath"]+latest_bio_pic;
 	bkgImage = g["raw"]+latest_bkg_pic[0]+"/master/img/"+latest_bkg_pic[1];
+	
+	gameDraw = [
+		"draw/",
+		g["raw"]+g["imgpath"]+"draw.png",
+		"Draw concentrical polygons as they get smaller. Print page when you are done.",
+		g["repo"] + "misc/tree/master/pong",
+		g["raw"]  + "misc/master/pong/screen1.jpg",
+		"A Pd Vanilla + Gem version of the pong game.",
+
+		"droplets/",
+		g["raw"]+g["imgpath"]+"droplets.png",
+		"Touch the floating droplets and move them around.",
+	];
 });
-
-
-var mitem = [
-"init", "bio", "unwork", "papers", 
-"events", "people", "touch", "cv", "games",  // "audio", // "video"
-];
-var currpage    = 0;
-var loaded      = 0;
-var loading     = 0;
-var notified    = 0;
-var tday = new Date();
-var w, h;
-var t           = 4333;
-var maxWidth    = 800;
-var maxHeight   = 600;
-var widthFactor = 1.1;
-var hAlpha      = 1.0;
-var minHHeight  = 55;
-var mypad       = 15;
-var bRad        = 20;
-var color_preset = {
-	"mid"  : [55,200,100,20],
-	"high" : [30,200,50,100],
-	"rand" : [255,0,255,0]
-};
-
-var latest_bio_pic = "fdchmac.png";
-var latest_bkg_pic = ["orkna", "orkna-1.png"];
