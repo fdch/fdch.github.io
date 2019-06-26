@@ -58,7 +58,7 @@ function main(vid)
   navigaTag.style.position = "relative";
   navigaTag.style.bottom = "5px";
 
-  loadAll(allGS);
+  if(!loaded) loadAll(allGS);
 
   randomColor(color_preset["high"], [bodyTag, headerTag[0]] );
 

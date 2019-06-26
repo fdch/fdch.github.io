@@ -1,5 +1,5 @@
 // load global data
-var g={}; // all global variables
+
 var userLang;
 var latest_bio_pic = "fdchmac.png";
 var latest_bkg_pic = ["orkna", "orkna-1.png"];
@@ -14,10 +14,9 @@ var allCategories=[], allTitles=[],allWorkId=[],uCategories=[];
 var allVideos=[], allAudios=[];
 var submit,imgArray=[], mylinks={}, rotImg=[], backImg, bioImage, bkgImage;
 var gameDraw;
-loadJSON("data/global.json", function(response) { 
-	let f = JSON.parse(response);
-	g = f;
 
+function loadGlobals(g)
+{
 	contactMessage = [
 	"Send me an email at "+g["email"]+" and I will get in touch with you\
 	 (as fast as nonhumanly possible :)",
@@ -95,4 +94,4 @@ loadJSON("data/global.json", function(response) {
 		g["raw"]+g["imgpath"]+"droplets.png",
 		"Touch the floating droplets and move them around.",
 	];
-});
+}
