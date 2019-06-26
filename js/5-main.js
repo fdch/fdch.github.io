@@ -99,7 +99,7 @@ function main(vid)
   iframeTag.style.border       = "none";
   iframeTag.style.marginTop    = "10px";
 
-  setInterval( function(){ funImage(rotImg) }, t);
+  // setInterval( function(){ funImage(rotImg) }, t);
 
   if(!notified)
   {

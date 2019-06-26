@@ -170,9 +170,9 @@ function funImage(input)
   //   "-ms-filter: \'FlipH\';",
   // ];
        
-  setTimeout(function(){
-    rotImgTag.setAttribute('src', input[whichone]);
-  },dur/4);
+  // setTimeout(function(){
+  //   rotImgTag.setAttribute('src', input[whichone]);
+  // },dur/4);
 
   // setTimeout(function(){
   //   rotImgTag.setAttribute('style',flipper.concat(rotImgStyle).join(""));
@@ -181,7 +181,7 @@ function funImage(input)
 
 function randomizeStuff()
 {
-  funImage(rotImg);
+  // funImage(rotImg);
   let times = pdRandom(25,5);
   while (times) {
     setTimeout(function(){
