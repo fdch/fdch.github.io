@@ -375,20 +375,23 @@ function element(tag,text,id,onclick,width)
   return elem;
 }
 
-function img(src,width,titl,id,url)
+function img(src,width,titl,id,tURL)
 {
   let tag = document.createElement('img');
   let div = document.createElement('div');
-  if (url) {
-    let anc = anchor(url);
+  tag.setAttribute('src', src);
+  if (width)
+  { 
+    tag.setAttribute('width', width+bRad);
+    div.style.width = width+"px";
+  }
+  if (titl)  tag.setAttribute('title', titl);
+  if (id)    tag.setAttribute('id',id);
+  if (tURL) {
+    let anc = anchor(tURL);
   } else {
     let anc = anchor(src);
   }
-  if (id)    tag.setAttribute('id',id);
-  if (src)   tag.setAttribute('src', src);
-  if (width) tag.setAttribute('width', width+bRad);
-  if (titl)  tag.setAttribute('title', titl);
-  div.style.width = width+"px";
   div.style.overflow = "hidden";
   div.style.borderRadius = bRad+"px";
   anc.appendChild(tag);
