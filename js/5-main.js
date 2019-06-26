@@ -85,14 +85,12 @@ function main(vid)
   let mw                       = w/2-pw.width/2+"px";
   footerTag.style.left         = mw;
 
-  bodyTag.style.background     = "url('"+bkgImage+"')";
   bodyTag.setAttribute('onresize', 'resized()');
 
   headerTag[0].style.background= "";
   
   iframeTag                    = makeBackVideo("",mainTag,v);
   iframeTag.style.display      = 'inline';
-  iframeTag.style.background   = "url(\'"+bkgImage+"\')";
   iframeTag.style.position     = "absolute";
   iframeTag.style.minWidth     = "100%";
   iframeTag.style.minHeight    = "100%";
