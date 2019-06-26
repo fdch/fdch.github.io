@@ -88,7 +88,7 @@ function resizeHeader()
     hH = minHHeight;
   }
 
-  if(rotImgTag) rotImgTag.setAttribute('width', hH*0.9);
+  // if(rotImgTag) rotImgTag.setAttribute('width', hH*0.9);
   if(h1titlTag) {
     h1titlTag.style.marginTop = (hH*0.5)-h1titlTag.clientHeight;
   }

@@ -9,7 +9,7 @@ function main(vid)
 {
   let v;
   if(!loaded) loadAll(allGS);
-  
+
   if(!htmlTag) {
     htmlTag =document.getElementsByTagName('html')[0];
   } 
@@ -40,10 +40,11 @@ function main(vid)
     h1titlTag = document.getElementsByTagName('h1')[0];
     h1titlTag.style.display = "inline";
   }
-  if(!rotImgTag) { // rotating icon
-    imgDivTag = document.getElementById('imgdiv');
-    rotImgTag = makeRot(rotImg, imgDivTag);
-  }
+  // if(!rotImgTag) { // rotating icon
+
+    // imgDivTag = document.getElementById('imgdiv');
+    // rotImgTag = makeRot(rotImg, imgDivTag);
+  // }
   
   if(!navigaTag) {
     navigaTag = document.getElementById('navtag');
