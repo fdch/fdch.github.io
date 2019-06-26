@@ -197,4 +197,4 @@ function loadAll(sheets, callback) {
   return 1; //actually not checking if stuf loaded...
 }
 
-loadAll(allGS); // load asynchronously (if available)
+if(!loaded) loadAll(allGS); // load asynchronously (if available)
