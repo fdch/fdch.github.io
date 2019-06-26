@@ -2,6 +2,8 @@
 var g={}; // all global variables
 loadJSON("data/global.json", function(response) { g=JSON.parse(response); });
 
+console.log(g);
+
 var contactMessage = [
 	"Send me an email at "+g.email+" and I will get in touch with you\
 	 (as fast as nonhumanly possible :)",
@@ -21,7 +23,6 @@ var personal = [
 	"Undergraduate :"+g.undergrad,
 ];
 
-console.log(personal);
 
 var mitem = [
 "init", "bio", "unwork", "papers", 
