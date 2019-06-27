@@ -95,7 +95,7 @@ function resized()
     catDivTag.style.marginTop = (hH*0.5)-catDivTag.clientHeight;
   }
 
-  if(mainTag)   mainTag.style.marginTop = hH+"px";
+  if(mainTag && !mobile)   mainTag.style.marginTop = hH/2+"px";
 }
 
 function loadJSON(x,callback)
