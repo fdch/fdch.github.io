@@ -106,7 +106,7 @@ function main(vid)
   iframeTag.style.minWidth     = "100%";
   iframeTag.style.minHeight    = "100%";
   iframeTag.style.border       = "none";
-  iframeTag.style.marginTop    = "10px";
+  if (!mobile) iframeTag.style.marginTop    = "10px";
 
   // setInterval( function(){ funImage(rotImg) }, t);
 

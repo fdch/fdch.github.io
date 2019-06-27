@@ -123,7 +123,7 @@ function tuneUp(section)
   // centering
   if(w > secRect.width && w > maxWidth)
   {
-    section.style.marginLeft = (w - secRect.width) / 2 + "px";
+    mainTag.style.marginLeft = (w - secRect.width) / 2 + "px";
   }
   tuner(section.getElementsByTagName('p'));
   tuner(section.getElementsByTagName('h3'));
