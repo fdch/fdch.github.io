@@ -120,7 +120,6 @@ function tuner(pars)
 
 function tuneUp(section)
 {
-  section.style.marginBottom = "100px";
   let secRect = section.getBoundingClientRect();
   // centering
   if(w > secRect.width && w > maxWidth)
@@ -132,7 +131,9 @@ function tuneUp(section)
     tuner(section.getElementsByTagName('h'+i));
   }
   tuner(mainTag.getElementsByTagName('h2'));
+  mainTag.style.maxWidth = section.secRect.width;
   tuner(section.getElementsByTagName('p'));
+  section.style.marginBottom = "100px";
 }
 
 function displayTouch(target)
