@@ -1,11 +1,14 @@
-function loadAll(sheets, callback) {
-  loading = 1;
-  //works
-  loadJSON("https://fdch.github.io/data/global.json", function(response) { 
+function loadAll(sheets, callback)
+{
+  // globals
+  loadJSON("https://fdch.github.io/data/global.json", function(response)
+  { 
     g = JSON.parse(response)
     loadGlobals(g);
   });
-  loadJSON(sheets[0], function(response) {
+  //works
+  loadJSON(sheets[0], function(response)
+  {
     var f, e, i, entry;
     f = JSON.parse(response);
     entry = f.feed.entry;
@@ -43,7 +46,8 @@ function loadAll(sheets, callback) {
     uCategories = getUniqueCategories(allCategories);
   });
   //papers
-  loadJSON(sheets[1], function(response) {
+  loadJSON(sheets[1], function(response)
+  {
     var f, e, i, entry;
     f = JSON.parse(response);
     entry = f.feed.entry; 
@@ -64,7 +68,8 @@ function loadAll(sheets, callback) {
     }//end loop
   });
   //events
-  loadJSON(sheets[2], function(response) {
+  loadJSON(sheets[2], function(response)
+  {
     var f, e, i, entry;
     f = JSON.parse(response);
     entry = f.feed.entry;
@@ -84,7 +89,8 @@ function loadAll(sheets, callback) {
     }
   });
   //people
-  loadJSON(sheets[3], function(response) {
+  loadJSON(sheets[3], function(response)
+  {
     var f, e, i, entry;
     f = JSON.parse(response);
     entry = f.feed.entry;
@@ -102,7 +108,8 @@ function loadAll(sheets, callback) {
     // window.alert(Object.keys(allPeople));
   });
   //teachings
-  loadJSON(sheets[4], function(response) {
+  loadJSON(sheets[4], function(response)
+  {
     var f, e, i, entry;
     f = JSON.parse(response);
     entry = f.feed.entry;
@@ -124,7 +131,8 @@ function loadAll(sheets, callback) {
     // window.alert(Object.keys(allTeachi));
   });
   //awards
-  loadJSON(sheets[5], function(response) {
+  loadJSON(sheets[5], function(response)
+  {
     var f, e, i, entry;   
     f = JSON.parse(response);
     entry = f.feed.entry;
@@ -147,7 +155,8 @@ function loadAll(sheets, callback) {
     //console.log(Object.keys(allAwards));
   });
   //collabs
-  loadJSON(sheets[6], function(response) {
+  loadJSON(sheets[6], function(response) 
+  {
    var f, e, i, entry;   
     f = JSON.parse(response);
     entry = f.feed.entry;
@@ -166,7 +175,8 @@ function loadAll(sheets, callback) {
     }
   });
   //perfor
-  loadJSON(sheets[7], function(response) {
+  loadJSON(sheets[7], function(response)
+  {
     var f, e, i, entry; 
     f = JSON.parse(response);
     entry = f.feed.entry;
@@ -187,7 +197,7 @@ function loadAll(sheets, callback) {
     }
     //console.log(Object.keys(allPerfor));
   });
-  loading = 0;
+
   loaded = 1; //set it as loaded if it is loaded asynchronously
 
   if(callback) callback();

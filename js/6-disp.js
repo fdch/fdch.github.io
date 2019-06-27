@@ -10,7 +10,7 @@ function display(x) {
   htmlTag.style.fontFamily = fonts[pdRandom(fonts.length)];
   
   
-  // currpage = mitem.findIndex(item => item === x);
+  currpage = mitem.findIndex(item => item === x);
   // console.log("Display \'"+x+"\', currpage: "+currpage);
   // console.log(currpage);
 

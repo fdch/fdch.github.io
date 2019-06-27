@@ -1,17 +1,24 @@
-var g={}; // load global data
-var userLang;
-var latest_bio_pic = "fdchmac.png";
-var latest_bkg_pic = ["orkna", "orkna-1.png"];
-var contactMessage,personal,cv,contactGif,loadingUrl, mainBack;
+// html tags
 var htmlTag, bodyTag, headerTag, mainTag, footerTag;
-var h1titlTag, navigaTag, iframeTag, rotImgTag; 
+var h1titlTag, navigaTag, iframeTag; 
 var navSelTag, imgDivTag, catDivTag, catSelTag;
+
+// data objects
+var g={}, mylinks={};
 var allUnwork={}, allPapers={}, allEvents={}, allPeople={};
 var allPerfor={}, allAwards={}, allCollab={}, allTeachi={};
-var allCategories=[], allTitles=[],allWorkId=[],uCategories=[];
+
+// data arrays
+var allCategories=[], allTitles=[], allWorkId=[], uCategories=[];
 var allVideos=[], allAudios=[];
-var submit,imgArray=[], mylinks={}, rotImg=[], backImg, bioImage, bkgImage;
-var gameDraw;
+var submit=[], contactMessage=[], personal=[], gameDraw=[];
+
+var bioImage, bkgImage, cv, contactGif, loadingUrl, userLang;
+
+// var rotImg=[], backImg, imgArray=[], rotImgTag;
+
+// this function below loads up all the globals above
+// it is fired from 4-load.js
 
 function loadGlobals(g)
 {
@@ -68,14 +75,14 @@ function loadGlobals(g)
 		"Flickr"	:g["flickr"],
 		"LinkedIn"	:g["linkedin"],
 	};
-	rotImg = [
-		g["raw"]+g["imgpath"]+"imgone-76.png",
-		g["raw"]+g["imgpath"]+"imgone-76-i.png",
-		rotImgStyle.join(";"),
-		"rotImgId",
-		g["name"],
-		"imgClicker(this);"
-	];
+	// rotImg = [
+	// 	g["raw"]+g["imgpath"]+"imgone-76.png",
+	// 	g["raw"]+g["imgpath"]+"imgone-76-i.png",
+	// 	rotImgStyle.join(";"),
+	// 	"rotImgId",
+	// 	g["name"],
+	// 	"imgClicker(this);"
+	// ];
 	backImg  = "url(\'"+loadingUrl+"\') center no-repeat;";
 	bioImage = g["raw"]+g["imgpath"]+latest_bio_pic;
 	bkgImage = g["raw"]+latest_bkg_pic[0]+"/master/img/"+latest_bkg_pic[1];
