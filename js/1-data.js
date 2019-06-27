@@ -25,6 +25,25 @@ var webSections = [
 	"Events",
 	"Papers"
 ]
+
+var fonts = [
+	"Courier",
+	"Arial",
+	"Helvetica",
+	"Times New Roman",
+	"Courier New",
+	"Times",
+	"Verdana",
+	"Georgia",
+	"Palatino"
+];
+
+var color_preset = {
+	"mid"  : [55,200,100,20],
+	"high" : [30,200,50,100],
+	"rand" : [255,0,255,0]
+};
+
 var currpage    = 0;
 var loaded      = 0;
 var loading     = 0;
@@ -32,18 +51,13 @@ var notified    = 0;
 var tday = new Date();
 var w, h;
 var t           = 4333;
-var maxWidth    = 800;
+var maxWidth    = 600;
 var maxHeight   = 600;
 var widthFactor = 1.1;
 var hAlpha      = 1.0;
 var minHHeight  = 55;
 var mypad       = 15;
 var bRad        = 20;
-var color_preset = {
-	"mid"  : [55,200,100,20],
-	"high" : [30,200,50,100],
-	"rand" : [255,0,255,0]
-};
 
 // var rotImgStyle= [
 // 	"float:left",
@@ -103,22 +117,12 @@ var formD = [articleWidth(maxWidth),height()];
 var formL = [
 	"https://docs.google.com/forms/d/e/1FAIpQLS",
 	"/viewform"
-]
+];
+
 var formE = [
 	"<iframe src=\"https://docs.google.com/forms/d/e/1FAIpQLS",
 	"/viewform?embedded=true\" width=\""+formD[0]+"\" height=\""+formD[1]+"\" \
 	frameborder=\"0\" marginheight=\"0\" marginwidth=\"0\">Loading...</iframe>"
-]
-var fonts = [
-	"Courier",
-	"Arial",
-	"Helvetica",
-	"Times New Roman",
-	"Courier New",
-	"Times",
-	"Verdana",
-	"Georgia",
-	"Palatin'"
 ];
 
 var somestring='kontakte';
@@ -142,7 +146,8 @@ var forms = {
 	[webSections[0]]  :"cnzdRLIMTy2arVYeIYOIJS_SPdedxngAhs8qbp8gnoJpIOhw",//
 	[webSections[1]]  :"cYgPrlbPXm3B9FDQghaaey8d5X6DpZhsOqMLP36DfrpRsOJA",//
 	[webSections[2]]  :"ftCkAv9TzkzlgAi8dcJNofLYYWc_k8WtSet3SQTf2ObOuyMA",//
-}
+};
+
 var formLinks = {
 	[allCVsections[1]]: formL[0] + forms[allCVsections[1]] + formL[1],
 	[allCVsections[2]]: formL[0] + forms[allCVsections[2]] + formL[1],

@@ -67,7 +67,7 @@ function loadGlobals(g)
 		"Twitter"	:g["twitter"],
 		"Flickr"	:g["flickr"],
 		"LinkedIn"	:g["linkedin"],
-	}
+	};
 	rotImg = [
 		g["raw"]+g["imgpath"]+"imgone-76.png",
 		g["raw"]+g["imgpath"]+"imgone-76-i.png",
