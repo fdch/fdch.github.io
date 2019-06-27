@@ -95,11 +95,6 @@ function resetDisplay(x){
         var articlTag = element('article','', x);
         mainTag.appendChild(articlTag);
         articlTag.style.width = articleWidth(maxWidth)+"px";
-        // centering
-        if(w > maxWidth)
-        {
-          articlTag.style.marginLeft = (w - maxWidth) / 2 + "px";
-        }
         return articlTag;
       }
   } else {
@@ -124,6 +119,12 @@ function tuner(pars)
 function tuneUp(section)
 {
   section.style.marginBottom = "100px";
+  let secRect = section.getBoundingClientRect();
+  // centering
+  if(w > secRect.width && w > maxWidth)
+  {
+    section.style.marginLeft = (w - secRect.width) / 2 + "px";
+  }
   tuner(section.getElementsByTagName('p'));
   tuner(section.getElementsByTagName('h3'));
   tuner(section.getElementsByTagName('h4'));
