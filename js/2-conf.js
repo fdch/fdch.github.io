@@ -13,7 +13,7 @@ var allCategories=[], allTitles=[], allWorkId=[], uCategories=[];
 var allVideos=[], allAudios=[];
 var submit=[], contactMessage=[], personal=[], gameDraw=[];
 
-var bioImage, bkgImage, cv, contactGif, loadingUrl, userLang;
+var bioImage, bkgImage, cv, contactGif, loadingUrl, userLang, mobile;
 
 // var rotImg=[], backImg, imgArray=[], rotImgTag;
 
@@ -23,10 +23,11 @@ var bioImage, bkgImage, cv, contactGif, loadingUrl, userLang;
 function loadGlobals(g)
 {
 	contactMessage = [
-	"Send me an email at "+g["email"]+" and I will get in touch with you\
-	 (as fast as nonhumanly possible :)",
 	"Mandáme una correa electrónica a "+g["email"]+" así me pongo en contacto\
 	 lo más rápido que pueda (dentro de lo nohumánamente posible ;)",
+	"Seguime en las medias sociales",
+	"Send me an email at "+g["email"]+" and I will get in touch with you\
+	 (as fast as nonhumanly possible :)",
 	 "Follow me on social media :)"
 	]
 	personal = [

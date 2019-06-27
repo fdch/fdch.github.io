@@ -149,10 +149,15 @@ function displayTouch(target)
 
   let alltags = new Array();
   
-  alltags.push(element('p',contactMessage[0],'touch-spa'));
-  alltags.push(element('p',contactMessage[1],'touch-eng'));
-  alltags.push(element('p',contactMessage[2],'follow-eng'));
-
+  if(!userLang.localeCompare("es"))
+  {
+    alltags.push(element('p',contactMessage[0]));
+    alltags.push(element('p',contactMessage[1]));
+  } else
+  {
+    alltags.push(element('p',contactMessage[2]));
+    alltags.push(element('p',contactMessage[3]));
+  }
   var lk = Object.keys(mylinks);
   for (let k in lk)
   { 
@@ -183,8 +188,13 @@ function displayBiogra(target)
   sectTag.appendChild(artiTag);
 
   let alltags = new Array();
-  alltags.push(element('p',bio_es,'bio-spa'));
-  alltags.push(element('p',bio_en,'bio-eng'));
+  if(!userLang.localeCompare("es"))
+  {
+    alltags.push(element('p',bio_es,'bio-spa'));
+  } else 
+  {
+    alltags.push(element('p',bio_en,'bio-eng'));
+  }
   alltags.push(element("button","CV",'', "window.open(\'"+cv+"\', '_top');")); 
   alltags.push(img(bioImage, articleWidth(maxWidth),shortname));
   for (let i in alltags) artiTag.appendChild(alltags[i]);
@@ -572,6 +582,11 @@ function displayCVCollab(target,source,id){
     sectTag.appendChild(footTag);
 
     let colla = year+tilde+cate+" in "+wher;
+    if(!userLang.localeCompare("es"))
+    {
+      colla = year+tilde+cate+" en "+wher;
+    }
+
     let htitle = element("h3",colla);
     headTag.appendChild(htitle);
 
@@ -606,6 +621,11 @@ function displayCVPerfor(target,source,id){
     sectTag.appendChild(footTag);
 
     let event = when.toDateString()+tilde+what +" at "+wher+", with "+witt;
+    
+    if(!userLang.localeCompare("es"))
+    {
+      event = when.toDateString()+tilde+what +" en "+wher+", con "+witt;
+    }
     let htitle = element("h3",event);
     headTag.appendChild(htitle);
 
