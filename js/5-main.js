@@ -37,12 +37,6 @@ function main(vid)
     mainTag = document.getElementsByTagName('main')[0];
   }
   
-  if(w > maxWidth)
-  {
-    let offsetX = w - maxWidth;
-    mainTag.style.marginLeft = offsetX / 2 + "px";
-  }
-
   if(!bodyTag) {
     bodyTag = document.getElementsByTagName('body')[0];
   }

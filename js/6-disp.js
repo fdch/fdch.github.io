@@ -81,7 +81,6 @@ function resetDisplay(x){
         return void 0; // we are on init page
       } else {
         //remove backvid
-        
         if (iframeTag) {
           iframeTag.style.display = 'none';
           iframeTag.src = '';
@@ -96,6 +95,11 @@ function resetDisplay(x){
         var articlTag = element('article','', x);
         mainTag.appendChild(articlTag);
         articlTag.style.width = articleWidth(maxWidth)+"px";
+        // centering
+        if(w > maxWidth)
+        {
+          articlTag.style.marginLeft = (w - maxWidth) / 2 + "px";
+        }
         return articlTag;
       }
   } else {
