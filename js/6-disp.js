@@ -110,7 +110,7 @@ function tuner(pars)
     for (let i=0;i<pars.length;i++)
     {
       pars[i].style.backgroundColor = "#000000";
-      pars[i].style.padding         = "4px";
+      pars[i].style.padding         = mypad + "px";
       pars[i].style.borderRadius    = bRad;
     }
   }
@@ -130,16 +130,16 @@ function tuneUp(section)
   tuner(section.getElementsByTagName('h4'));
   tuner(section.getElementsByTagName('h5'));
   tuner(section.getElementsByTagName('h6'));
-  let lnk = section.getElementsByTagName("a");
-  if (lnk)
-  {
-    for (let i=0;i<lnk.length;i++)
-    {
-      lnk[i].style.backgroundColor = "#000000";
-      lnk[i].style.borderRadius    = "4px";
-      lnk[i].style.color           = "lightblue";
-    }
-  }
+  // let lnk = section.getElementsByTagName("a");
+  // if (lnk)
+  // {
+  //   for (let i=0;i<lnk.length;i++)
+  //   {
+  //     lnk[i].style.backgroundColor = "#000000";
+  //     lnk[i].style.borderRadius    = bRad + "px";
+  //     lnk[i].style.color           = "lightblue";
+  //   }
+  // }
 }
 
 function displayTouch(target)
@@ -323,7 +323,7 @@ function displayPapers(target,source) {
     var aaa = [];
     
     if(publ) aaa.push(element('p',publ));
-    if(down) aaa.push(anchor(down,down));
+    if(down) aaa.push(element('button','download','',"window.open(\'"+down+"\',\'_top\');"));
     aaa.push(element('h6',time));
              
     for (let j in aaa) {footTag.appendChild(aaa[j]);}
@@ -357,7 +357,7 @@ function displayEvents(target,source) {
     aaa.push(element("h3",titl));
     aaa.push(element("h4",wher));
     aaa.push(element("h5",when.toDateString()));
-    aaa.push(element("a",eurl));
+    aaa.push(element("button",'','',"window.open(\'"+eurl+"\', \'_top\');"));
     for (let j in aaa) headTag.appendChild(aaa[j]);
     
 
