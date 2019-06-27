@@ -127,10 +127,11 @@ function tuneUp(section)
   {
     mainTag.style.marginLeft = (w - secRect.width) / 2 + "px";
   }
-  for (let i=1;i<7;i++)
+  for (let i=3;i<7;i++)
   {
     tuner(section.getElementsByTagName('h'+i));
   }
+  tuner(mainTag.getElementsByTagName('h2'));
   tuner(section.getElementsByTagName('p'));
 }
 
