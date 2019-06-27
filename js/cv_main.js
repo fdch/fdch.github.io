@@ -10,13 +10,13 @@
 function mainCV() {
   if(!loaded) loadAll(allGS,loadCV());
 
-  if(!htmlTag)   htmlTag   = document.getElementsByTagName('html')[0];
+  htmlTag   = document.getElementsByTagName('html')[0];
   htmlTag.style.fontFamily = fonts[2];
 
-  if(!bodyTag)   bodyTag   = document.getElementsByTagName('body')[0];
-  if(!headerTag) headerTag = document.getElementsByTagName('header');
-  if(!mainTag)   mainTag   = document.getElementsByTagName('main')[0];
-  if(!footerTag) footerTag = document.getElementsByTagName('footer')[0];
+  bodyTag   = document.getElementsByTagName('body')[0];
+  headerTag = document.getElementsByTagName('header');
+  mainTag   = document.getElementsByTagName('main')[0];
+  footerTag = document.getElementsByTagName('footer')[0];
   footerTag.style.display = 'none';  
   headerTag[0].setAttribute('onclick',"displayCV(\'reset\');");
   resized();
