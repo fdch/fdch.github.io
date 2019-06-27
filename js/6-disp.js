@@ -113,7 +113,7 @@ function tuner(pars)
     {
       pars[i].style.backgroundColor = "#000000";
       pars[i].style.padding         = mypad + "px";
-      pars[i].style.borderRadius    = bRad;
+      pars[i].style.borderRadius    = bRad  + "px";
     }
   }
 }
@@ -127,21 +127,11 @@ function tuneUp(section)
   {
     mainTag.style.marginLeft = (w - secRect.width) / 2 + "px";
   }
+  for (let i=1;i<7;i++)
+  {
+    tuner(section.getElementsByTagName('h'+i));
+  }
   tuner(section.getElementsByTagName('p'));
-  tuner(section.getElementsByTagName('h3'));
-  tuner(section.getElementsByTagName('h4'));
-  tuner(section.getElementsByTagName('h5'));
-  tuner(section.getElementsByTagName('h6'));
-  // let lnk = section.getElementsByTagName("a");
-  // if (lnk)
-  // {
-  //   for (let i=0;i<lnk.length;i++)
-  //   {
-  //     lnk[i].style.backgroundColor = "#000000";
-  //     lnk[i].style.borderRadius    = bRad + "px";
-  //     lnk[i].style.color           = "lightblue";
-  //   }
-  // }
 }
 
 function displayTouch(target)
