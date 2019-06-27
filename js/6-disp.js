@@ -78,6 +78,7 @@ function resetDisplay(x){
   var c;
   if (removeChilds(mainTag)) {
     if( !x.localeCompare('init') ) {
+        mainTag.style.marginLeft = "0px";
         return void 0; // we are on init page
       } else {
         //remove backvid
