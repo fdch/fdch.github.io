@@ -1,7 +1,30 @@
 var mitem = [
-"init", "bio", "unwork", "papers", 
-"events", "people", "touch", "cv", "games",  // "audio", // "video"
+	"init", 
+	"bio", 
+	"unwork", 
+	"papers", 
+	"events",
+	"people",
+	"touch",
+	"games", 
+	"cv" // ,
+	// "audio",
+	// "video"
 ];
+var allCVsections = [
+	"Personal",
+	"Teachings",
+	"Awards",
+	"Unworks",
+	"Collaborations",
+	"Performances"
+];
+
+var webSections = [
+	"People",
+	"Events",
+	"Papers"
+]
 var currpage    = 0;
 var loaded      = 0;
 var loading     = 0;
@@ -22,12 +45,12 @@ var color_preset = {
 	"rand" : [255,0,255,0]
 };
 
-var rotImgStyle= [
-	"float:left",
-	"margin:5px 0 0 5px",
-	"clip-path:circle(30% at 50% 50%)",
-	"-webkit-clip-path:circle(50% at 50% 50%)"
-];
+// var rotImgStyle= [
+// 	"float:left",
+// 	"margin:5px 0 0 5px",
+// 	"clip-path:circle(30% at 50% 50%)",
+// 	"-webkit-clip-path:circle(50% at 50% 50%)"
+// ];
 
 var tilde = " ~ ";
 
@@ -75,21 +98,6 @@ var allGS = [
 	spreadsheets+cvID   +"4"+altjson
 ];
 
-var allCVsections = [
-	"Personal",
-	"Teachings",
-	"Awards",
-	"Unworks",
-	"Collaborations",
-	"Performances"
-];
-
-var webSections = [
-	"People",
-	"Events",
-	"Papers"
-]
-
 var formD = [articleWidth(maxWidth),height()];
 
 var formL = [
@@ -102,15 +110,15 @@ var formE = [
 	frameborder=\"0\" marginheight=\"0\" marginwidth=\"0\">Loading...</iframe>"
 ]
 var fonts = [
-"\'Courier\'",
-"\'Arial\'",
-"\'Helvetica\'",
-"\'Times New Roman\'",
-"\'Courier New\'",
-"\'Times\'",
-"\'Verdana\'",
-"\'Georgia\'",
-"\'Palatino\'"
+	"Courier",
+	"Arial",
+	"Helvetica",
+	"Times New Roman",
+	"Courier New",
+	"Times",
+	"Verdana",
+	"Georgia",
+	"Palatin'"
 ];
 
 var somestring='kontakte';
