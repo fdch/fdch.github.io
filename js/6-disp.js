@@ -131,7 +131,7 @@ function tuneUp(section)
     tuner(section.getElementsByTagName('h'+i));
   }
   tuner(mainTag.getElementsByTagName('h2'));
-  mainTag.style.maxWidth = section.secRect.width + "px";
+  mainTag.style.maxWidth = secRect.width + "px";
   tuner(section.getElementsByTagName('p'));
   section.style.marginBottom = "100px";
 }
