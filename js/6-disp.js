@@ -200,7 +200,7 @@ function displayBiogra(target)
   {
     alltags.push(element('p',bio_en,'bio-eng'));
   }
-  alltags.push(element("button","CV",'', "window.open(\'"+cv+"\', '_top');")); 
+  alltags.push(element("button","curriculum vitae",'', "window.open(\'"+cv+"\', '_top');")); 
   alltags.push(img(bioImage, articleWidth(maxWidth),shortname));
   for (let i in alltags) artiTag.appendChild(alltags[i]);
 
@@ -357,7 +357,7 @@ function displayEvents(target,source) {
     aaa.push(element("h3",titl));
     aaa.push(element("h4",wher));
     aaa.push(element("h5",when.toDateString()));
-    aaa.push(element("button",'','',"window.open(\'"+eurl+"\', \'_top\');"));
+    aaa.push(element("button",'more','',"window.open(\'"+eurl+"\', \'_top\');"));
     for (let j in aaa) headTag.appendChild(aaa[j]);
     
 

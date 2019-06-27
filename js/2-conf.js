@@ -104,5 +104,5 @@ function loadGlobals(g)
 	bio_es = g["descripcion"];
 	shortname = g["shortname"];
 
-	bodyTag.style.background = "url('"+bkgImage+"')";
+	if(bodyTag) bodyTag.style.background = "url('"+bkgImage+"')";
 }
