@@ -125,13 +125,13 @@ function pdRandom(range,offset)
 
 function randomColor(preset, target)
 {
-  var lran = preset[0];
-  var loff = preset[1];
-  var dran = preset[2];
-  var doff = preset[3];
-  var light = "rgb("+pdRandom(lran,loff)+","+pdRandom(lran,loff)+","+pdRandom(lran,loff)+")";
-  var darky = "rgb("+pdRandom(dran,doff)+","+pdRandom(dran,doff)+","+pdRandom(dran,doff)+")";
-  var menuy = "rgba("+pdRandom(dran,doff)+","+pdRandom(dran,doff)+","+pdRandom(dran,doff)+","+hAlpha+")";
+  let lran = preset[0];
+  let loff = preset[1];
+  let dran = preset[2];
+  let doff = preset[3];
+  let light = "rgb("+pdRandom(lran,loff)+","+pdRandom(lran,loff)+","+pdRandom(lran,loff)+")";
+  let darky = "rgb("+pdRandom(dran,doff)+","+pdRandom(dran,doff)+","+pdRandom(dran,doff)+")";
+  // var menuy = "rgba("+pdRandom(dran,doff)+","+pdRandom(dran,doff)+","+pdRandom(dran,doff)+","+hAlpha+")";
   target[0].style.backgroundColor = darky;
   target[0].style.color = light;
 }
