@@ -742,7 +742,7 @@ function displayMedia(target,source,type) {
 }
 function loadCV() {
   // mainBack.value='';
-  for (let i in allCVsections)
+  for (let i=1; i<allCVsections.length; i++)
   {
     displayCV(allCVsections[i]);
     toggle(allCVsections[i]);
