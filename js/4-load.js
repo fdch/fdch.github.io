@@ -1,4 +1,4 @@
-function loadAll(sheets, callback)
+function loadAll(sheets)
 {
   // globals
   loadJSON("https://fdch.github.io/data/global.json", function(response)
@@ -200,7 +200,8 @@ function loadAll(sheets, callback)
 
   loaded = 1; //set it as loaded if it is loaded asynchronously
 
-  if(callback) callback();
+  // callback();
+  // if(callback) callback();
 
   return 1; //actually not checking if stuf loaded...
 }

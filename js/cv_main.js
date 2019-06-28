@@ -8,7 +8,9 @@
 //////////////////////////////        ///////////
 
 function mainCV() {
-  if(!loaded) loadAll(allGS,loadCV());
+
+  if(!loaded) loadAll(allGS);
+
 
   htmlTag   = document.getElementsByTagName('html')[0];
   htmlTag.style.fontFamily = fonts[2];
@@ -20,17 +22,10 @@ function mainCV() {
   footerTag.style.display = 'none';  
   headerTag[0].setAttribute('onclick',"displayCV(\'reset\');");
   resized();
-  // mainBack = document.createAttribute('style');
-  // mainBack.value = backImg+"width:"+w+"px;height:"+h+"px;";
-  // mainTag.setAttributeNode(mainBack);
-      
+
+  headerTag[0].style.borderBottom = "3px solid black";    
+  headerTag[0].style.marginBottom = "10px";    
   randomColor(color_preset["mid"], [bodyTag, headerTag[0]] );
 
-  
-  // var check = 0;
-  // if (check=loadAll(allGS)) {
-    // setTimeout(function(){
-      // loadCV();
-    // }, 3000);
-  // }
+  setTimeout(function(){ loadCV(); }, 1400);
 }

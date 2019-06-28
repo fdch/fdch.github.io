@@ -11,11 +11,27 @@ var allPerfor={}, allAwards={}, allCollab={}, allTeachi={};
 // data arrays
 var allCategories=[], allTitles=[], allWorkId=[], uCategories=[];
 var allVideos=[], allAudios=[];
-var submit=[], contactMessage=[], personal=[], gameDraw=[];
+var submit=[], contactMessage=[], gameDraw=[];
 
 var bioImage, bkgImage, cv, contactGif, loadingUrl, userLang, mobile;
 
 // var rotImg=[], backImg, imgArray=[], rotImgTag;
+
+userLang = navigator.language || navigator.userLanguage; 
+mobile   = mobileCheck();
+
+if(!notified)
+{
+console.log("Your browser language is: " + userLang);
+console.log("You are on a "+(mobile?"mobile":"desktop")+" device");
+console.log(navigator.vendor)
+console.log(navigator.userAgent);
+notified=1;
+}
+
+
+
+
 
 // this function below loads up all the globals above
 // it is fired from 4-load.js
@@ -30,17 +46,6 @@ function loadGlobals(g)
 	 (as fast as nonhumanly possible :)",
 	 "Follow me on social media :)"
 	]
-	personal = [
-	"Full Name: "+g["fullname"],
-	"Date of Birth : <a href=\'"+g["may8th"]+"\' target=\'_blank\''>"+new Date(g["bday"])+"</a>",
-	"Country of Birth : " +g["nationality"],
-	"Mailing Address : "  +g["address"],
-	"Phone Number : "     +g["phone"],
-	"E-mail : "           +g["email"],
-	"Website : <a href=\'"+g["url"]+"\'>"+g["url"]+"</a>",
-	"Graduate Education : <ul><li>"+g["grad"][0]+"</li><li>"+g["grad"][1]+"</li></ul>",
-	"Undergraduate :"+g["undergrad"],
-	];
 	cv 			=  g["url"]+ "/cv/";
 	contactGif 	=  g["raw"]+g["imgpath"] + "zissou.gif";
 	loadingUrl 	=  g["raw"]+g["imgpath"] + "fdch.gif";
