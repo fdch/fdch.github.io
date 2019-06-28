@@ -104,7 +104,13 @@ function main(vid)
   iframeTag.style.display      = 'inline';
   iframeTag.style.position     = "absolute";
   iframeTag.style.minWidth     = "100%";
-  iframeTag.style.minHeight    = "100%";
+  if (!mobile)
+  { 
+    iframeTag.style.minHeight    = "100%";
+  } else
+  {
+    iframeTag.style.minHeight    = "40%";
+  }
   iframeTag.style.border       = "none";
   if (!mobile) iframeTag.style.marginTop    = "10px";
 
