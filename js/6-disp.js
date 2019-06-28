@@ -135,6 +135,7 @@ function tuneUp(section)
   mainTag.style.maxWidth = secRect.width + "px";
   tuner(section.getElementsByTagName('p'));
   tuner(section.getElementsByTagName('table'));
+  tuner(section.getElementsByTagName('ul'));
   section.style.marginBottom = "100px";
 }
 
