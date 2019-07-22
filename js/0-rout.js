@@ -176,6 +176,53 @@ function getUniqueCategories(x)
   return unique(unique(cats));
 }
 
+
+function applyTune(target,color)
+{
+  target.style.backgroundColor = color?color:"#000000";
+  target.style.padding         = mypad + "px";
+  target.style.borderRadius    = bRad  + "px";
+  target.style.marginBottom    = mypad + "px";
+}
+
+
+function tuner(pars, color)
+{
+  if (pars)
+  {
+    for (let i=0;i<pars.length;i++)
+    {
+      applyTune(pars[i],color);
+    }
+  }
+}
+
+function centering(section)
+{
+  let secRect = section.getBoundingClientRect();
+  // centering
+  if(w > secRect.width && w > maxWidth)
+  {
+    mainTag.style.marginLeft = (w - secRect.width) / 2 + "px";
+  }
+  mainTag.style.maxWidth = secRect.width + "px";
+}
+
+function tuneUp(section)
+{
+  for (let i=3;i<7;i++)
+  {
+    tuner(section.getElementsByTagName('h'+i));
+  }
+  centering(section);
+  tuner(mainTag.getElementsByTagName('h2'),"#4C77BA");
+  tuner(section.getElementsByTagName('p'));
+  tuner(section.getElementsByTagName('table'));
+  tuner(section.getElementsByTagName('ul'));
+  section.style.marginBottom = "100px";
+}
+
+
 function getValue(x)
 {
   // used in dropdowns as onclick attribute
@@ -185,6 +232,7 @@ function getValue(x)
   {
     for (let i in allWorkId) {
       let wid = document.getElementById(allWorkId[i]);
+      
       switch(name) {
       case "title":
         if(valu === wid)
@@ -196,9 +244,13 @@ function getValue(x)
         let clist = wid.classList;
         // console.log(clist);
         if( clist.contains(valu || valu.replace(/W/g,'')) )
+        {
           wid.style.display = "initial";
-        else
+          // console.log(wid.id);
+        } else
+        {
           wid.style.display = "none";
+        }
         break;
       default:
         break;
@@ -207,6 +259,17 @@ function getValue(x)
   } else
   {
     console.log("allWorkId is empty:", allWorkId);
+  }
+  let divs=mainTag.getElementsByTagName("div");
+  
+  for (let i=0;i<divs.length;i++)
+  { 
+    let status=divs[i].style.display;
+    if (status.localeCompare("none"))
+    {  
+      console.log(divs[i].id);
+      applyTune(divs[i]);
+    }
   }
   //console.log(name + ": " + valu);
 }

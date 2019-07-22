@@ -106,39 +106,6 @@ function resetDisplay(x){
   }
 }
 
-function tuner(pars, color)
-{
-  if (pars)
-  {
-    for (let i=0;i<pars.length;i++)
-    {
-      pars[i].style.backgroundColor = color?color:"#000000";
-      pars[i].style.padding         = mypad + "px";
-      pars[i].style.borderRadius    = bRad  + "px";
-    }
-  }
-}
-
-function tuneUp(section)
-{
-  let secRect = section.getBoundingClientRect();
-  // centering
-  if(w > secRect.width && w > maxWidth)
-  {
-    mainTag.style.marginLeft = (w - secRect.width) / 2 + "px";
-  }
-  for (let i=3;i<7;i++)
-  {
-    tuner(section.getElementsByTagName('h'+i));
-  }
-  tuner(mainTag.getElementsByTagName('h2'),"#4C77BA");
-  mainTag.style.maxWidth = secRect.width + "px";
-  tuner(section.getElementsByTagName('p'));
-  tuner(section.getElementsByTagName('table'));
-  tuner(section.getElementsByTagName('ul'));
-  section.style.marginBottom = "100px";
-}
-
 function displayTouch(target)
 {
   let sectTag = element('section');
@@ -199,6 +166,7 @@ function displayBiogra(target)
   }
   alltags.push(element("button","curriculum vitae",'', "window.open(\'"+cv+"\', '_top');"));
   alltags.push(img(bioImage, articleWidth(maxWidth),shortname));
+  alltags.push(element("button","HQ photo",'', "window.open(\'"+latest_bio_pic+"\', '_top');"));
   for (let i in alltags) artiTag.appendChild(alltags[i]);
 
   return sectTag;
@@ -230,7 +198,9 @@ function displayGames(target)
 }
 
 function displayUnwork(target,source) {
-  var keys = Object.keys(source);
+  let sectTag = element('section');
+  target.appendChild(sectTag);
+  let keys = Object.keys(source);
   for (var i in keys) {
     let x = keys[i];
     let titl = source[x]["awTitl"];
@@ -247,17 +217,17 @@ function displayUnwork(target,source) {
     let loca = source[x]["awLoca"];
     let dura = source[x]["awDura"];
 
-    let sectTag = element('section','', x);
-    target.appendChild(sectTag);
-
-    sectTag.setAttribute('class', cate.join(" ")+" unworks");
-
+    let divTag  = element("div",'', x);
+    divTag.setAttribute('class', cate.join(" ")+" unworks");
+    sectTag.appendChild(divTag);
     let headTag = element('header');
-    sectTag.appendChild(headTag);
+    divTag.appendChild(headTag);
     let artiTag = element('article');
-    sectTag.appendChild(artiTag);
+    divTag.appendChild(artiTag);
     let footTag = element('footer');
-    sectTag.appendChild(footTag);
+    divTag.appendChild(footTag);
+
+    applyTune(divTag);
 
     let htitle = element("h3",titl);
     let hstitl = element("h4",desc);
@@ -267,7 +237,7 @@ function displayUnwork(target,source) {
     var perfMessage = "Premiered by "+perf+" on "+date.toDateString()+", at "+loca;
 
     var aaa = new Array();
-    if (iurl) aaa.push(img(iurl, articleWidth(maxWidth),titl));
+    if (iurl) aaa.push(img(iurl, articleWidth(maxWidth)-mypad*2,titl));
     if (aurl) aaa.push(element('button','Audio',x+'-aurl',"window.open(\'"+aurl+"\',\'_top\');"));
     if (vurl) aaa.push(element('button','Video',x+'-vurl',"window.open(\'"+vurl+"\',\'_top\');"));
     if (surl) aaa.push(element('button','Score',x+'-surl',"window.open(\'"+surl+"\',\'_top\');"));
@@ -278,9 +248,9 @@ function displayUnwork(target,source) {
      
     let timest = element('h6',time);
     footTag.appendChild(timest);
-    sectTag.style.borderBottom = "10px dotted black";
-    tuneUp(sectTag);
+
   }
+    centering(sectTag);
 }
 function displayPapers(target,source) {
   var keys = Object.keys(source);
@@ -509,7 +479,8 @@ function displayCVPerson(target,source,id)
 }
 
 
-function displayCVTeachi(target,source,id){
+function displayCVTeachi(target,source,id)
+{
   let sectTag = element('section','',id);
   target.appendChild(sectTag);
 
@@ -525,10 +496,15 @@ function displayCVTeachi(target,source,id){
     let term = source[x]["aTTerm"];
     let year = source[x]["aTYear"];
     
+    let divTag  = element("div");
+    sectTag.appendChild(divTag);
     let headTag = element('header');
-    sectTag.appendChild(headTag);
+    divTag.appendChild(headTag);
     let artiTag = element('article');
-    sectTag.appendChild(artiTag);
+    divTag.appendChild(artiTag);
+
+    applyTune(divTag);
+
     // let footTag = element('footer');
     // sectTag.appendChild(footTag);
 
@@ -544,7 +520,7 @@ function displayCVTeachi(target,source,id){
     // let footer = element('h6',time);
     // footTag.appendChild(footer);
     // window.alert(job);
-    tuneUp(sectTag);
+    // tuneUp(sectTag);
   }
 }
 function displayCVAwards(target,source,id){
@@ -564,12 +540,14 @@ function displayCVAwards(target,source,id){
     var desc = source[x]["aADesc"];
     var urll = source[x]["aAUrll"];
 
+    let divTag  = element("div");
+    sectTag.appendChild(divTag);
     let headTag = element('header');
-    sectTag.appendChild(headTag);
+    divTag.appendChild(headTag);
     let artiTag = element('article');
-    sectTag.appendChild(artiTag);
-    // let footTag = element('footer');
-    // sectTag.appendChild(footTag);
+    divTag.appendChild(artiTag);
+
+    applyTune(divTag);
 
     let awar = titl+" for "+dura+" in "+wher+" ("+type+")";
     let htitle = element("h3",awar);
@@ -579,10 +557,6 @@ function displayCVAwards(target,source,id){
     let refer = element("i", whoo, "", "window.open("+urll+",\'_top\')");
     descrip.appendChild(refer);
     artiTag.appendChild(descrip);
-
-    // let footer = element('h6',time);
-    // footTag.appendChild(footer);
-    tuneUp(sectTag);
   }
 }
 function displayCVUnwork(target,source,id){
@@ -607,12 +581,18 @@ function displayCVUnwork(target,source,id){
     let loca = source[x]["awLoca"];
     let dura = source[x]["awDura"]; 
 
+    let divTag = element("div");
+    applyTune(divTag);
+    sectTag.appendChild(divTag);
+    
+
     let headTag = element('header');
-    sectTag.appendChild(headTag);
+    divTag.appendChild(headTag);
     let artiTag = element('article');
-    sectTag.appendChild(artiTag);
+    divTag.appendChild(artiTag);
     // let footTag = element('footer');
     // sectTag.appendChild(footTag);
+
 
     let htitle = element("h3",titl);
     let hstitl = element("h4",desc);
@@ -628,6 +608,7 @@ function displayCVUnwork(target,source,id){
     ];
 
     let ulTag = element("ul");
+    ulTag.style.listStyle = "none";
     for (let j in lis){
       let liTag = element("li", lis[j]);
       ulTag.appendChild(liTag);
@@ -637,7 +618,7 @@ function displayCVUnwork(target,source,id){
      
     // let timest = element('h6',time);
     // footTag.appendChild(timest);
-    tuneUp(sectTag);
+    // tuneUp(divTag);
   }
 }
 function displayCVCollab(target,source,id){
@@ -654,12 +635,14 @@ function displayCVCollab(target,source,id){
     var wher = source[x]["aCWher"];
     var desc = source[x]["aCDesc"];
 
+    let divTag  = element("div");
+    sectTag.appendChild(divTag);
     let headTag = element('header');
-    sectTag.appendChild(headTag);
+    divTag.appendChild(headTag);
     let artiTag = element('article');
-    sectTag.appendChild(artiTag);
-    // let footTag = element('footer');
-    // sectTag.appendChild(footTag);
+    divTag.appendChild(artiTag);
+
+    applyTune(divTag);
 
     let colla = year+tilde+cate+" in "+wher;
     if(!userLang.localeCompare("es"))
@@ -673,9 +656,8 @@ function displayCVCollab(target,source,id){
     let descrip = element("p",desc);
     artiTag.appendChild(descrip);
 
-    // let footer = element('h6',time);
-    // footTag.appendChild(footer);
-    tuneUp(sectTag);
+
+
   }
 }
 function displayCVPerfor(target,source,id){
@@ -694,12 +676,14 @@ function displayCVPerfor(target,source,id){
     var inst = source[x]["aPInst"];
     var witt = source[x]["aPWith"];
 
+    let divTag  = element("div");
+    sectTag.appendChild(divTag);
     let headTag = element('header');
-    sectTag.appendChild(headTag);
+    divTag.appendChild(headTag);
     let artiTag = element('article');
-    sectTag.appendChild(artiTag);
-    // let footTag = element('footer');
-    // sectTag.appendChild(footTag);
+    divTag.appendChild(artiTag);
+
+    applyTune(divTag);
 
     let event = when.toDateString()+tilde+what +" at "+wher+", with "+witt;
     
@@ -715,9 +699,6 @@ function displayCVPerfor(target,source,id){
     artiTag.appendChild(descrip);
     descrip.appendChild(perfor);
 
-    // let footer = element('h6',time);
-    // footTag.appendChild(footer);
-    tuneUp(sectTag);
   }
 }
 function displayMedia(target,source,type) {
@@ -748,4 +729,7 @@ function loadCV() {
     displayCV(allCVsections[i]);
     toggle(allCVsections[i]);
   }
+  //this is here otherwise we don't get tuneup
+  // tuneUp(sectTag);
+  tuner(mainTag.getElementsByTagName('h2'),"#4C77BA");
 }
