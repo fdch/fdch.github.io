@@ -159,13 +159,25 @@ function displayBiogra(target)
   let alltags = new Array();
   if(!userLang.localeCompare("es"))
   {
-    alltags.push(element('p',bio_es,'bio-spa'));
+    alltags.push(element('p',bio_es));
+    alltags.push(element('p',epigrafe));
   } else 
   {
-    alltags.push(element('p',bio_en,'bio-eng'));
+    alltags.push(element('p',bio_en));
+    alltags.push(element('p',epigraph));
   }
   alltags.push(element("button","curriculum vitae",'', "window.open(\'"+cv+"\', '_top');"));
   alltags.push(img(bioImage, articleWidth(maxWidth),shortname));
+  if(!userLang.localeCompare("es"))
+  {
+    for (let i in long_descripcion) 
+      alltags.push(element('p',long_descripcion[i]))
+  } else
+  {
+    for (let i in long_description) 
+      alltags.push(element('p',long_description[i]))   
+  }
+
   // alltags.push(element("button","HQ photo",'', "window.open(\'"+bioImage+"\', '_top');"));
   for (let i in alltags) artiTag.appendChild(alltags[i]);
 
