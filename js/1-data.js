@@ -64,8 +64,11 @@ var bRad        = 20;         // border radius used in tuner() and img()
 var tilde 		= " ~ ";      // tilde separator used in displayCVTeachi()
 // var currpage    = 0;          // current page used in imgClicker()
 // var t           = 4333;    // delay time
-var latest_bio_pic = "fdch_pic-lq.jpeg";            // latest biography pic
-var latest_bkg_pic = ["orkna", "orkna-1.png"]; // latest background pic
+
+// latest biography pic
+var latest_bio_pic = "camarahalac_biopic-original.png";
+// latest background pic
+var latest_bkg_pic = ["orkna", "orkna-1.png"];
 
 /*
  * Spreadsheets
