@@ -166,7 +166,7 @@ function displayBiogra(target)
   }
   alltags.push(element("button","curriculum vitae",'', "window.open(\'"+cv+"\', '_top');"));
   alltags.push(img(bioImage, articleWidth(maxWidth),shortname));
-  alltags.push(element("button","HQ photo",'', "window.open(\'"+latest_bio_pic+"\', '_top');"));
+  // alltags.push(element("button","HQ photo",'', "window.open(\'"+bioImage+"\', '_top');"));
   for (let i in alltags) artiTag.appendChild(alltags[i]);
 
   return sectTag;
