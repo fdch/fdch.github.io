@@ -107,6 +107,10 @@ function loadGlobals(g)
 	];
 	bio_en = g["description"];
 	bio_es = g["descripcion"];
+	long_description = g["long_description"];
+	long_descripcion = g["long_descripcion"];
+	epigrafe = g["epigrafe"];
+	epigraph = g["epigraph"];
 	shortname = g["shortname"];
 
 	if(bodyTag) bodyTag.style.background = "url('"+bkgImage+"')";
