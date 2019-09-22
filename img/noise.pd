@@ -1,0 +1,109 @@
+#N canvas 526 49 416 393 12;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X obj 188 154 ggee/image head2.gif;
+#X array array1 100 float 5;
+#A 0 0 1 0.933254 0.870964 0.812831 0.758578 0.707946 0.660693 0.616595
+0.57544 0.537032 0.501187 0.467735 0.436516 0.40738 0.380189 0.354813
+0.331131 0.30903 0.288403 0.269153 0.251189 0.234423 0.218776 0.204174
+0.190546 0.177828 0.165959 0.154882 0.144544 0.134896 0.125893 0.11749
+0.109648 0.102329 0.0954993 0.0891251 0.0831764 0.0776247 0.0724436
+0.0676083 0.0630957 0.0588844 0.0549541 0.0512861 0.047863 0.0446684
+0.0416869 0.0389045 0.0363078 0.0338844 0.0316228 0.0295121 0.0275423
+0.025704 0.0239883 0.0223872 0.020893 0.0194984 0.018197 0.0169824
+0.0158489 0.0147911 0.0138038 0.0128825 0.0120226 0.0112202 0.0104713
+0.00977237 0.00912011 0.00851138 0.00794328 0.0074131 0.00691831 0.00645654
+0.0060256 0.00562341 0.00524808 0.00489779 0.00457088 0.00426579 0.00398107
+0.00371535 0.00346737 0.00323594 0.00301995 0.00281838 0.00263027 0.00245471
+0.00229087 0.00213796 0.00199526 0.00186209 0.0017378 0.00162181 0.00151356
+0.00141254 0.00131826 0.00123027 0.00114815;
+#X coords 0 1 100 -1 380 309 2 0 0;
+#X restore 19 58 graph;
+#N canvas 33 203 508 560 fdch.github.io 0;
+#X obj 355 300 s pd;
+#X obj 209 509 dac~;
+#X obj 231 102 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 15 43 noise~;
+#X obj 236 400 delwrite~ mydel 1000;
+#X obj 299 197 delread4~ mydel 1000;
+#X obj 229 247 mtof~;
+#X obj 330 103 *~ 20;
+#X obj 330 127 +~ 20;
+#X obj 302 162 *~ 1000;
+#X obj 284 226 *~ 30;
+#X obj 131 359 vcf~ 0.5;
+#X obj 321 20 osc~ 0.1;
+#X obj 317 62 osc~;
+#X msg 355 269 dsp \$1;
+#N canvas 0 22 450 300 hann 0;
+#X obj 279 64 block~ 100;
+#X obj 81 234 tabsend~ array1;
+#X obj 77 176 tabreceive~ 0-gau;
+#X obj 34 20 r pd-dsp-started;
+#X obj 34 44 del 10;
+#X obj 32 71 fd_windows 0 100;
+#X obj 226 155 inlet;
+#X msg 226 179 set \$1;
+#X connect 2 0 1 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 6 0 7 0;
+#X connect 7 0 2 0;
+#X restore 144 19 pd hann;
+#X obj 35 269 *~;
+#X obj 152 135 metro 100;
+#X msg 152 207 0 \, 1 \$1;
+#X obj 152 231 line~;
+#X obj 152 279 +~ 1;
+#X obj 152 255 *~ 97;
+#X obj 223 39 / 300;
+#X obj 152 159 random 300;
+#X obj 152 183 + 3;
+#X obj 53 95 *~ 0.9;
+#X obj 50 134 bp~ 1000 3;
+#X obj 53 71 delread~ mydel 3;
+#X obj 396 67 random 10;
+#X obj 396 91 sel;
+#X obj 396 115 random 15;
+#X obj 218 179 t a a b;
+#X obj 129 50 fd_seltab;
+#X obj 152 303 tabread4~ array1;
+#X connect 2 0 14 0;
+#X connect 2 0 17 0;
+#X connect 3 0 16 0;
+#X connect 5 0 10 0;
+#X connect 6 0 11 1;
+#X connect 7 0 8 0;
+#X connect 8 0 6 0;
+#X connect 9 0 5 0;
+#X connect 10 0 6 0;
+#X connect 11 0 4 0;
+#X connect 11 0 1 0;
+#X connect 11 0 1 1;
+#X connect 12 0 13 0;
+#X connect 13 0 7 0;
+#X connect 13 0 9 0;
+#X connect 14 0 0 0;
+#X connect 16 0 11 0;
+#X connect 17 0 23 0;
+#X connect 18 0 19 0;
+#X connect 19 0 21 0;
+#X connect 20 0 33 0;
+#X connect 21 0 20 0;
+#X connect 22 0 12 0;
+#X connect 23 0 24 0;
+#X connect 24 0 31 0;
+#X connect 25 0 26 0;
+#X connect 26 0 16 0;
+#X connect 27 0 25 0;
+#X connect 28 0 29 0;
+#X connect 29 0 30 0;
+#X connect 30 0 32 0;
+#X connect 31 0 18 0;
+#X connect 31 1 17 1;
+#X connect 31 1 22 0;
+#X connect 31 2 28 0;
+#X connect 32 0 15 0;
+#X connect 33 0 16 1;
+#X coords 0 -1 1 1 148 19 1 100 100;
+#X restore 251 37 pd fdch.github.io;
