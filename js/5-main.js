@@ -31,7 +31,7 @@ function main(vid)
     bodyTag = document.getElementsByTagName('body')[0];
   }
 
-  if(vid) {
+  if(!vid) {
     v = featURL[pdRandom(featURL.length)];
   } else {
     v = featURL[featURL.length-1];
