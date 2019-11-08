@@ -5,6 +5,7 @@
 
 var mitem = [
 	"init", 
+	"cv",
 	"bio", 
 	"unwork", 
 	"papers", 
@@ -12,7 +13,7 @@ var mitem = [
 	"people",
 	"touch",
 	"games", 
-	"cv" // ,
+	"papers" // ,
 	// "audio",
 	// "video"
 ];
