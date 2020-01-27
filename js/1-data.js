@@ -12,14 +12,13 @@ var mitem = [
 	"events",
 	"people",
 	"touch",
-	"games", 
-	"papers" // ,
+	"games"
 	// "audio",
 	// "video"
 ];
 var allCVsections = [
 	"Personal",
-	"Teachings",
+	"Teaching",
 	"Awards",
 	"Unworks",
 	"Collaborations",
