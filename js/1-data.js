@@ -12,7 +12,8 @@ var mitem = [
 	"events",
 	"people",
 	"touch",
-	"games"
+	"games",
+	"projects"
 	// "audio",
 	// "video"
 ];

@@ -64,6 +64,9 @@ function display(x) {
       case "audio" :
         displayMedia(article,allAudios, 'audio');
         break;
+      case "projects":
+        window.open("https://fdch.github.io/projects","_top");
+        break;
       default:
       break;
       }
