@@ -18,6 +18,6 @@ function mainProjects() {
   headerTag[0].style.marginBottom = "10px";    
   randomColor(color_preset["mid"], [bodyTag, headerTag[0]] );
 
-  setTimeout(function(){ displayCV(allCVsections[0]); },100);
-  setTimeout(function(){ loadCV(); toggle(allCVsections[0]); }, 3000);
+  // setTimeout(function(){ displayCV(allCVsections[0]); },100);
+  // setTimeout(function(){ loadCV(); toggle(allCVsections[0]); }, 3000);
 }
