@@ -45,9 +45,9 @@
 	<p>Berenice Llorens is a composer, performer, poet, and dj from Córdoba, Argentina. Her work has been performed at La Cúpula Galería de Arte, published on Bandcamp via the Kriptonia label. As a dj she has worked with @visicapiscis_arte and performed on multiple locations around Córdoba. She performes solo, with voice and guitar, and her most recent duo is called <b>Marmota's Dreams</b> with Constanza Pellici.</p>
 
 
-	<div style="width: 600px; overflow: hidden; border-radius: 20px;">
+	<div style="width: 300px; overflow: hidden; border-radius: 20px;">
 		<a href="https://raw.githubusercontent.com/fdch/fdch.github.io/master/projects/fd_br/bere-1.jpg" alt="Berenice LLorens" rel="nofollow" target="_top">
-			<img src="https://raw.githubusercontent.com/fdch/fdch.github.io/master/projects/fd_br/bere-1.jpg" width="620" title="Berenice Llorens">
+			<img src="https://raw.githubusercontent.com/fdch/fdch.github.io/master/projects/fd_br/bere-1.jpg" width="300" title="Berenice Llorens">
 		</a>
 	</div>
 
@@ -63,15 +63,15 @@
 
 	<p>See more performance videos by Berenice Llorens:</p>
 	<ul>
-		<li><a href="https://www.youtube.com/watch?v=qkasKoS-5qQ"></a></li>
-		<li><a href="https://www.youtube.com/watch?v=er3VMQ7OnqM"></a></li>
-		<li><a href="https://www.youtube.com/watch?v=kBjCFCMl2kc"></a></li>
-		<li><a href="https://www.youtube.com/watch?v=OG7MosWl3fo"></a></li>
+		<li><a href="https://www.youtube.com/watch?v=qkasKoS-5qQ">Nado</a></li>
+		<li><a href="https://www.youtube.com/watch?v=er3VMQ7OnqM">Inmaculada Improvisacion - Chúcara</a></li>
+		<li><a href="https://www.youtube.com/watch?v=kBjCFCMl2kc">Primavera 6 - (Spring 6)</a></li>
+		<li><a href="https://www.youtube.com/watch?v=OG7MosWl3fo">Primer tiempo - ImProlija</a></li>
 	</ul>
 
-	<div style="width: 600px; overflow: hidden; border-radius: 20px;">
-		<a href="https://raw.githubusercontent.com/fdch/fdch.github.io/master/projects/fd_br/bere-2.jepg" alt="Berenice LLorens" rel="nofollow" target="_top">
-			<img src="https://raw.githubusercontent.com/fdch/fdch.github.io/master/projects/fd_br/bere-2.jepg" width="620" title="Berenice Llorens">
+	<div style="width: 300px; overflow: hidden; border-radius: 20px;">
+		<a href="https://raw.githubusercontent.com/fdch/fdch.github.io/master/projects/fd_br/bere-2.jpeg" alt="Berenice LLorens" rel="nofollow" target="_top">
+			<img src="https://raw.githubusercontent.com/fdch/fdch.github.io/master/projects/fd_br/bere-2.jpeg" width="300" title="Berenice Llorens">
 		</a>
 	</div>
 
@@ -93,15 +93,31 @@
 	<button onclick="window.open('https://fdch.github.io/projects', '_top')">Back to projects</button>
 </footer> 
 </body>
-<!-- 
+
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.js"></script>
 <script type="text/javascript" src="../js/0-rout.js"></script>
 <script type="text/javascript" src="../js/1-data.js"></script>
 <script type="text/javascript" src="../js/2-conf.js"></script>
 <script type="text/javascript" src="../js/3-menu.js"></script>
 <script type="text/javascript" src="../js/4-load.js"></script>
-<script type="text/javascript" src="../js/cv_main.js"></script>
 <script type="text/javascript" src="../js/6-disp.js"></script>
-<script> mainCV(); </script>
- -->
+<script> 
+  
+  htmlTag   = document.getElementsByTagName('html')[0];
+  htmlTag.style.fontFamily = fonts[2];
+
+  bodyTag   = document.getElementsByTagName('body')[0];
+  headerTag = document.getElementsByTagName('header');
+  mainTag   = document.getElementsByTagName('main')[0];
+  footerTag = document.getElementsByTagName('footer')[0];
+  footerTag.style.display = 'none';  
+
+  resized();
+
+  headerTag[0].style.borderBottom = "3px solid black";    
+  headerTag[0].style.marginBottom = "10px";    
+  randomColor(color_preset["mid"], [bodyTag, headerTag[0]] );
+
+ </script>
+
  </html>
