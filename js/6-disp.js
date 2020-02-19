@@ -65,7 +65,8 @@ function display(x) {
         displayMedia(article,allAudios, 'audio');
         break;
       case "projects":
-        window.open("https://fdch.github.io/projects","_top");
+        displayProjects(article,allProjects);
+        // window.open("https://fdch.github.io/projects","_top");
         break;
       default:
       break;
@@ -385,6 +386,68 @@ function displayPeople(target,source) {
     headTag.appendChild(htitle);
    }
 }
+
+function displayProjects(target,source) {
+  var keys = Object.keys(source);
+  for (var i in keys) {
+    var x = keys[i];
+    var time = source[x]["aPTime"];
+    var part = source[x]["aPPart"];
+    var desc = source[x]["aPDesc"];
+    var ppl1 = source[x]["aPPpl1"];
+    var img1 = source[x]["aPimg1"];
+    var ppl2 = source[x]["aPPpl2"];
+    var img2 = source[x]["aPimg2"];
+    var ppl3 = source[x]["aPPpl3"];
+    var img3 = source[x]["aPimg3"];
+    var ppl4 = source[x]["aPPpl4"];
+    var img4 = source[x]["aPimg4"];
+    var url1 = source[x]["aPUrl1"];
+    var url2 = source[x]["aPUrl2"];
+    var ur11 = source[x]["aP1UR1"];
+    var ur12 = source[x]["aP1UR2"];
+    var ur13 = source[x]["aP1UR3"];
+    var ur21 = source[x]["aP2UR1"];
+    var ur22 = source[x]["aP2UR2"];
+    var ur23 = source[x]["aP2UR3"];
+    var ur31 = source[x]["aP3UR1"];
+    var ur32 = source[x]["aP3UR2"];
+    var ur33 = source[x]["aP3UR3"];
+    var ur41 = source[x]["aP4UR1"];
+    var ur42 = source[x]["aP4UR2"];
+    var ur43 = source[x]["aP4UR3"];
+
+
+    let sectTag = element('section','', x);
+    target.appendChild(sectTag);
+
+    let headTag = element('header');
+    sectTag.appendChild(headTag);
+    let artiTag = element('article');
+    sectTag.appendChild(artiTag);
+    let footTag = element('footer');
+    sectTag.appendChild(footTag);
+
+    let aaa = new Array();
+    aaa.push(element("h3",titl));
+    aaa.push(element("h4",wher));
+    aaa.push(element("h5",when.toDateString()));
+    aaa.push(element("button",'more','',"window.open(\'"+eurl+"\', \'_top\');"));
+    for (let j in aaa) headTag.appendChild(aaa[j]);
+    
+
+    let imagen = img(iurl,articleWidth(maxWidth),titl);
+    artiTag.appendChild(imagen); 
+
+    let descrip = element('p',desc);
+    artiTag.appendChild(descrip);
+
+    let footer = element('h6',time);
+    footTag.appendChild(footer);
+    tuneUp(sectTag);
+  }
+}
+
 function displayCV(x) {
   var headerTag = element('header');
   let htitleTag = element("h2", x, '', "toggle('"+x+"');");

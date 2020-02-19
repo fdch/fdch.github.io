@@ -197,7 +197,44 @@ function loadAll(sheets)
     }
     //console.log(Object.keys(allPerfor));
   });
-
+  loadJSON(sheets[8], function(response)
+  {
+    var f, e, i, entry; 
+    f = JSON.parse(response);
+    entry = f.feed.entry;
+    allPerfor={};   
+    for (i in entry) {
+      e = entry[i];
+      var nPid = String("id-"+makeID(e.gsx$timestamp.$t));
+      allProjects[nPid]={};
+      allProjects[nPid]["aPTime"]=e.gsx$timestamp.$t;
+      allProjects[nPid]["aPPart"]=e.gsx$participants.$t;
+      allProjects[nPid]["aPDesc"]=e.gsx$description.$t;
+      allProjects[nPid]["aPPpl1"]=e.gsx$p1.$t;
+      allProjects[nPid]["aPimg1"]=e.gsx$p1_img.$t;
+      allProjects[nPid]["aPPpl2"]=e.gsx$p2.$t;
+      allProjects[nPid]["aPimg2"]=e.gsx$p2_img.$t;
+      allProjects[nPid]["aPPpl3"]=e.gsx$p3.$t;
+      allProjects[nPid]["aPimg3"]=e.gsx$p3_img.$t;
+      allProjects[nPid]["aPPpl4"]=e.gsx$p4.$t;
+      allProjects[nPid]["aPimg4"]=e.gsx$p4_img.$t;
+      allProjects[nPid]["aPUrl1"]=e.gsx$link_1.$t;
+      allProjects[nPid]["aPUrl2"]=e.gsx$link_2.$t;
+      allProjects[nPid]["aP1UR1"]=e.gsx$p1_link_1.$t;
+      allProjects[nPid]["aP1UR2"]=e.gsx$p1_link_2.$t;
+      allProjects[nPid]["aP1UR3"]=e.gsx$p1_link_3.$t;
+      allProjects[nPid]["aP2UR1"]=e.gsx$p2_link_1.$t;
+      allProjects[nPid]["aP2UR2"]=e.gsx$p2_link_2.$t;
+      allProjects[nPid]["aP2UR3"]=e.gsx$p2_link_3.$t;
+      allProjects[nPid]["aP3UR1"]=e.gsx$p3_link_1.$t;
+      allProjects[nPid]["aP3UR2"]=e.gsx$p3_link_2.$t;
+      allProjects[nPid]["aP3UR3"]=e.gsx$p3_link_3.$t;
+      allProjects[nPid]["aP4UR1"]=e.gsx$p4_link_1.$t;
+      allProjects[nPid]["aP4UR2"]=e.gsx$p4_link_2.$t;
+      allProjects[nPid]["aP4UR3"]=e.gsx$p4_link_3.$t;
+    }
+    //console.log(Object.keys(allProjects));
+  });
   loaded = 1; //set it as loaded if it is loaded asynchronously
 
   // callback();

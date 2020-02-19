@@ -88,7 +88,8 @@ var allGS       = [
 	spreadsheets+cvID   +"1"+altjson,
 	spreadsheets+cvID   +"2"+altjson,
 	spreadsheets+cvID   +"3"+altjson,
-	spreadsheets+cvID   +"4"+altjson
+	spreadsheets+cvID   +"4"+altjson,
+	spreadsheets+sheetID+"5"+altjson
 ];
 
 /*
