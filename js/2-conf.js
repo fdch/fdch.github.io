@@ -14,7 +14,7 @@ var allCategories=[], allTitles=[], allWorkId=[], uCategories=[];
 var allVideos=[], allAudios=[];
 var submit=[], contactMessage=[], gameDraw=[];
 
-var bioImage, bkgImage, cv, contactGif, loadingUrl, userLang, mobile;
+var bioImage, bkgImage, cv, contactGif, loadingUrl, userLang, mobile, cvpdf;
 
 // var rotImg=[], backImg, imgArray=[], rotImgTag;
 
@@ -48,6 +48,7 @@ function loadGlobals(g)
 	 "Follow me on social media :)"
 	]
 	cv 			=  g["url"]+ "/cv/";
+	cvpdf 		=  g["raw"]+ "/fdch.github.io/master/cv/cv.pdf";
 	contactGif 	=  g["raw"]+g["imgpath"] + "zissou.gif";
 	loadingUrl 	=  g["raw"]+g["imgpath"] + "fdch.gif";
 	submit = [
