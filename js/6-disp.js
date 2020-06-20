@@ -805,7 +805,7 @@ function loadCV() {
   for (let i=1; i<allCVsections.length; i++)
   {
     displayCV(allCVsections[i]);
-    toggle(allCVsections[i]);
+    toggle(allCVsections[i].toLowerCase());
   }
   //this is here otherwise we don't get tuneup
   // tuneUp(sectTag);
