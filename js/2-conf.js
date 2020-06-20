@@ -7,6 +7,7 @@ var navSelTag, imgDivTag, catDivTag, catSelTag;
 var g={}, mylinks={};
 var allUnwork={}, allPapers={}, allEvents={}, allPeople={};
 var allPerfor={}, allAwards={}, allCollab={}, allTeachi={};
+var allProjects={};
 
 // data arrays
 var allCategories=[], allTitles=[], allWorkId=[], uCategories=[];
