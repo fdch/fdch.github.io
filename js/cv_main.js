@@ -9,6 +9,8 @@
 
 function mainCV() {
 
+  console.log(loaded);
+  
   if(!loaded)  {
     // globals
     loadJSON("https://fdch.github.io/data/global.json", function(response)
@@ -17,6 +19,7 @@ function mainCV() {
       loadGlobals(g);
     });
     loadCV();
+    loaded = 1;
   }
 
   htmlTag   = document.getElementsByTagName('html')[0];
