@@ -9,7 +9,7 @@
 
 function mainCV() {
 
-  if(!loaded) loadAll(allGS);
+  if(!loaded) loadCV();
 
 
   htmlTag   = document.getElementsByTagName('html')[0];
