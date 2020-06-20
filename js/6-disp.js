@@ -810,4 +810,5 @@ function loadCV() {
   //this is here otherwise we don't get tuneup
   // tuneUp(sectTag);
   tuner(mainTag.getElementsByTagName('h2'),"#4C77BA");
+  loaded = 1;
 }

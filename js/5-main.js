@@ -12,9 +12,9 @@ function main(vid)
   loadJSON(globals, function(response) { 
       g = JSON.parse(response)
       loadGlobals(g);
+      if (!loaded) loadAll(allGS);
   });
   
-  if (!loaded) loadAll(allGS);
 
   if(!htmlTag) {
     htmlTag =document.getElementsByTagName('html')[0];
