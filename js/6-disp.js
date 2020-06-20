@@ -57,6 +57,7 @@ function display(x) {
         break;
       case "cv"    :
         window.open(cvpdf,"_top");
+        tuneUp(displayBiogra(article));
         // window.open(cv,"_top");
         break;
       case "video" :
