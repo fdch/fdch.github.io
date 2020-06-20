@@ -212,8 +212,8 @@ function loadAll(sheets)
       allProjects[nPid]["aPimg3"]=e.gsx$p3img.$t;
       allProjects[nPid]["aPPpl4"]=e.gsx$p4.$t;
       allProjects[nPid]["aPimg4"]=e.gsx$p4img.$t;
-      allProjects[nPid]["aPUrl1"]=e.gsx$link_1.$t;
-      allProjects[nPid]["aPUrl2"]=e.gsx$link_2.$t;
+      allProjects[nPid]["aPUrl1"]=e.gsx$link1.$t;
+      allProjects[nPid]["aPUrl2"]=e.gsx$link2.$t;
       allProjects[nPid]["aP1UR1"]=e.gsx$p1link1.$t;
       allProjects[nPid]["aP1UR2"]=e.gsx$p1link2.$t;
       allProjects[nPid]["aP1UR3"]=e.gsx$p1link3.$t;
