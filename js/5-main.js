@@ -9,12 +9,20 @@ function main(vid)
 {
   let v;
 
-
-  if(!loaded) loadAll(allGS);
+  if(!loaded) {
+      // globals
+    loadJSON("https://fdch.github.io/data/global.json", function(response)
+    { 
+      g = JSON.parse(response)
+      loadGlobals(g);
+    });
+    loadAll(allGS);
+  }
 
   if(!htmlTag) {
     htmlTag =document.getElementsByTagName('html')[0];
-  } 
+  }
+
   if(!headerTag) {
     headerTag = document.getElementsByTagName('header');
     headerTag[0].style.borderBottom = "10px dotted black";

@@ -1,11 +1,5 @@
 function loadAll(sheets)
 {
-  // globals
-  loadJSON("https://fdch.github.io/data/global.json", function(response)
-  { 
-    g = JSON.parse(response)
-    loadGlobals(g);
-  });
   //works
   loadJSON(sheets[0], function(response)
   {

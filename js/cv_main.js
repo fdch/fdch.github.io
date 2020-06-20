@@ -9,8 +9,15 @@
 
 function mainCV() {
 
-  if(!loaded) loadCV();
-
+  if(!loaded)  {
+    // globals
+    loadJSON("https://fdch.github.io/data/global.json", function(response)
+    { 
+      g = JSON.parse(response)
+      loadGlobals(g);
+    });
+    loadCV();
+  }
 
   htmlTag   = document.getElementsByTagName('html')[0];
   htmlTag.style.fontFamily = fonts[2];
