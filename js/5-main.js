@@ -8,16 +8,13 @@
 function main(vid)
 {
   let v;
-
-  if(!loaded) {
-      // globals
-    loadJSON("https://fdch.github.io/data/global.json", function(response)
-    { 
+  
+  loadJSON(globals, function(response) { 
       g = JSON.parse(response)
       loadGlobals(g);
-    });
-    loadAll(allGS);
-  }
+  });
+  
+  if (!loaded) loadAll(allGS);
 
   if(!htmlTag) {
     htmlTag =document.getElementsByTagName('html')[0];

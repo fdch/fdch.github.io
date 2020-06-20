@@ -50,6 +50,8 @@ var color_preset = {  // for randomColor()
 	"rand" : [255,0,255,0]
 };
 
+var globals = "https://fdch.github.io/data/global.json"
+
 var tday        = new Date(); // today's date
 var maxWidth    = 600;        // maximum Width
 var maxHeight   = 600;        // maximum Height
