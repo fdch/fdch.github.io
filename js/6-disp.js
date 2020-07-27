@@ -804,8 +804,10 @@ function displayMedia(target,source,type) {
 }
 function loadCV() {
   // mainBack.value='';
-  for (let i=1; i<allCVsections.length; i++)
+  let i=1;
+  for (; i<allCVsections.length; i++)
   {
+    console.log(allCVsections[i]);
     displayCV(allCVsections[i]);
     toggle(allCVsections[i].toLowerCase());
   }
