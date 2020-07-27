@@ -9,13 +9,13 @@
 
 function mainCV() {
 
-  htmlTag   = document.getElementsByTagName('html')[0];
+  if (!htmlTag) htmlTag   = document.getElementsByTagName('html')[0];
   htmlTag.style.fontFamily = fonts[2];
 
-  bodyTag   = document.getElementsByTagName('body')[0];
-  headerTag = document.getElementsByTagName('header');
-  mainTag   = document.getElementsByTagName('main')[0];
-  footerTag = document.getElementsByTagName('footer')[0];
+  if (!bodyTag)   bodyTag   = document.getElementsByTagName('body')[0];
+  if (!headerTag) headerTag = document.getElementsByTagName('header');
+  if (!mainTag)   mainTag   = document.getElementsByTagName('main')[0];
+  if (!footerTag) footerTag = document.getElementsByTagName('footer')[0];
   footerTag.style.display = 'none';  
   headerTag[0].setAttribute('onclick',"displayCV(\'reset\');");
   
@@ -34,17 +34,17 @@ function mainCV() {
     
     loadGlobals(g);
     
-    loadCV();
-  
+    if (!loaded) {
+          setTimeout(function(){
+            displayCV(allCVsections[0]);
+          }, 100);
+    
+          setTimeout(function(){ 
+            loadCV();
+            toggle(allCVsections[0].toLowerCase());
+          }, 3000);
+      }
   });
 
-  // setTimeout(function(){
-  //   displayCV(allCVsections[0]);
-  // }, 100);
-
-  // setTimeout(function(){ 
-  //   loadCV();
-  //   toggle(allCVsections[0].toLowerCase());
-  // }, 3000);
 
 }
