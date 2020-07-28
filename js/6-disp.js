@@ -606,6 +606,7 @@ function displayCVTeachi(target,source,id)
     // window.alert(job);
     // tuneUp(sectTag);
   }
+  return artiTag;
 }
 function displayCVAwards(target,source,id){
   var sectTag = element('section','',id);
@@ -642,6 +643,7 @@ function displayCVAwards(target,source,id){
     descrip.appendChild(refer);
     artiTag.appendChild(descrip);
   }
+  return artiTag;
 }
 function displayCVUnwork(target,source,id){
   var sectTag = element('section','',id);
@@ -704,6 +706,7 @@ function displayCVUnwork(target,source,id){
     // footTag.appendChild(timest);
     // tuneUp(divTag);
   }
+  return artiTag;
 }
 function displayCVCollab(target,source,id){
   var sectTag = element('section','',id);
@@ -743,6 +746,7 @@ function displayCVCollab(target,source,id){
 
 
   }
+  return artiTag;
 }
 function displayCVPerfor(target,source,id){
   var sectTag = element('section','',id);
@@ -784,6 +788,7 @@ function displayCVPerfor(target,source,id){
     descrip.appendChild(perfor);
 
   }
+  return artiTag;
 }
 function displayMedia(target,source,type) {
   for (let i=0; i<=source.length-1 ; i=i+2) {
