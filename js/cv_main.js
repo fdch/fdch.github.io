@@ -8,6 +8,7 @@
 //////////////////////////////        ///////////
 
 function mainCV() {
+  loaded=0;
 
   if (!htmlTag) htmlTag   = document.getElementsByTagName('html')[0];
   htmlTag.style.fontFamily = fonts[2];
