@@ -31,34 +31,34 @@ function mainCV() {
     g = JSON.parse(response);
 
     loadGlobals(g);
-    if(!loaded) loaded = loadAll(allGS);
-    displayAllCV(allCVsections);
-    tuner(mainTag.getElementsByTagName('h2'),"#4C77BA");
+    // if(!loaded) loaded = loadAll(allGS);
+    // displayAllCV(allCVsections);
+    // tuner(mainTag.getElementsByTagName('h2'),"#4C77BA");
 
 
 
 
 
 
-    // if (!loaded) {
+    if (!loaded) {
     
-    //   loadAll(allGS);
+      loadAll(allGS);
 
-    //   let i=0;
+      let i=0;
       
-    //   setTimeout(function(){
-    //     displayCV(allCVsections[i]);
-    //   }, 100);
+      setTimeout(function(){
+        displayCV(allCVsections[i]);
+      }, 100);
     
-    //   setTimeout(function(){ 
-        // for (i=1; i<allCVsections.length; i++)
-        //   displayCV(allCVsections[i]);
+      setTimeout(function(){ 
+        for (i=1; i<allCVsections.length; i++)
+          displayCV(allCVsections[i]);
 
-    //     tuner(mainTag.getElementsByTagName('h2'),"#4C77BA");
-    //     loaded = 1;
-    //   }, 3000);
+        tuner(mainTag.getElementsByTagName('h2'),"#4C77BA");
+        loaded = 1;
+      }, 3000);
     
-    // };
+    };
 
   });
 }
