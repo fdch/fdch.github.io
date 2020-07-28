@@ -448,7 +448,7 @@ function displayProjects(target,source) {
   }
 }
 
-function displayCV(x) {
+async function displayCV(x) {
   var headerTag = element('header');
   let htitleTag = element("h2", x, '', "toggle('"+x+"');");
   headerTag.appendChild(htitleTag);
@@ -461,22 +461,22 @@ function displayCV(x) {
   
   switch (x) {
     case "Personal" :
-      tuneUp(displayCVPerson(articlTag,g,x.toLowerCase()));
+      await tuneUp(displayCVPerson(articlTag,g,x.toLowerCase()));
       break;
     case "Teachings" :
-      displayCVTeachi(articlTag,allTeachi,x.toLowerCase());
+      await displayCVTeachi(articlTag,allTeachi,x.toLowerCase());
       break;
     case "Awards"   :
-      displayCVAwards(articlTag,allAwards,x.toLowerCase());
+      await displayCVAwards(articlTag,allAwards,x.toLowerCase());
       break;
     case "Unworks":
-      displayCVUnwork(articlTag,allUnwork,x.toLowerCase());
+      await displayCVUnwork(articlTag,allUnwork,x.toLowerCase());
       break;
     case "Collaborations":
-      displayCVCollab(articlTag,allCollab,x.toLowerCase());
+      await displayCVCollab(articlTag,allCollab,x.toLowerCase());
       break;
     case "Performances":
-      displayCVPerfor(articlTag,allPerfor,x.toLowerCase());
+      await displayCVPerfor(articlTag,allPerfor,x.toLowerCase());
       break
     default:
       // removeChilds(mainTag);
@@ -809,6 +809,7 @@ function displayMedia(target,source,type) {
 
 async function displayAllCV(x) {
   for (let i=0; i<x.length; i++) {
-    await displayCV(x[i]);
+    const cont = await displayCV(x[i]);
+    if (cont) continue;
   }
 }
