@@ -464,19 +464,19 @@ function displayCV(x) {
       tuneUp(displayCVPerson(articlTag,g,x.toLowerCase()));
       break;
     case "Teachings" :
-      tuneUp(displayCVTeachi(articlTag,allTeachi,x.toLowerCase()));
+      displayCVTeachi(articlTag,allTeachi,x.toLowerCase());
       break;
     case "Awards"   :
-      tuneUp(displayCVAwards(articlTag,allAwards,x.toLowerCase()));
+      displayCVAwards(articlTag,allAwards,x.toLowerCase());
       break;
     case "Unworks":
-      tuneUp(displayCVUnwork(articlTag,allUnwork,x.toLowerCase()));
+      displayCVUnwork(articlTag,allUnwork,x.toLowerCase());
       break;
     case "Collaborations":
-      tuneUp(displayCVCollab(articlTag,allCollab,x.toLowerCase()));
+      displayCVCollab(articlTag,allCollab,x.toLowerCase());
       break;
     case "Performances":
-      tuneUp(displayCVPerfor(articlTag,allPerfor,x.toLowerCase()));
+      displayCVPerfor(articlTag,allPerfor,x.toLowerCase());
       break
     default:
       // removeChilds(mainTag);
@@ -606,7 +606,6 @@ function displayCVTeachi(target,source,id)
     // window.alert(job);
     // tuneUp(sectTag);
   }
-  return artiTag;
 }
 function displayCVAwards(target,source,id){
   var sectTag = element('section','',id);
@@ -643,7 +642,6 @@ function displayCVAwards(target,source,id){
     descrip.appendChild(refer);
     artiTag.appendChild(descrip);
   }
-  return artiTag;
 }
 function displayCVUnwork(target,source,id){
   var sectTag = element('section','',id);
@@ -706,7 +704,6 @@ function displayCVUnwork(target,source,id){
     // footTag.appendChild(timest);
     // tuneUp(divTag);
   }
-  return artiTag;
 }
 function displayCVCollab(target,source,id){
   var sectTag = element('section','',id);
@@ -746,7 +743,6 @@ function displayCVCollab(target,source,id){
 
 
   }
-  return artiTag;
 }
 function displayCVPerfor(target,source,id){
   var sectTag = element('section','',id);
@@ -788,7 +784,6 @@ function displayCVPerfor(target,source,id){
     descrip.appendChild(perfor);
 
   }
-  return artiTag;
 }
 function displayMedia(target,source,type) {
   for (let i=0; i<=source.length-1 ; i=i+2) {
