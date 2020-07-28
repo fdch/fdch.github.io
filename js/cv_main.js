@@ -26,24 +26,30 @@ function mainCV() {
   
   randomColor(color_preset["mid"], [bodyTag, headerTag[0]] );
   
-  // load globals and cv
+  console.log("load globals and cv");
   
   loadJSON(globals, function(response) { 
     
-    g = JSON.parse(response)
+    g = JSON.parse(response);
+    
+    console.log("loading Globals");
     
     loadGlobals(g);
-    
+
+    console.log("before: "+loaded);
     if (!loaded) {
           setTimeout(function(){
+            console.log('displayCV');
             displayCV(allCVsections[0]);
           }, 100);
     
           setTimeout(function(){ 
+            console.log('loadCV');
             loadCV();
             toggle(allCVsections[0].toLowerCase());
           }, 3000);
       }
+    console.log("after: "+loaded);
   });
 
 
