@@ -32,7 +32,7 @@ function mainCV() {
 
     await loadGlobals(g);
     if(!loaded) loaded = await loadAll(allGS);
-    await displayAllCV(allCVsections);
+    displayAllCV(allCVsections);
     tuner(mainTag.getElementsByTagName('h2'),"#4C77BA");
 
 
