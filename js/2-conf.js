@@ -117,4 +117,6 @@ async function loadGlobals(g)
 	mydate = new Date(g["bday"]);
 
 	if(bodyTag) bodyTag.style.background = "url('"+bkgImage+"')";
+
+	return 1;
 }
