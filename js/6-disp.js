@@ -483,6 +483,7 @@ async function displayCV(x) {
       // mainCV();
     break;
   }
+  console.log(x);
   return 1;
 }
 
@@ -803,5 +804,11 @@ function displayMedia(target,source,type) {
     medi.title = source[i];
     target.appendChild(medi);
     //console.log(source[i]);
+  }
+}
+
+async function displayAllCV(x) {
+  for (let i=0; i<x.length; i++) {
+    await displayCV(x[i]);
   }
 }
