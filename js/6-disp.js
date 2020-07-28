@@ -56,9 +56,7 @@ function display(x) {
         displayPeople(article,allPeople);
         break;
       case "cv"    :
-        window.open(cvpdf,"_top");
-        tuneUp(displayBiogra(article));
-        // window.open(cv,"_top");
+        window.open(cv,"_top");
         break;
       case "video" :
         displayMedia(article,allVideos, 'video');
