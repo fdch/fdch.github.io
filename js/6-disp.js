@@ -482,7 +482,7 @@ function displayCV(x) {
       break
     default:
       removeChilds(mainTag);
-      mainCV();
+      // mainCV();
     break;
   }
 }
@@ -804,13 +804,13 @@ function displayMedia(target,source,type) {
 }
 function loadCV() {
   // mainBack.value='';
-  let i=1;
-  for (; i<allCVsections.length; i++)
+  let i;
+  for (i=0; i<allCVsections.length; i++)
   {
     console.log(allCVsections[i]);
     displayCV(allCVsections[i]);
-    toggle(allCVsections[i].toLowerCase());
   }
+  toggle(allCVsections[0].toLowerCase());
   //this is here otherwise we don't get tuneup
   // tuneUp(sectTag);
   tuner(mainTag.getElementsByTagName('h2'),"#4C77BA");

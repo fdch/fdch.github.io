@@ -43,9 +43,9 @@ function mainCV() {
 
     if (!loaded) {
           setTimeout(function(){
-            console.log('displayCV');
+            // console.log('displayCV');
             displayCV(allCVsections[0]);
-            displayCV(allCVsections[1]);
+            loadCV();
           }, 100);
           loaded=1;
     
