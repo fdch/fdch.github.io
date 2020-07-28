@@ -464,19 +464,19 @@ function displayCV(x) {
       tuneUp(displayCVPerson(articlTag,g,x.toLowerCase()));
       break;
     case "Teachings" :
-      displayCVTeachi(articlTag,allTeachi,x.toLowerCase());
+      tuneUp(displayCVTeachi(articlTag,allTeachi,x.toLowerCase()));
       break;
     case "Awards"   :
-      displayCVAwards(articlTag,allAwards,x.toLowerCase());
+      tuneUp(displayCVAwards(articlTag,allAwards,x.toLowerCase()));
       break;
     case "Unworks":
-      displayCVUnwork(articlTag,allUnwork,x.toLowerCase());
+      tuneUp(displayCVUnwork(articlTag,allUnwork,x.toLowerCase()));
       break;
     case "Collaborations":
-      displayCVCollab(articlTag,allCollab,x.toLowerCase());
+      tuneUp(displayCVCollab(articlTag,allCollab,x.toLowerCase()));
       break;
     case "Performances":
-      displayCVPerfor(articlTag,allPerfor,x.toLowerCase());
+      tuneUp(displayCVPerfor(articlTag,allPerfor,x.toLowerCase()));
       break
     default:
       // removeChilds(mainTag);

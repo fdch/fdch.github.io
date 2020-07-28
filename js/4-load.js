@@ -1,7 +1,7 @@
 async function loadAll(sheets)
 {
   //works
-  loadJSON(sheets[0], async function(response)
+  await loadJSON(sheets[0], async function(response)
   {
     var f, e, i, entry;
     f = JSON.parse(response);
@@ -40,7 +40,7 @@ async function loadAll(sheets)
     uCategories = getUniqueCategories(allCategories);
   });
   //papers
-  loadJSON(sheets[1], async function(response)
+  await loadJSON(sheets[1], async function(response)
   {
     var f, e, i, entry;
     f = JSON.parse(response);
@@ -62,7 +62,7 @@ async function loadAll(sheets)
     }//end loop
   });
   //events
-  loadJSON(sheets[2], async function(response)
+  await loadJSON(sheets[2], async function(response)
   {
     var f, e, i, entry;
     f = JSON.parse(response);
@@ -83,7 +83,7 @@ async function loadAll(sheets)
     }
   });
   //people
-  loadJSON(sheets[3], async function(response)
+  await loadJSON(sheets[3], async function(response)
   {
     var f, e, i, entry;
     f = JSON.parse(response);
@@ -102,7 +102,7 @@ async function loadAll(sheets)
     // window.alert(Object.keys(allPeople));
   });
   //teachings
-  loadJSON(sheets[4], async function(response)
+  await loadJSON(sheets[4], async function(response)
   {
     var f, e, i, entry;
     f = JSON.parse(response);
@@ -125,7 +125,7 @@ async function loadAll(sheets)
     // window.alert(Object.keys(allTeachi));
   });
   //awards
-  loadJSON(sheets[5], async function(response)
+  await loadJSON(sheets[5], async function(response)
   {
     var f, e, i, entry;   
     f = JSON.parse(response);
@@ -149,7 +149,7 @@ async function loadAll(sheets)
     //console.log(Object.keys(allAwards));
   });
   //collabs
-  loadJSON(sheets[6], async function(response) 
+  await loadJSON(sheets[6], async function(response) 
   {
    var f, e, i, entry;   
     f = JSON.parse(response);
@@ -169,7 +169,7 @@ async function loadAll(sheets)
     }
   });
   //perfor
-  loadJSON(sheets[7], async function(response)
+  await loadJSON(sheets[7], async function(response)
   {
     var f, e, i, entry; 
     f = JSON.parse(response);
@@ -191,7 +191,7 @@ async function loadAll(sheets)
     }
     //console.log(Object.keys(allPerfor));
   });
-  loadJSON(sheets[8], async function(response)
+  await loadJSON(sheets[8], async function(response)
   {
     var f, e, i, entry; 
     f = JSON.parse(response);
