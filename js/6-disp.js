@@ -463,7 +463,7 @@ function displayCV(x) {
   
   switch (x) {
     case "Personal" :
-      tuneUp(displayCVPerson(articlTag,g,x.toLowerCase()));
+      displayCVPerson(articlTag,g,x.toLowerCase());
       break;
     case "Teachings" :
       displayCVTeachi(articlTag,allTeachi,x.toLowerCase());
@@ -481,7 +481,7 @@ function displayCV(x) {
       displayCVPerfor(articlTag,allPerfor,x.toLowerCase());
       break
     default:
-      removeChilds(mainTag);
+      // removeChilds(mainTag);
       // mainCV();
     break;
   }
