@@ -114,6 +114,7 @@ function loadGlobals(g)
 	epigrafe = g["epigrafe"];
 	epigraph = g["epigraph"];
 	shortname = g["shortname"];
+	mydate = new Date(g["bday"]);
 
 	if(bodyTag) bodyTag.style.background = "url('"+bkgImage+"')";
 }

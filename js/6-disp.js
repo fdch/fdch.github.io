@@ -530,7 +530,7 @@ function displayCVPerson(target,source,id)
     row[8].appendChild(element("td","Educación de Grado"));
   }
 
-  let mydate = new Date(g["bday"]);
+  // let mydate = new Date(g["bday"]);
   let linkdate = element("span",mydate,'',"window.open(\'"+g["may8th"]+"\')");
   linkdate.style.cursor = "pointer";
   let website = anchor(g["url"],g["url"]);
