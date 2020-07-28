@@ -26,7 +26,7 @@ function mainCV() {
   
   randomColor(color_preset["mid"], [bodyTag, headerTag[0]] );
     
-  loadJSON(globals, async function(response) { 
+  loadJSON(globals, function(response) { 
     
     g = JSON.parse(response);
 
