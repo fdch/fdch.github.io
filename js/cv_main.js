@@ -34,8 +34,11 @@ function mainCV() {
     await loadAll(allGS);
 
     let i;
-    for (i=0; i<allCVsections.length; i++)
-      await displayCV(allCVsections[i]);
+    for (i=0; i<allCVsections.length; i++) {
+      const load = await displayCV(allCVsections[i]);
+      console.log('i: '+i+" - load: "+load);
+      if (load) continue;
+    }
 
 
     tuner(mainTag.getElementsByTagName('h2'),"#4C77BA");
