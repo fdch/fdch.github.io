@@ -500,7 +500,7 @@ function displayCVPerson(target,source,id)
   artiTag.appendChild(tableTag);
 
   let row=[];
-  for (let i=0;i<9;i++)
+  for (let i=0;i<10;i++)
   {
     row.push(element('tr'));
     tableTag.appendChild(row[i]);
@@ -513,8 +513,9 @@ function displayCVPerson(target,source,id)
   row[4].appendChild(element("td","Phone Number"));
   row[5].appendChild(element("td","E-mail"));
   row[6].appendChild(element("td","Website"));
-  row[7].appendChild(element("td","Graduate Education"));
-  row[8].appendChild(element("td","Undergraduate Education"));
+  row[7].appendChild(element("td","Job Experience"));
+  row[8].appendChild(element("td","Graduate Education"));
+  row[9].appendChild(element("td","Undergraduate Education"));
 
 
   if(!userLang.localeCompare("es"))
@@ -526,8 +527,9 @@ function displayCVPerson(target,source,id)
     row[4].appendChild(element("td","Número de Teléfono"));
     row[5].appendChild(element("td","Correo electrónico"));
     row[6].appendChild(element("td","Sitio Web"));
-    row[7].appendChild(element("td","Educación de Posgrado"));
-    row[8].appendChild(element("td","Educación de Grado"));
+    row[7].appendChild(element("td","Trabajo"));
+    row[8].appendChild(element("td","Educación de Posgrado"));
+    row[9].appendChild(element("td","Educación de Grado"));
   }
 
   // let mydate = new Date(g["bday"]);
@@ -535,9 +537,10 @@ function displayCVPerson(target,source,id)
   linkdate.style.cursor = "pointer";
   let website = anchor(g["url"],g["url"]);
   website.style.color = "lightblue";
+  let job = element("ul");
   let grad = element("ul");
   let under = element("ul");
-  grad.appendChild(element("li",g["grad"][0]));
+  job.appendChild(element("li",g["grad"][0]));
   grad.appendChild(element("li",g["grad"][1]));
   under.appendChild(element("li",g["undergrad"]));
 
@@ -550,8 +553,9 @@ function displayCVPerson(target,source,id)
   row[4].appendChild(element("td",g["phone"]));
   row[5].appendChild(element("td",g["email"]));
   row[6].appendChild(element("td").appendChild(website));
-  row[7].appendChild(element("td").appendChild(grad));
-  row[8].appendChild(element("td").appendChild(under));
+  row[7].appendChild(element("td").appendChild(job));
+  row[8].appendChild(element("td").appendChild(grad));
+  row[9].appendChild(element("td").appendChild(under));
 
   return artiTag;
 }
