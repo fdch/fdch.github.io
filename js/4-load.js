@@ -13,7 +13,7 @@ async function loadAll(sheets)
       var title = e.gsx$title.$t;
       var categ = makeCateg(e.gsx$category.$t);
       var nwid  = String("id-"+makeID(title));
-      // var vide = e.gsx$videourl.$t;
+      var vide = e.gsx$videourl.$t;
       var audi = e.gsx$audiourl.$t;
       allUnwork[nwid]={};
       allUnwork[nwid]["awTitl"] = title;
