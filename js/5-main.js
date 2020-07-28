@@ -12,7 +12,7 @@ function main(vid)
   loadJSON(globals, async function(response) { 
       g = JSON.parse(response)
       await loadGlobals(g);
-      await loadAll(allGS);
+      if(!loaded) loaded = await loadAll(allGS);
   });
   
 

@@ -237,4 +237,4 @@ async function loadAll(sheets)
   return 1; //actually not checking if stuf loaded...
 }
 
-// if(!loaded) loaded = loadAll(allGS); // load asynchronously
+if(!loaded) loaded = loadAll(allGS); // load asynchronously

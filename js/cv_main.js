@@ -31,7 +31,7 @@ function mainCV() {
     g = JSON.parse(response);
 
     await loadGlobals(g);
-    await loadAll(allGS);
+    if(!loaded) loaded = await loadAll(allGS);
     await displayAllCV(allCVsections);
     tuner(mainTag.getElementsByTagName('h2'),"#4C77BA");
 
