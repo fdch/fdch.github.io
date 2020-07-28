@@ -26,35 +26,19 @@ function mainCV() {
   headerTag[0].style.marginBottom = "10px";    
   
   randomColor(color_preset["mid"], [bodyTag, headerTag[0]] );
-  
-  // console.log("load globals and cv");
-  
+    
   loadJSON(globals, function(response) { 
     
     g = JSON.parse(response);
-    
-    // console.log("loading Globals");
-    
     loadGlobals(g);
-    // console.log(contactMessage);
-
-    // console.log("before: "+loaded);
-
     if (!loaded) {
       loadAll(allGS);
-      // loadCV();
       setTimeout(function(){
         displayCV(allCVsections[0]);
       }, 100);
       setTimeout(function(){ 
-        console.log('loadCV');
         loadCV();
-        toggle(allCVsections[0].toLowerCase());
       }, 3000);
     };
-    
-    // console.log("after: "+loaded);
   });
-
-
 }
