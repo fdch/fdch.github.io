@@ -802,17 +802,3 @@ function displayMedia(target,source,type) {
     //console.log(source[i]);
   }
 }
-function loadCV() {
-  // mainBack.value='';
-  let i;
-  for (i=0; i<allCVsections.length; i++)
-  {
-    // console.log(allCVsections[i]);
-    displayCV(allCVsections[i]);
-  }
-  // toggle(allCVsections[0].toLowerCase());
-  //this is here otherwise we don't get tuneup
-  // tuneUp(sectTag);
-  tuner(mainTag.getElementsByTagName('h2'),"#4C77BA");
-  loaded = 1;
-}

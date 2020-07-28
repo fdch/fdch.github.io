@@ -31,14 +31,25 @@ function mainCV() {
     
     g = JSON.parse(response);
     loadGlobals(g);
+
     if (!loaded) {
+    
       loadAll(allGS);
+    
       setTimeout(function(){
         displayCV(allCVsections[0]);
       }, 100);
+    
       setTimeout(function(){ 
-        loadCV();
+        let i;
+        for (i=0; i<allCVsections.length; i++)
+          displayCV(allCVsections[i]);
+
+        tuner(mainTag.getElementsByTagName('h2'),"#4C77BA");
+        loaded = 1;
       }, 3000);
+    
     };
+
   });
 }
