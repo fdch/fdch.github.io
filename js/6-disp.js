@@ -463,7 +463,7 @@ function displayCV(x) {
   
   switch (x) {
     case "Personal" :
-      displayCVPerson(articlTag,g,x.toLowerCase());
+      tuneUp(displayCVPerson(articlTag,g,x.toLowerCase()));
       break;
     case "Teachings" :
       displayCVTeachi(articlTag,allTeachi,x.toLowerCase());

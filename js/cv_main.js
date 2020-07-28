@@ -35,14 +35,14 @@ function mainCV() {
     if (!loaded) {
     
       loadAll(allGS);
-    
+      
+      let i;
       setTimeout(function(){
-        displayCV(allCVsections[0]);
+        displayCV(allCVsections[i]);
       }, 100);
     
       setTimeout(function(){ 
-        let i;
-        for (i=0; i<allCVsections.length; i++)
+        for (; i<allCVsections.length; ++i)
           displayCV(allCVsections[i]);
 
         tuner(mainTag.getElementsByTagName('h2'),"#4C77BA");
