@@ -21,14 +21,14 @@ var bioImage, bkgImage, cv, contactGif, loadingUrl, userLang, mobile, cvpdf;
 userLang = navigator.language || navigator.userLanguage; 
 mobile   = mobileCheck();
 
-if(!notified)
-{
-	console.log("Your browser language is: " + userLang);
-	console.log("You are on a "+(mobile?"mobile":"desktop")+" device");
-	console.log(navigator.vendor)
-	console.log(navigator.userAgent);
-	notified=1;
-}
+// if(!notified)
+// {
+// 	console.log("Your browser language is: " + userLang);
+// 	console.log("You are on a "+(mobile?"mobile":"desktop")+" device");
+// 	console.log(navigator.vendor)
+// 	console.log(navigator.userAgent);
+// 	notified=1;
+// }
 
 
 
