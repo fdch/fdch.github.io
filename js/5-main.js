@@ -11,8 +11,8 @@ function main(vid)
   
   loadJSON(globals, function(response) { 
       g = JSON.parse(response)
-      loadGlobals(g);
-      if (!loaded) loadAll(allGS);
+      await loadGlobals(g);
+      if (!loaded) loaded = await loadAll(allGS);
   });
   
 

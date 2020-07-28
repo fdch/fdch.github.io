@@ -37,7 +37,7 @@ if(!notified)
 // this function below loads up all the globals above
 // it is fired from 4-load.js
 
-function loadGlobals(g)
+async function loadGlobals(g)
 {
 	contactMessage = [
 	"Mandáme una correa electrónica a "+g["email"]+" así me pongo en contacto\

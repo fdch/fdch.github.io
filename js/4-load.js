@@ -1,4 +1,4 @@
-function loadAll(sheets)
+async function loadAll(sheets)
 {
   //works
   loadJSON(sheets[0], function(response)
@@ -237,4 +237,4 @@ function loadAll(sheets)
   return 1; //actually not checking if stuf loaded...
 }
 
-if(!loaded) loadAll(allGS); // load asynchronously (if available)
+if(!loaded) loaded = await loadAll(allGS); // load asynchronously

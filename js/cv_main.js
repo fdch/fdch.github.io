@@ -31,7 +31,7 @@ function mainCV() {
     
     g = JSON.parse(response);
 
-    loadGlobals(g);
+    await loadGlobals(g);
     let i;
     loaded = await loadAll(allGS);
 
