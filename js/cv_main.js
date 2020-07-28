@@ -8,7 +8,6 @@
 //////////////////////////////        ///////////
 
 function mainCV() {
-  loaded=0;
 
   if (!htmlTag) htmlTag   = document.getElementsByTagName('html')[0];
   htmlTag.style.fontFamily = fonts[2];
@@ -32,15 +31,14 @@ function mainCV() {
     g = JSON.parse(response);
 
     await loadGlobals(g);
+    await loadAll(allGS);
+
     let i;
-    loaded = await loadAll(allGS);
+    for (i=0; i<allCVsections.length; i++)
+      await displayCV(allCVsections[i]);
 
-    for (i=0; i<allCVsections.length; i++) {
-      let load= await displayCV(allCVsections[i]);
-      if (load) continue;
-    }
 
-    if (load && loaded) tuner(mainTag.getElementsByTagName('h2'),"#4C77BA");
+    tuner(mainTag.getElementsByTagName('h2'),"#4C77BA");
 
 
 

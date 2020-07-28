@@ -1,4 +1,4 @@
-function display(x) {
+async function display(x) {
   let section;
 
   if (typeof x == 'string' || x instanceof String) {
@@ -20,13 +20,13 @@ function display(x) {
   if(article) {
     switch (x) {
       case "games" :
-        tuneUp(displayGames(article));
+        await tuneUp(displayGames(article));
         break;
       case "touch" :
-        tuneUp(displayTouch(article));
+        await tuneUp(displayTouch(article));
         break;
       case "bio"   :
-        tuneUp(displayBiogra(article));
+        await tuneUp(displayBiogra(article));
         break;
       case "unwork":
         //extra stuff for the category selectbox
@@ -44,28 +44,28 @@ function display(x) {
           catDivTag.style.display = 'inline';
         }
 
-        displayUnwork(article,allUnwork);
+        await displayUnwork(article,allUnwork);
         break;
       case "papers":
-        displayPapers(article,allPapers);
+        await displayPapers(article,allPapers);
         break;
       case "events":
-        displayEvents(article,allEvents);
+        await displayEvents(article,allEvents);
         break;
       case "people":
-        displayPeople(article,allPeople);
+        await displayPeople(article,allPeople);
         break;
       case "cv"    :
-        window.open(cv,"_top");
+        window.open(cv,"_blank");
         break;
       case "video" :
-        displayMedia(article,allVideos, 'video');
+        await displayMedia(article,allVideos, 'video');
         break;
       case "audio" :
-        displayMedia(article,allAudios, 'audio');
+        await displayMedia(article,allAudios, 'audio');
         break;
       case "projects":
-        displayProjects(article,allProjects);
+        await displayProjects(article,allProjects);
         // window.open("https://fdch.github.io/projects","_top");
         break;
       default:
@@ -461,22 +461,22 @@ async function displayCV(x) {
   
   switch (x) {
     case "Personal" :
-      tuneUp(displayCVPerson(articlTag,g,x.toLowerCase()));
+      await tuneUp(displayCVPerson(articlTag,g,x.toLowerCase()));
       break;
     case "Teachings" :
-      displayCVTeachi(articlTag,allTeachi,x.toLowerCase());
+      await displayCVTeachi(articlTag,allTeachi,x.toLowerCase());
       break;
     case "Awards"   :
-      displayCVAwards(articlTag,allAwards,x.toLowerCase());
+      await displayCVAwards(articlTag,allAwards,x.toLowerCase());
       break;
     case "Unworks":
-      displayCVUnwork(articlTag,allUnwork,x.toLowerCase());
+      await displayCVUnwork(articlTag,allUnwork,x.toLowerCase());
       break;
     case "Collaborations":
-      displayCVCollab(articlTag,allCollab,x.toLowerCase());
+      await displayCVCollab(articlTag,allCollab,x.toLowerCase());
       break;
     case "Performances":
-      displayCVPerfor(articlTag,allPerfor,x.toLowerCase());
+      await displayCVPerfor(articlTag,allPerfor,x.toLowerCase());
       break
     default:
       // removeChilds(mainTag);

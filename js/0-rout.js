@@ -98,7 +98,7 @@ function resized()
   // if(mainTag && !mobile)   mainTag.style.marginTop = hH/2+"px";
 }
 
-function loadJSON(x,callback)
+async function loadJSON(x,callback)
 {
   var xobj = new XMLHttpRequest();
   xobj.overrideMimeType("application/json");

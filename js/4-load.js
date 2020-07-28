@@ -1,7 +1,7 @@
 async function loadAll(sheets)
 {
   //works
-  loadJSON(sheets[0], function(response)
+  await loadJSON(sheets[0], function(response)
   {
     var f, e, i, entry;
     f = JSON.parse(response);
@@ -13,7 +13,7 @@ async function loadAll(sheets)
       var title = e.gsx$title.$t;
       var categ = makeCateg(e.gsx$category.$t);
       var nwid  = String("id-"+makeID(title));
-      var vide = e.gsx$videourl.$t;
+      // var vide = e.gsx$videourl.$t;
       var audi = e.gsx$audiourl.$t;
       allUnwork[nwid]={};
       allUnwork[nwid]["awTitl"] = title;
@@ -40,7 +40,7 @@ async function loadAll(sheets)
     uCategories = getUniqueCategories(allCategories);
   });
   //papers
-  loadJSON(sheets[1], function(response)
+  await loadJSON(sheets[1], function(response)
   {
     var f, e, i, entry;
     f = JSON.parse(response);
@@ -62,7 +62,7 @@ async function loadAll(sheets)
     }//end loop
   });
   //events
-  loadJSON(sheets[2], function(response)
+  await loadJSON(sheets[2], function(response)
   {
     var f, e, i, entry;
     f = JSON.parse(response);
@@ -83,7 +83,7 @@ async function loadAll(sheets)
     }
   });
   //people
-  loadJSON(sheets[3], function(response)
+  await loadJSON(sheets[3], function(response)
   {
     var f, e, i, entry;
     f = JSON.parse(response);
@@ -102,7 +102,7 @@ async function loadAll(sheets)
     // window.alert(Object.keys(allPeople));
   });
   //teachings
-  loadJSON(sheets[4], function(response)
+  await loadJSON(sheets[4], function(response)
   {
     var f, e, i, entry;
     f = JSON.parse(response);
@@ -125,7 +125,7 @@ async function loadAll(sheets)
     // window.alert(Object.keys(allTeachi));
   });
   //awards
-  loadJSON(sheets[5], function(response)
+  await loadJSON(sheets[5], function(response)
   {
     var f, e, i, entry;   
     f = JSON.parse(response);
@@ -149,7 +149,7 @@ async function loadAll(sheets)
     //console.log(Object.keys(allAwards));
   });
   //collabs
-  loadJSON(sheets[6], function(response) 
+  await loadJSON(sheets[6], function(response) 
   {
    var f, e, i, entry;   
     f = JSON.parse(response);
@@ -169,7 +169,7 @@ async function loadAll(sheets)
     }
   });
   //perfor
-  loadJSON(sheets[7], function(response)
+  await loadJSON(sheets[7], function(response)
   {
     var f, e, i, entry; 
     f = JSON.parse(response);
@@ -191,7 +191,7 @@ async function loadAll(sheets)
     }
     //console.log(Object.keys(allPerfor));
   });
-  loadJSON(sheets[8], function(response)
+  await loadJSON(sheets[8], function(response)
   {
     var f, e, i, entry; 
     f = JSON.parse(response);
@@ -229,7 +229,7 @@ async function loadAll(sheets)
     }
     //console.log(Object.keys(allProjects));
   });
-  loaded = 1; //set it as loaded if it is loaded asynchronously
+  // loaded = 1; //set it as loaded if it is loaded asynchronously
 
   // callback();
   // if(callback) callback();
@@ -237,4 +237,4 @@ async function loadAll(sheets)
   return 1; //actually not checking if stuf loaded...
 }
 
-if(!loaded) loaded = await loadAll(allGS); // load asynchronously
+// if(!loaded) loaded = loadAll(allGS); // load asynchronously
