@@ -30,8 +30,8 @@ function mainCV() {
     
     g = JSON.parse(response);
 
-    await loadGlobals(g);
-    if(!loaded) loaded = await loadAll(allGS);
+    loadGlobals(g);
+    if(!loaded) loaded = loadAll(allGS);
     displayAllCV(allCVsections);
     tuner(mainTag.getElementsByTagName('h2'),"#4C77BA");
 
