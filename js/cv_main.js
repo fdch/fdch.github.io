@@ -36,6 +36,8 @@ function mainCV() {
     
     loadGlobals(g);
 
+    console.log(contactMessage);
+
     console.log("before: "+loaded);
     if (!loaded) {
           setTimeout(function(){
