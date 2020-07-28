@@ -810,7 +810,7 @@ function loadCV() {
     // console.log(allCVsections[i]);
     displayCV(allCVsections[i]);
   }
-  // toggle(allCVsections[0].toLowerCase());
+  toggle(allCVsections[0].toLowerCase());
   //this is here otherwise we don't get tuneup
   // tuneUp(sectTag);
   tuner(mainTag.getElementsByTagName('h2'),"#4C77BA");

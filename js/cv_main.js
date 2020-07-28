@@ -42,18 +42,15 @@ function mainCV() {
 
     if (!loaded) {
       loadAll(allGS);
-      loadCV();
-      // setTimeout(function(){
-      //   // console.log('displayCV');
-      //   // displayCV(allCVsections[0]);
-      // }, 100);
-      
-
-      // setTimeout(function(){ 
-      //   console.log('loadCV');
-      //   loadCV();
-      //   toggle(allCVsections[0].toLowerCase());
-      // }, 3000);
+      // loadCV();
+      setTimeout(function(){
+        displayCV(allCVsections[0]);
+      }, 100);
+      setTimeout(function(){ 
+        console.log('loadCV');
+        loadCV();
+        toggle(allCVsections[0].toLowerCase());
+      }, 3000);
     };
     
     // console.log("after: "+loaded);
