@@ -27,7 +27,7 @@ function mainCV() {
   
   randomColor(color_preset["mid"], [bodyTag, headerTag[0]] );
   
-  console.log("load globals and cv");
+  // console.log("load globals and cv");
   
   loadJSON(globals, function(response) { 
     
@@ -39,7 +39,7 @@ function mainCV() {
 
     // console.log(contactMessage);
 
-    console.log("before: "+loaded);
+    // console.log("before: "+loaded);
 
     if (!loaded) {
           setTimeout(function(){
@@ -54,9 +54,9 @@ function mainCV() {
           //   loadCV();
           //   toggle(allCVsections[0].toLowerCase());
           // }, 3000);
-    }
+    };
     
-    console.log("after: "+loaded);
+    // console.log("after: "+loaded);
   });
 
 
