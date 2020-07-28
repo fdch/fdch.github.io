@@ -9,10 +9,10 @@ function main(vid)
 {
   let v;
   
-  loadJSON(globals, function(response) { 
+  loadJSON(globals, async function(response) { 
       g = JSON.parse(response)
       await loadGlobals(g);
-      if (!loaded) loaded = await loadAll(allGS);
+      await loadAll(allGS);
   });
   
 
