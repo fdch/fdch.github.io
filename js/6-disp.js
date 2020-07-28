@@ -521,7 +521,7 @@ function displayCVPerson(target,source,id)
 
   if(!userLang.localeCompare("es"))
   {
-    row[0].appendChild(element("td","Nomber Completo"));
+    row[0].appendChild(element("td","Nombre Completo"));
     row[1].appendChild(element("td","Fecha de Nacimiento"));
     row[2].appendChild(element("td","Nacionalidad"));
     row[3].appendChild(element("td","Dirección Postal"));

@@ -45,6 +45,7 @@ function mainCV() {
           setTimeout(function(){
             console.log('displayCV');
             displayCV(allCVsections[0]);
+            displayCV(allCVsections[1]);
           }, 100);
     
           // setTimeout(function(){ 
