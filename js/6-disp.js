@@ -483,6 +483,7 @@ function displayCV(x) {
       // mainCV();
     break;
   }
+  return 1;
 }
 
 function displayCVPerson(target,source,id)

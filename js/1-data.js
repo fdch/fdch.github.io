@@ -78,20 +78,20 @@ var latest_bkg_pic = ["orkna", "orkna-1.png"];
  * 
 */
 
-var spreadsheets= "https://spreadsheets.google.com/feeds/list/";
-var sheetID     = "1e5dh1sZX1QuFFioC-1ofcPIPhwU9i-lvUzOzn4_3SLQ/";
-var cvID        = "1vViMWDsMRnbGUgP44XNDlQrLQ3MsdgO9W91mM4MxJtw/";
-var altjson     = "/public/values?alt=json";
+var spreadsheets= "https://spreadsheets.google.com/feeds/list";
+var sheetID     = "1e5dh1sZX1QuFFioC-1ofcPIPhwU9i-lvUzOzn4_3SLQ";
+var cvID        = "1vViMWDsMRnbGUgP44XNDlQrLQ3MsdgO9W91mM4MxJtw";
+var altjson     = "public/values?alt=json";
 var allGS       = [
-	spreadsheets+sheetID+"1"+altjson,
-	spreadsheets+sheetID+"2"+altjson,
-	spreadsheets+sheetID+"3"+altjson,
-	spreadsheets+sheetID+"4"+altjson,
-	spreadsheets+cvID   +"1"+altjson,
-	spreadsheets+cvID   +"2"+altjson,
-	spreadsheets+cvID   +"3"+altjson,
-	spreadsheets+cvID   +"4"+altjson,
-	spreadsheets+sheetID+"5"+altjson
+	spreadsheets+"/"+sheetID+"/1/"+altjson,
+	spreadsheets+"/"+sheetID+"/2/"+altjson,
+	spreadsheets+"/"+sheetID+"/3/"+altjson,
+	spreadsheets+"/"+sheetID+"/4/"+altjson,
+	spreadsheets+"/"+cvID   +"/1/"+altjson,
+	spreadsheets+"/"+cvID   +"/2/"+altjson,
+	spreadsheets+"/"+cvID   +"/3/"+altjson,
+	spreadsheets+"/"+cvID   +"/4/"+altjson,
+	spreadsheets+"/"+sheetID+"/5/"+altjson
 ];
 
 /*

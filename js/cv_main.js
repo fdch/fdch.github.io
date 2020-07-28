@@ -30,27 +30,39 @@ function mainCV() {
   loadJSON(globals, function(response) { 
     
     g = JSON.parse(response);
+
     loadGlobals(g);
+    let i;
+    loaded = await loadAll(allGS);
 
-    if (!loaded) {
+    for (i=0; i<allCVsections.length; i++) {
+      let load= await displayCV(allCVsections[i]);
+      if (load) continue;
+    }
+
+    if (load && loaded) tuner(mainTag.getElementsByTagName('h2'),"#4C77BA");
+
+
+
+    // if (!loaded) {
     
-      loadAll(allGS);
+    //   loadAll(allGS);
 
-      let i=0;
+    //   let i=0;
       
-      setTimeout(function(){
-        displayCV(allCVsections[i]);
-      }, 100);
+    //   setTimeout(function(){
+    //     displayCV(allCVsections[i]);
+    //   }, 100);
     
-      setTimeout(function(){ 
-        for (i=1; i<allCVsections.length; i++)
-          displayCV(allCVsections[i]);
+    //   setTimeout(function(){ 
+        // for (i=1; i<allCVsections.length; i++)
+        //   displayCV(allCVsections[i]);
 
-        tuner(mainTag.getElementsByTagName('h2'),"#4C77BA");
-        loaded = 1;
-      }, 3000);
+    //     tuner(mainTag.getElementsByTagName('h2'),"#4C77BA");
+    //     loaded = 1;
+    //   }, 3000);
     
-    };
+    // };
 
   });
 }
