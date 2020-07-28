@@ -807,9 +807,11 @@ function displayMedia(target,source,type) {
   }
 }
 
-async function displayAllCV(x) {
+function displayAllCV(x) {
+// async function displayAllCV(x) {
   for (let i=0; i<x.length; i++) {
-    const cont = await displayCV(x[i]);
-    if (cont) continue;
+    displayCV(x[i]);
+    // const cont = await displayCV(x[i]);
+    // if (cont) continue;
   }
 }
