@@ -32,16 +32,14 @@ function mainCV() {
 
     await loadGlobals(g);
     await loadAll(allGS);
-
-    let i;
-    for (i=0; i<allCVsections.length; i++) {
-      const load = await displayCV(allCVsections[i]);
-      console.log('i: '+i+" - load: "+load);
-      if (load) continue;
-    }
-
-
+    
+    for (let i=0; i<allCVsections.length; i++) displayCV(allCVsections[i]);
+    
     tuner(mainTag.getElementsByTagName('h2'),"#4C77BA");
+
+
+
+
 
 
 
