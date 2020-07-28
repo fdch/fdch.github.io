@@ -33,25 +33,27 @@ function mainCV() {
     
     g = JSON.parse(response);
     
-    console.log("loading Globals");
+    // console.log("loading Globals");
     
     loadGlobals(g);
 
-    console.log(contactMessage);
+    // console.log(contactMessage);
 
     console.log("before: "+loaded);
+
     if (!loaded) {
           setTimeout(function(){
             console.log('displayCV');
             displayCV(allCVsections[0]);
           }, 100);
     
-          setTimeout(function(){ 
-            console.log('loadCV');
-            loadCV();
-            toggle(allCVsections[0].toLowerCase());
-          }, 3000);
-      }
+          // setTimeout(function(){ 
+          //   console.log('loadCV');
+          //   loadCV();
+          //   toggle(allCVsections[0].toLowerCase());
+          // }, 3000);
+    }
+    
     console.log("after: "+loaded);
   });
 
