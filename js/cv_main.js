@@ -47,6 +47,7 @@ function mainCV() {
             displayCV(allCVsections[0]);
             displayCV(allCVsections[1]);
           }, 100);
+          loaded=1;
     
           // setTimeout(function(){ 
           //   console.log('loadCV');
