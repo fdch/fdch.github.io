@@ -13,7 +13,8 @@ var mitem = [
 	"people",
 	"touch",
 	"games",
-	"projects"
+	"projects",
+	"releases"
 	// "audio",
 	// "video"
 ];
@@ -91,7 +92,8 @@ var allGS       = [
 	spreadsheets+"/"+cvID   +"/2/"+altjson,
 	spreadsheets+"/"+cvID   +"/3/"+altjson,
 	spreadsheets+"/"+cvID   +"/4/"+altjson,
-	spreadsheets+"/"+sheetID+"/5/"+altjson
+	spreadsheets+"/"+sheetID+"/5/"+altjson, 
+	spreadsheets+"/"+sheetID+"/6/"+altjson // releases
 ];
 
 /*

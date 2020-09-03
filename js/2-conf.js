@@ -7,7 +7,7 @@ var navSelTag, imgDivTag, catDivTag, catSelTag;
 var g={}, mylinks={};
 var allUnwork={}, allPapers={}, allEvents={}, allPeople={};
 var allPerfor={}, allAwards={}, allCollab={}, allTeachi={};
-var allProjects={};
+var allProjects={}, allReleases={};
 
 // data arrays
 var allCategories=[], allTitles=[], allWorkId=[], uCategories=[];
@@ -49,6 +49,7 @@ async function loadGlobals(g)
 	]
 	cv 			=  g["url"]+ "/cv/";
 	cvpdf 		=  g["raw"]+ "/fdch.github.io/master/cv/cv.pdf";
+	releases    =  g["url"]+ "/releases/";
 	contactGif 	=  g["raw"]+g["imgpath"] + "zissou.gif";
 	loadingUrl 	=  g["raw"]+g["imgpath"] + "fdch.gif";
 	submit = [

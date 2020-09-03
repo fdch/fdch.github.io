@@ -68,6 +68,9 @@ async function display(x) {
         await displayProjects(article,allProjects);
         // window.open("https://fdch.github.io/projects","_top");
         break;
+      case "releases":
+        window.open(releases,"_blank");
+        break;
       default:
       break;
       }
@@ -813,5 +816,37 @@ function displayAllCV(x) {
     displayCV(x[i]);
     // const cont = await displayCV(x[i]);
     // if (cont) continue;
+  }
+}
+
+function displayReleases(target,source) {
+  var keys = Object.keys(source);
+  for (var i in keys) {
+    var x = keys[i];
+
+    var time = source[x]["aRTime"];
+    var titl = source[x]["aRTitl"];
+    var ifra = source[x]["aRIfra"];
+    var when = source[x]["aRDate"];
+
+    let sectTag = element('section','', x);
+    target.appendChild(sectTag);
+
+    let headTag = element('header');
+    sectTag.appendChild(headTag);
+    
+    let artiTag = element('article');
+    sectTag.appendChild(artiTag);
+    
+    let footTag = element('footer');
+    sectTag.appendChild(footTag);
+
+    headTag.appendChild(element("h3",titl));
+
+    artiTag.insertAdjacentHTML('beforeend',ifra);
+
+    footTag.appendChild(element('h6',time));
+
+    tuneUp(sectTag);
   }
 }

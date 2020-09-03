@@ -229,6 +229,25 @@ async function loadAll(sheets)
     }
     //console.log(Object.keys(allProjects));
   });
+  // releases
+  await loadJSON(sheets[9], async function(response)
+  {
+    // console.log(sheets[9]);
+    var f, e, i, entry; 
+    f = JSON.parse(response);
+    entry = f.feed.entry;
+    allReleases={};   
+    for (i in entry) {
+      e = entry[i];
+      var nRid = String("id-"+makeID(e.gsx$timestamp.$t));
+      allReleases[nRid]={};
+      allReleases[nRid]["aRTime"]=e.gsx$timestamp.$t;
+      allReleases[nRid]["aRTitl"]=e.gsx$title.$t;
+      allReleases[nRid]["aRIfra"]=e.gsx$iframe.$t;
+      allReleases[nRid]["aRDate"]=e.gsx$date.$t;
+    }
+    //console.log(Object.keys(allProjects));
+  });
   // loaded = 1; //set it as loaded if it is loaded asynchronously
 
   // callback();
