@@ -69,7 +69,7 @@ async function display(x) {
         // window.open("https://fdch.github.io/projects","_top");
         break;
       case "releases":
-        window.open(releases,"_blank");
+        window.open(releases,"_top");
         break;
       default:
       break;
