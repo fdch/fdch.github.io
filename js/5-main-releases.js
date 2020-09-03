@@ -55,6 +55,7 @@ function main()
   navigaTag.style.display  = "inline";
   navigaTag.style.position = "relative";
   navigaTag.style.bottom   = "5px";
+  navSelTag.selectedIndex  = 10; //releases
 
   
 

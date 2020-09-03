@@ -834,6 +834,7 @@ function displayReleases(target,source) {
 
     let headTag = element('header');
     sectTag.appendChild(headTag);
+    sectTag.setAttribute('class','release-section');
     
     let artiTag = element('article');
     sectTag.appendChild(artiTag);
