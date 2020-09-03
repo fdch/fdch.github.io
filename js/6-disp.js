@@ -56,7 +56,7 @@ async function display(x) {
         await displayPeople(article,allPeople);
         break;
       case "cv"    :
-        window.open(cv,"_blank");
+        window.open(cv,"_top");
         break;
       case "video" :
         await displayMedia(article,allVideos, 'video');
