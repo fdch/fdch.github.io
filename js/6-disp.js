@@ -208,6 +208,9 @@ function displayGames(target)
   alltags.push(img(gameDraw[1], articleWidth(maxWidth),'draw','',gameDraw[0]));
   alltags.push(element('p',gameDraw[2]));
 
+  alltags.push(img(gameDraw[10], articleWidth(maxWidth),'pong','',gameDraw[9]));
+  alltags.push(element('p',gameDraw[11]));
+
   alltags.push(img(gameDraw[4], articleWidth(maxWidth),'pong','',gameDraw[3]));
   alltags.push(element('p',gameDraw[5]));
 
