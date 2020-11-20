@@ -107,6 +107,11 @@ async function loadGlobals(g)
 		"droplets/",
 		g["raw"]+g["imgpath"]+"droplets.png",
 		"Touch the floating droplets and move them around.",
+		
+		"snake/",
+		g["raw"]+g["imgpath"]+"snake.png",
+		"A neverending, easy snake game.",
+
 	];
 	bio_en = g["description"];
 	bio_es = g["descripcion"];
