@@ -7,7 +7,8 @@ async function display(x) {
     x = x.value;
   }
 
-  htmlTag.style.fontFamily = fonts[pdRandom(fonts.length)];
+  htmlTag.style.fontFamily = fonts[0];
+  // htmlTag.style.fontFamily = fonts[pdRandom(fonts.length)];
   
   
   // currpage = mitem.findIndex(item => item === x);
@@ -27,8 +28,9 @@ async function display(x) {
         break;
       case "bio"   :
         await tuneUp(displayBiogra(article));
+        await tuneUp(displayTouch(article));
         break;
-      case "unwork":
+      case "work":
         //extra stuff for the category selectbox
         
         if(!catDivTag)
@@ -46,10 +48,10 @@ async function display(x) {
 
         await displayUnwork(article,allUnwork);
         break;
-      case "papers":
+      case "writings":
         await displayPapers(article,allPapers);
         break;
-      case "events":
+      case "news":
         await displayEvents(article,allEvents);
         break;
       case "people":
@@ -69,7 +71,12 @@ async function display(x) {
         // window.open("https://fdch.github.io/projects","_top");
         break;
       case "releases":
-        window.open(releases,"_top");
+        await displayReleases(article, allReleases);
+        // window.open("./releases","_top");
+        break;
+      case "code":
+        displayCode(article);
+        tuneUp(displayGames(article));
         break;
       default:
       break;
@@ -123,6 +130,8 @@ function displayTouch(target)
   sectTag.appendChild(headTag);
   sectTag.appendChild(artiTag);
 
+  headTag.appendChild(element('h2','Contact'));
+
   let alltags = new Array();
   
   if(!userLang.localeCompare("es"))
@@ -135,17 +144,22 @@ function displayTouch(target)
     alltags.push(element('p',contactMessage[3]));
   }
   var lk = Object.keys(mylinks);
+  
+  let divTag = element('div');
+  
   for (let k in lk)
   { 
-    alltags.push(element(
+    divTag.append(element(
         "button",
         lk[k],
         '',
         "window.open(\'"+mylinks[lk[k]]+"\', '_top');",
         ""
     ));
+    divTag.append(element('span', " | "));
   }
-  alltags.push(img(contactGif, articleWidth(maxWidth),"touch..."));
+  alltags.push(divTag);
+  // alltags.push(img(contactGif, articleWidth(maxWidth),"touch..."));
   
   for (let i in alltags) 
     artiTag.appendChild(alltags[i]);
@@ -164,6 +178,7 @@ function displayBiogra(target)
   sectTag.appendChild(artiTag);
 
   let alltags = new Array();
+
   if(!userLang.localeCompare("es"))
   {
     alltags.push(element('p',bio_es));
@@ -173,8 +188,19 @@ function displayBiogra(target)
     alltags.push(element('p',bio_en));
     alltags.push(element('p',epigraph));
   }
-  alltags.push(element("button","curriculum vitae",'', "window.open(\'"+cv+"\', '_top');"));
+  let paragraph = element('p');
+  paragraph.appendChild(element('span',"Download my CV --> "));
+  paragraph.appendChild(element(
+    "button",
+    "Curriculum Vitae",
+    '',
+    "window.open(\'"+cv+"\', '_blank');",
+    ""
+  ));
+
+  alltags.push(paragraph);
   alltags.push(img(bioImage, articleWidth(maxWidth),shortname));
+  
   if(!userLang.localeCompare("es"))
   {
     for (let i in long_descripcion) 
@@ -184,7 +210,6 @@ function displayBiogra(target)
     for (let i in long_description) 
       alltags.push(element('p',long_description[i]))   
   }
-
   // alltags.push(element("button","HQ photo",'', "window.open(\'"+bioImage+"\', '_top');"));
   for (let i in alltags) artiTag.appendChild(alltags[i]);
 
@@ -200,6 +225,9 @@ function displayGames(target)
   let artiTag = element('article');
   sectTag.appendChild(headTag);
   sectTag.appendChild(artiTag);
+
+  artiTag.appendChild(element('h3', 'Games'));
+  artiTag.appendChild(element('p', 'Below are some computer games I made when I was learning code. I leave them here because some are still fun!'));
 
   let alltags = new Array();
   alltags.push(img(gameDraw[7], articleWidth(maxWidth),'drop','',gameDraw[6]));
@@ -272,7 +300,7 @@ function displayUnwork(target,source) {
     footTag.appendChild(timest);
 
   }
-    centering(sectTag);
+    centering(tuneUp(sectTag));
 }
 function displayPapers(target,source) {
   var keys = Object.keys(source);
@@ -322,6 +350,7 @@ function displayPapers(target,source) {
 function displayEvents(target,source) {
   var keys = Object.keys(source);
   for (var i in keys) {
+    // console.log(i);
     var x = keys[i];
     var titl = source[x]["aeWhat"];
     var desc = source[x]["aeDesc"];
@@ -853,4 +882,28 @@ function displayReleases(target,source) {
 
     tuneUp(sectTag);
   }
+}
+function displayCode(target){
+  let sectTag = element('section','', "");
+  target.appendChild(sectTag);
+
+  let headTag = element('header');
+  sectTag.appendChild(headTag);
+  headTag.appendChild(element('h3', "Github Repository"));
+    
+  let artiTag = element('article');
+  sectTag.appendChild(artiTag);
+
+  let paragraph = element('p');
+  artiTag.appendChild(paragraph);
+  paragraph.appendChild(element('span',"Check out my code on Github --> "));
+  paragraph.appendChild(element(
+    "button",
+    "Github",
+    '',
+    "window.open(\'"+g['repo']+"\', '_blank');",
+    ""
+  ));
+  tuneUp(sectTag);
+
 }

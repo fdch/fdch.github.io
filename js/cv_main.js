@@ -24,7 +24,7 @@ function mainCV() {
   headerTag[0].style.borderBottom = "3px solid black";    
   headerTag[0].style.marginBottom = "10px";    
   
-  randomColor(color_preset["mid"], [bodyTag, headerTag[0]] );
+  // randomColor(color_preset["mid"], [bodyTag, headerTag[0]] );
     
   loadJSON(globals, function(response) { 
     

@@ -5,16 +5,16 @@
 
 var mitem = [
 	"init", 
-	"cv",
 	"bio", 
-	"unwork", 
-	"papers", 
-	"events",
-	"people",
-	"touch",
-	"games",
-	"projects",
-	"releases"
+	"work", 
+	"writings", 
+	"code",
+	"releases",
+	"news",
+	// "cv",
+	// "people",
+	// "touch",
+	// "projects",
 	// "audio",
 	// "video"
 ];
@@ -22,7 +22,7 @@ var allCVsections = [
 	"Personal",
 	"Teaching",
 	"Awards",
-	"Unworks",
+	"Works",
 	"Collaborations",
 	"Performances"
 ];
@@ -30,7 +30,7 @@ var allCVsections = [
 var webSections = [
 	"People",
 	"Events",
-	"Papers"
+	"Writings"
 ]
 
 var fonts = [
@@ -63,8 +63,8 @@ var notified    = 0;          // flag for console logging in main()
 var widthFactor = 1.0;        // articleWidth()
 var hAlpha      = 1.0;        // randomColor()
 var minHHeight  = 55;         // min header height used in resizeHeader()
-var mypad       = 15;         // padding used in element()
-var bRad        = 20;         // border radius used in tuner() and img()
+var mypad       = 12;         // padding used in element()
+var bRad        = 15;         // border radius used in tuner() and img()
 var tilde 		= " ~ ";      // tilde separator used in displayCVTeachi()
 // var currpage    = 0;          // current page used in imgClicker()
 // var t           = 4333;    // delay time
@@ -72,7 +72,7 @@ var tilde 		= " ~ ";      // tilde separator used in displayCVTeachi()
 // latest biography pic
 var latest_bio_pic = "camarahalac_biopic-original.png";
 // latest background pic
-var latest_bkg_pic = ["orkna", "orkna-1.png"];
+var latest_bkg_pic = ['fdch.github.io', "imgone.png"];
 
 /*
  * Spreadsheets

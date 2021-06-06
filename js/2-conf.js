@@ -122,7 +122,9 @@ async function loadGlobals(g)
 	shortname = g["shortname"];
 	mydate = new Date(g["bday"]);
 
-	if(bodyTag) bodyTag.style.background = "url('"+bkgImage+"')";
+	if(bodyTag) {
+		bodyTag.style.background = "white";
+	}
 
 	return 1;
 }

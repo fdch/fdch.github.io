@@ -179,7 +179,7 @@ function getUniqueCategories(x)
 
 function applyTune(target,color)
 {
-  target.style.backgroundColor = color?color:"#000000";
+  target.style.backgroundColor = color?color:"none"; // was #000
   target.style.padding         = mypad + "px";
   target.style.borderRadius    = bRad  + "px";
   target.style.marginBottom    = mypad + "px";
@@ -215,7 +215,7 @@ function tuneUp(section)
     tuner(section.getElementsByTagName('h'+i));
   }
   centering(section);
-  tuner(mainTag.getElementsByTagName('h2'),"#4C77BA");
+  tuner(mainTag.getElementsByTagName('h2')); // was "#4C77BA"
   tuner(section.getElementsByTagName('p'));
   tuner(section.getElementsByTagName('table'));
   tuner(section.getElementsByTagName('ul'));

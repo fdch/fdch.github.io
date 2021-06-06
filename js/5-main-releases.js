@@ -59,9 +59,9 @@ function main()
 
   
 
-  randomColor(color_preset["high"], [bodyTag, headerTag[0]] );
+  // randomColor(color_preset["high"], [bodyTag, headerTag[0]] );
 
-  htmlTag.style.fontFamily   = fonts[pdRandom(fonts.length)];
+  htmlTag.style.fontFamily   = fonts[0];
 
   h1titlTag.setAttribute('onclick',"display(\'init\');");
 
