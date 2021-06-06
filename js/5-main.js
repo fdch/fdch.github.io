@@ -21,8 +21,8 @@ function main(vid)
 
   if(!headerTag) {
     headerTag = document.getElementsByTagName('header');
-    headerTag[0].style.borderBottom = "10px dotted black";
-    headerTag[0].style.paddingBottom = "10px";
+    headerTag[0].style.borderBottom = "10px solid black";
+    headerTag[0].style.paddingBottom = "5px";
   }
 
   resized(); // needs to be after headerTag

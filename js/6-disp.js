@@ -188,17 +188,11 @@ function displayBiogra(target)
     alltags.push(element('p',bio_en));
     alltags.push(element('p',epigraph));
   }
-  let paragraph = element('p');
-  paragraph.appendChild(element('span',"Download my CV --> "));
-  paragraph.appendChild(element(
-    "button",
+  alltags.push(niceButton(
     "Curriculum Vitae",
-    '',
-    "window.open(\'"+cv+"\', '_blank');",
-    ""
-  ));
-
-  alltags.push(paragraph);
+    cv,
+    "Download my CV")
+  );
   alltags.push(img(bioImage, articleWidth(maxWidth),shortname));
   
   if(!userLang.localeCompare("es"))
@@ -245,18 +239,12 @@ function displayGames(target)
       allGames[i]["name"])
     );
     subArticle.appendChild(element('p',allGames[i]["description"]));
-    
-    let paragraph = element("p");
-    subArticle.appendChild(paragraph);
-    
-    paragraph.appendChild(element('span',"Click here to play --> "));
-    paragraph.appendChild(element(
-      "button",
+    subArticle.appendChild(niceButton(
       allGames[i]["name"],
-      '',
-      "window.open(\'"+allGames[i]['url']+"\', '_blank');",
-      ""
-    ));
+      allGames[i]['url'],
+      "Click here to play")
+    );
+
   }
   return sectTag;
 }
@@ -301,17 +289,37 @@ function displayUnwork(target,source) {
     var perfMessage = "Premiered by "+perf+" on "+date.toDateString()+", at "+loca;
 
     var aaa = new Array();
+    
     if (iurl) aaa.push(img(iurl, articleWidth(maxWidth)-mypad*2,titl));
-    if (aurl) aaa.push(element('button','Audio',x+'-aurl',"window.open(\'"+aurl+"\',\'_top\');"));
-    if (vurl) aaa.push(element('button','Video',x+'-vurl',"window.open(\'"+vurl+"\',\'_top\');"));
-    if (surl) aaa.push(element('button','Score',x+'-surl',"window.open(\'"+surl+"\',\'_top\');"));
+    
+    if (aurl) {
+      aaa.push(niceButton(
+        "Sound",
+        aurl,
+        "Click here to listen")
+      );
+    }
+    if (vurl) {
+      aaa.push(niceButton(
+        "Video",
+        vurl,
+        "Click here to watch")
+      );
+    }
+    if (surl) {
+      aaa.push(niceButton(
+        "Score / Code",
+        surl,
+        "Click here to open the score (or code) ")
+      );
+    }
+
     if (prog) aaa.push(element('p',prog));
-    if (perf) aaa.push(element("h5",perfMessage));
 
     for (let i in aaa) artiTag.appendChild(aaa[i]);
      
-    let timest = element('h6',time);
-    footTag.appendChild(timest);
+    if (perf) footTag.appendChild(element("h5",perfMessage));
+
 
   }
     centering(tuneUp(sectTag));
@@ -354,9 +362,16 @@ function displayPapers(target,source) {
     var aaa = [];
     
     if(publ) aaa.push(element('p',publ));
-    if(down) aaa.push(element('button','download','',"window.open(\'"+down+"\',\'_top\');"));
-    aaa.push(element('h6',time));
-             
+
+    if (down) {
+      aaa.push(niceButton(
+        "Download",
+        down,
+        "Click here to get the full text")
+      );
+    }
+
+    // aaa.push(element('h6',time));
     for (let j in aaa) {footTag.appendChild(aaa[j]);}
     tuneUp(sectTag);
   }
@@ -908,16 +923,25 @@ function displayCode(target){
   let artiTag = element('article');
   sectTag.appendChild(artiTag);
 
-  let paragraph = element('p');
-  artiTag.appendChild(paragraph);
-  paragraph.appendChild(element('span',"Check out my code on Github --> "));
-  paragraph.appendChild(element(
-    "button",
+  artiTag.appendChild(niceButton(
     "Github",
-    '',
-    "window.open(\'"+g['repo']+"\', '_blank');",
-    ""
-  ));
+    g['repo'],
+    "Check out my code on Github")
+  );
   tuneUp(sectTag);
 
+}
+
+function niceButton(name,url,description) {
+  let e = element('p');
+
+  e.appendChild(element('span', description+" --> "));
+  e.appendChild(element(
+    "button",
+    name,
+    '',
+    "window.open(\'"+url+"\', '_blank');",
+    ""
+  ));
+  return e;
 }

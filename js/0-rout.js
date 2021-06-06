@@ -183,6 +183,7 @@ function applyTune(target,color)
   target.style.padding         = mypad + "px";
   target.style.borderRadius    = bRad  + "px";
   target.style.marginBottom    = mypad + "px";
+  target.style.paddingBottom   = mypad + "px";
 }
 
 
@@ -220,6 +221,7 @@ function tuneUp(section)
   tuner(section.getElementsByTagName('table'));
   tuner(section.getElementsByTagName('ul'));
   section.style.marginBottom = "100px";
+  section.style.borderBottom = "2px solid black";
 }
 
 
