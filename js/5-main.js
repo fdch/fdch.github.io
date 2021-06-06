@@ -14,7 +14,6 @@ function main(vid)
       await loadGlobals(g);
       if(!loaded) loaded = await loadAll(allGS);
   });
-  
 
   if(!htmlTag) {
     htmlTag =document.getElementsByTagName('html')[0];
@@ -111,4 +110,8 @@ function main(vid)
 
   // setInterval( function(){ funImage(rotImg) }, t);
 
+  loadJSON(games, async function(response) { 
+      g = JSON.parse(response)
+      await loadGames(g);
+  });
 }

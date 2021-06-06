@@ -12,7 +12,9 @@ var allProjects={}, allReleases={};
 // data arrays
 var allCategories=[], allTitles=[], allWorkId=[], uCategories=[];
 var allVideos=[], allAudios=[];
-var submit=[], contactMessage=[], gameDraw=[];
+var submit=[], contactMessage=[];
+
+var allGames={};
 
 var bioImage, bkgImage, cv, contactGif, loadingUrl, userLang, mobile, cvpdf;
 
@@ -32,6 +34,9 @@ mobile   = mobileCheck();
 
 
 
+async function loadGames(g) {
+	allGames = g['games'];
+}
 
 
 // this function below loads up all the globals above
@@ -97,10 +102,14 @@ async function loadGlobals(g)
 	bkgImage = g["raw"]+latest_bkg_pic[0]+"/master/img/"+latest_bkg_pic[1];
 	
 	gameDraw = [
+		
 		"draw/",
 		g["raw"]+g["imgpath"]+"draw.png",
+		
 		"Draw concentrical polygons as they get smaller. Print page when you are done.",
+		
 		g["repo"] + "misc/tree/master/pong",
+
 		g["raw"]  + "misc/master/pong/screen1.jpg",
 		"A Pd Vanilla + Gem version of the pong game.",
 
@@ -110,7 +119,7 @@ async function loadGlobals(g)
 		
 		"snake/",
 		g["raw"]+g["imgpath"]+"snake.png",
-		"A neverending, easy snake game.",
+		"A never-ending, easy snake game.",
 
 	];
 	bio_en = g["description"];

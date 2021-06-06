@@ -229,21 +229,35 @@ function displayGames(target)
   artiTag.appendChild(element('h3', 'Games'));
   artiTag.appendChild(element('p', 'Below are some computer games I made when I was learning code. I leave them here because some are still fun!'));
 
-  let alltags = new Array();
-  alltags.push(img(gameDraw[7], articleWidth(maxWidth),'drop','',gameDraw[6]));
-  alltags.push(element('p',gameDraw[8]));
+  for (var i=0;i<allGames.length;i++) {
+    let subArticle = element("section");
+    artiTag.appendChild(subArticle);
 
-  alltags.push(img(gameDraw[1], articleWidth(maxWidth),'draw','',gameDraw[0]));
-  alltags.push(element('p',gameDraw[2]));
-
-  alltags.push(img(gameDraw[10], articleWidth(maxWidth),'pong','',gameDraw[9]));
-  alltags.push(element('p',gameDraw[11]));
-
-  alltags.push(img(gameDraw[4], articleWidth(maxWidth),'pong','',gameDraw[3]));
-  alltags.push(element('p',gameDraw[5]));
-
-  for (let i in alltags) artiTag.appendChild(alltags[i]);
-
+    subArticle.appendChild(element(
+      "h4",
+      allGames[i]["name"],
+      "",
+      allGames[i]["url"])
+    );
+    subArticle.appendChild(img(
+      allGames[i]['image'],
+      articleWidth(maxWidth),
+      allGames[i]["name"])
+    );
+    subArticle.appendChild(element('p',allGames[i]["description"]));
+    
+    let paragraph = element("p");
+    subArticle.appendChild(paragraph);
+    
+    paragraph.appendChild(element('span',"Click here to play --> "));
+    paragraph.appendChild(element(
+      "button",
+      allGames[i]["name"],
+      '',
+      "window.open(\'"+allGames[i]['url']+"\', '_blank');",
+      ""
+    ));
+  }
   return sectTag;
 }
 
