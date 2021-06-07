@@ -7,7 +7,7 @@
 //////           //////////////////   ////////////////////  //////////    ///
 function main(vid)
 {
-  let v;
+  var v='';
   
   loadJSON(globals, async function(response) { 
       g = JSON.parse(response)
@@ -40,7 +40,7 @@ function main(vid)
   } else {
     v = featURL[featURL.length-1];
   }
-
+  console.log(v);
   if(!h1titlTag) {
     h1titlTag = document.getElementsByTagName('h1')[0];
     h1titlTag.style.display = "inline";

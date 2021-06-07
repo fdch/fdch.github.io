@@ -82,9 +82,9 @@ async function display(x) {
       break;
       }
     } else {
-      myurl = featURL[pdRandom(featURL.length)];
-      console.log("running main("+featURL[pdRandom(featURL.length)]+")");
-      main(myurl);
+      // myurl = featURL[pdRandom(featURL.length)];
+      // console.log("running main("+featURL[pdRandom(featURL.length)]+")");
+      main();
     }
 }
 function resetDisplay(x){ 
@@ -397,25 +397,22 @@ function displayEvents(target,source) {
     sectTag.appendChild(headTag);
     let artiTag = element('article');
     sectTag.appendChild(artiTag);
-    let footTag = element('footer');
-    sectTag.appendChild(footTag);
+    // let footTag = element('footer');
+    // sectTag.appendChild(footTag);
 
-    let aaa = new Array();
-    aaa.push(element("h3",titl));
-    aaa.push(element("h4",wher));
-    aaa.push(element("h5",when.toDateString()));
-    aaa.push(element("button",'more','',"window.open(\'"+eurl+"\', \'_top\');"));
-    for (let j in aaa) headTag.appendChild(aaa[j]);
-    
 
-    let imagen = img(iurl,articleWidth(maxWidth),titl);
-    artiTag.appendChild(imagen); 
+    headTag.appendChild(element("h3",titl));
+    artiTag.appendChild(img(iurl,articleWidth(maxWidth),titl)); 
+    artiTag.appendChild(element("h4", when.getFullYear() + " " + when.toLocaleString('default', { month: 'long' }) + " " + when.getDate()+ " - " +wher));
+    artiTag.appendChild(element('blockquote',desc));
+    artiTag.appendChild(niceButton(
+      "Info",
+      eurl,
+      "Click here for more"
+    ));
 
-    let descrip = element('p',desc);
-    artiTag.appendChild(descrip);
-
-    let footer = element('h6',time);
-    footTag.appendChild(footer);
+    // let footer = element('h6',time);
+    // footTag.appendChild(footer);
     tuneUp(sectTag);
   }
 }

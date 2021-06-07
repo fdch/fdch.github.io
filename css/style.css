@@ -14,3 +14,6 @@ section.release-section {
 	float:left;
 	background-color:rgba(0, 0, 0, 0.3);
 }
+main {
+	overflow-x: hidden;
+}
