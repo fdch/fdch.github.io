@@ -193,6 +193,12 @@ function displayBiogra(target)
     cv,
     "Download my CV")
   );
+  alltags.push(niceButton(
+    "Online CV",
+    cv,
+    "Read my CV")
+  );
+
   alltags.push(img(bioImage, articleWidth(maxWidth),shortname));
   
   if(!userLang.localeCompare("es"))
