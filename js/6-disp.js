@@ -190,7 +190,7 @@ function displayBiogra(target)
   }
   alltags.push(niceButton(
     "Curriculum Vitae",
-    cv,
+    cvpdf,
     "Download my CV")
   );
   alltags.push(niceButton(

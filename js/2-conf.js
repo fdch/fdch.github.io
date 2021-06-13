@@ -52,8 +52,8 @@ async function loadGlobals(g)
 	 (as fast as nonhumanly possible :)",
 	 "Follow me on social media :)"
 	]
-	cv="https://github.com/fdch/cv/raw/master/output/camara_halac-cv-2021.pdf";
-	cvpdf 		=  g["raw"]+ "/fdch.github.io/master/cv/cv.pdf";
+	cvpdf       = "https://github.com/fdch/cv/raw/master/output/camara_halac-cv-2021-long.pdf";
+	cv   		=  g["url"]+ "/cv";
 	releases    =  g["url"]+ "/releases/";
 	contactGif 	=  g["raw"]+g["imgpath"] + "zissou.gif";
 	loadingUrl 	=  g["raw"]+g["imgpath"] + "fdch.gif";
