@@ -51,8 +51,8 @@ async function loadGlobals(g)
 	"Send me an email at "+g["email"]+" and I will get in touch with you\
 	 (as fast as nonhumanly possible :)",
 	 "Follow me on social media :)"
-	]
-	cvpdf       = "https://github.com/fdch/cv/raw/master/output/camara_halac-cv-2021-long.pdf";
+	];
+	cvpdf       =  g["url"]+ "/cv/output/cv-latest.pdf";
 	cv   		=  g["url"]+ "/cv";
 	releases    =  g["url"]+ "/releases/";
 	contactGif 	=  g["raw"]+g["imgpath"] + "zissou.gif";
