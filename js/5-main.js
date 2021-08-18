@@ -11,8 +11,17 @@ function main(vid)
   
   loadJSON(globals, async function(response) { 
       g = JSON.parse(response)
-      await loadGlobals(g);
-      if(!loaded) loaded = await loadAll(allGS);
+      await loadGlobals(g).then(()=>{
+        if(!loaded) {
+          console.log("Loading...");
+          loadAll(allGS).then(() => {
+            console.log("Done with load function.");
+            loaded = 1
+          }); // load asynchronously
+        } else {
+          console.log("Already loaded.");
+        }
+      });
   });
 
   if(!htmlTag) {

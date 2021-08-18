@@ -1,259 +1,293 @@
-async function loadAll(sheets)
-{
-  //works
-  await loadJSON(sheets[0], async function(response)
-  {
-    var f, e, i, entry;
-    f = JSON.parse(response);
-    entry = f.feed.entry;
-    allUnwork={};
-    allCategories=[], allTitles=[],allWorkId=[];
-    for (i in entry) {
-      e = entry[i];
-      var title = e.gsx$title.$t;
-      var categ = makeCateg(e.gsx$category.$t);
-      var nwid  = String("id-"+makeID(title));
-      var vide = e.gsx$videourl.$t;
-      var audi = e.gsx$audiourl.$t;
-      allUnwork[nwid]={};
-      allUnwork[nwid]["awTitl"] = title;
-      allUnwork[nwid]["awTime"] = e.gsx$timestamp.$t;
-      allUnwork[nwid]["awDate"] = new Date(e.gsx$date.$t);
-      allUnwork[nwid]["awPerf"] = e.gsx$performers.$t;
-      allUnwork[nwid]["awCate"] = categ;
-      allUnwork[nwid]["awDesc"] = e.gsx$description.$t;
-      allUnwork[nwid]["awProg"] = e.gsx$programnotes.$t;
-      allUnwork[nwid]["awIurl"] = e.gsx$imageurl.$t;
-      allUnwork[nwid]["awVurl"] = vide;
-      allUnwork[nwid]["awAurl"] = audi;
-      allUnwork[nwid]["awSurl"] = e.gsx$scoreurl.$t;
-      allUnwork[nwid]["awLoca"] = e.gsx$location.$t;
-      allUnwork[nwid]["awDura"] = e.gsx$duration.$t;
+async function loadAll(sheets) {
+  // console.log("works", sheets);
 
-      for (let j in categ) allCategories.push(categ[j]);
-      allTitles.push(title);
-      allWorkId.push(nwid);
-      if(vide)allVideos.push(title,vide);
-      if(audi)allAudios.push(title,audi);
-      // makeCateg(categ);
-    }
-    uCategories = getUniqueCategories(allCategories);
+  //works
+  loadJSON(sheets[0], async function(response) {
+    // console.log(sheets[0], responsf.values[i][0]);
+    const f = JSON.parse(response);
+    const keys = mapToObj( await f.values[0]);
+    // console.log("WorkKeys", keys);
+    for (let i in f.values) {
+      if(i>0) {
+        const title = await f.values[i][keys["title"]];
+        const categ = makeCateg( await f.values[i][keys['category']]);
+        const workIdx = String("id-"+makeID(title));
+        const video = await f.values[i][keys["videourl"]];
+        const audio = await f.values[i][keys["audiourl"]];
+
+        allUnwork[workIdx] = {
+          awTitl : title,
+          awTime : await f.values[i][keys["timestamp"]],
+          awDate : new Date( await f.values[i][keys["date"]]),
+          awPerf : await f.values[i][keys["performers"]],
+          awCate : categ,
+          awDesc : await f.values[i][keys["description"]],
+          awProg : await f.values[i][keys["programnotes"]],
+          awIurl : await f.values[i][keys["imageurl"]],
+          awVurl : video,
+          awAurl : audio,
+          awSurl : await f.values[i][keys["scoreurl"]],
+          awLoca : await f.values[i][keys["location"]],
+          awDura : await f.values[i][keys["duration"]],
+        }
+
+        categ.forEach(c => allCategories.push(c));
+
+        allTitles.push(title);
+
+        allWorkId.push(workIdx);
+
+        if(video) {
+          allVideos.push(
+            title, video
+          );
+        }
+
+        if(audio) {
+          allVideos.push(
+            title, audio
+          );
+        }
+
+        // makeCateg(categ);
+        // console.log("Works", nwid, works[nwid]);
+      }
+    }// end loop
+    uCategories = getUniqueCategories(allCategories)
   });
   //papers
-  await loadJSON(sheets[1], async function(response)
-  {
-    var f, e, i, entry;
-    f = JSON.parse(response);
-    entry = f.feed.entry; 
+  loadJSON(sheets[1], async function(response) {
+
+    const f = JSON.parse(response);
+    const keys = mapToObj( await f.values[0]);
+
     allPapers={};
-    for (i in entry) {
-      e = entry[i];
-      var title = e.gsx$title.$t;
-      var npid = String("id-"+makeID(title));
-      allPapers[npid]={};
-      allPapers[npid]["apTitl"] = title;
-      allPapers[npid]["apTime"] = e.gsx$timestamp.$t;
-      allPapers[npid]["apDesc"] = e.gsx$description.$t;
-      allPapers[npid]["apLink"] = e.gsx$link.$t;
-      allPapers[npid]["apPubl"] = e.gsx$published.$t;
-      allPapers[npid]["apDown"] = e.gsx$download.$t;
-      allPapers[npid]["apDate"] = e.gsx$date.$t;
-      allPapers[npid]["apiURL"] = e.gsx$imageurl.$t;
+    for (let i in f.values) {
+      if ( i > 0 ) {
+        allPapers[String("id-"+makeID( await f.values[i][keys["title"]]))]={
+          apTitl : await f.values[i][keys["title"]], 
+          apTime : await f.values[i][keys["timestamp"]], 
+          apDesc : await f.values[i][keys["description"]], 
+          apLink : await f.values[i][keys["link"]], 
+          apPubl : await f.values[i][keys["published"]], 
+          apDown : await f.values[i][keys["download"]], 
+          apDate : await f.values[i][keys["date"]], 
+          apiURL : await f.values[i][keys["imageurl"]], 
+        };
+      }
     }//end loop
   });
+  
   //events
-  await loadJSON(sheets[2], async function(response)
+  loadJSON(sheets[2], async function(response)
   {
-    var f, e, i, entry;
-    f = JSON.parse(response);
-    entry = f.feed.entry;
+    
+    const f = JSON.parse(response);
+    const keys = mapToObj( await f.values[0]);
+    
     allEvents={};
-    for (i in entry) {
-      e = entry[i];
-      var title = e.gsx$what.$t;
-      var neid = String("id-"+makeID(title));
-      allEvents[neid]={};
-      allEvents[neid]["aeWhat"] = title;
-      allEvents[neid]["aeTime"] = e.gsx$timestamp.$t;
-      allEvents[neid]["aeWhen"] = new Date(e.gsx$when.$t);
-      allEvents[neid]["aeWher"] = e.gsx$where.$t;
-      allEvents[neid]["aeDesc"] = e.gsx$description.$t;
-      allEvents[neid]["aeIURL"] = e.gsx$imgurl.$t;
-      allEvents[neid]["aeEURL"] = e.gsx$eventurl.$t;
+    for (let i in f.values) {
+      if ( i > 0 ) {
+        allEvents[String("id-"+makeID( await f.values[i][keys["what"]]))] = {
+          aeWhat : await f.values[i][keys["what"]],
+          aeTime : await f.values[i][keys["timestamp"]],
+          aeWhen : new Date( await f.values[i][keys["when"]]),
+          aeWher : await f.values[i][keys["where"]],
+          aeDesc : await f.values[i][keys["description"]],
+          aeIURL : await f.values[i][keys["imgurl"]],
+          aeEURL : await f.values[i][keys["eventurl"]],
+        }
+      }
     }
   });
   //people
-  await loadJSON(sheets[3], async function(response)
-  {
-    var f, e, i, entry;
-    f = JSON.parse(response);
-    entry = f.feed.entry;
+  loadJSON(sheets[3], async function(response) {
+    
+    const f = JSON.parse( await response);
+    const keys = mapToObj( await f.values[0]);
+
     allPeople={};
-    for (i in entry) {
-      e = entry[i];
-      var name = e.gsx$name.$t;
-      var nPid = String("id-"+makeID(name));
-      allPeople[nPid]={};
-      allPeople[nPid]["aPName"] = name;
-      allPeople[nPid]["aPTime"] = e.gsx$timestamp.$t;
-      allPeople[nPid]["aPSurn"] = e.gsx$surname.$t;
-      allPeople[nPid]["aPWebs"] = e.gsx$website.$t;
+    for (let i in f.values) {
+      if ( i > 0 ) {
+        allPeople[String("id-"+makeID( await f.values[i][keys["name"]]))] = {
+          aPName : await f.values[i][keys["name"]],
+          aPTime : await f.values[i][keys["timestamp"]],
+          aPSurn : await f.values[i][keys["surname"]],
+          aPWebs : await f.values[i][keys["website"]],
+        }
+      }
     }
     // window.alert(Object.keys(allPeople));
   });
-  //teachings
-  await loadJSON(sheets[4], async function(response)
-  {
-    var f, e, i, entry;
-    f = JSON.parse(response);
-    entry = f.feed.entry;
+  //teaching
+  loadJSON(sheets[9], async function(response) {
+
+    const f = await JSON.parse(response);
+    const keys = mapToObj(await f.values[0]);
+    
     allTeachi={};
-    for (i in entry) {
-      e = entry[i];
-      var clas = e.gsx$class.$t;
-      var year = e.gsx$year.$t;
-      var nTid = String("id-"+makeID(clas+year));
-      allTeachi[nTid]={};
-      allTeachi[nTid]["aTTime"] = e.gsx$timestamp.$t;
-      allTeachi[nTid]["aTType"] = e.gsx$type.$t;
-      allTeachi[nTid]["aTClas"] = clas;
-      allTeachi[nTid]["aTInst"] = e.gsx$institution.$
-      allTeachi[nTid]["aTDept"] = e.gsx$department.$t
-      allTeachi[nTid]["aTTerm"] = e.gsx$term.$t;
-      allTeachi[nTid]["aTYear"] = year;
+    for (let i in f.values) {
+      if ( i > 0 ) {
+
+        const idx = String("id-" + makeID(
+            await f.values[i][keys["class"]] + await f.values[i][keys["year"]]
+            )
+          );
+        
+        allTeachi[idx] = {
+          aTTime : await f.values[i][keys["timestamp"]],
+          aTType : await f.values[i][keys["type"]],
+          aTClas : await f.values[i][keys["class"]],
+          aTInst : await f.values[i][keys["institution"]],
+          aTDept : await f.values[i][keys["department"]],
+          aTTerm : await f.values[i][keys["term"]],
+          aTYear : await f.values[i][keys["year"]],
+        };
+      }
     }
     // window.alert(Object.keys(allTeachi));
   });
   //awards
-  await loadJSON(sheets[5], async function(response)
-  {
-    var f, e, i, entry;   
-    f = JSON.parse(response);
-    entry = f.feed.entry;
-    allAwards={};    
-    for (i in entry) {
-      e = entry[i];
-      var titl = e.gsx$title.$t;
-      var wher = e.gsx$where.$t;
-      var nAid = String("id-"+makeID(titl+wher));
-      allAwards[nAid]={};  
-      allAwards[nAid]["aATime"] = e.gsx$timestamp.$t;
-      allAwards[nAid]["aAType"] = e.gsx$type.$t;
-      allAwards[nAid]["aATitl"] = titl;
-      allAwards[nAid]["aADura"] = e.gsx$duration.$t;
-      allAwards[nAid]["aAWher"] = wher;
-      allAwards[nAid]["aAWhoo"] = e.gsx$who.$t;
-      allAwards[nAid]["aADesc"] = e.gsx$description.$t;
-      allAwards[nAid]["aAUrll"] = e.gsx$url.$t;
+  loadJSON(sheets[10], async function(response) {
+
+    const f = JSON.parse(response);
+    const keys = mapToObj( await f.values[0]);
+
+    allAwards={};
+    for (let i in f.values) {
+      if ( i > 0 ) {
+        allAwards[String("id-"+makeID( await f.values[i][keys["title"]]+f.values[i][keys["where"]]))] = {
+          aATime : await f.values[i][keys["timestamp"]], 
+          aAType : await f.values[i][keys["type"]], 
+          aATitl : await f.values[i][keys["title"]], 
+          aADura : await f.values[i][keys["duration"]], 
+          aAWher : await f.values[i][keys["where"]], 
+          aAWhoo : await f.values[i][keys["who"]], 
+          aADesc : await f.values[i][keys["description"]], 
+          aAUrll : await f.values[i][keys["url"]], 
+        };
+      }
     }
     //console.log(Object.keys(allAwards));
   });
+
   //collabs
-  await loadJSON(sheets[6], async function(response) 
-  {
-   var f, e, i, entry;   
-    f = JSON.parse(response);
-    entry = f.feed.entry;
-    allCollab={};  
-    for (i in entry) {
-      e = entry[i];
-      var year = e.gsx$year.$t;
-      var cate = e.gsx$category.$t;
-      var nCid = String("id-"+makeID(year+cate));
-      allCollab[nCid]={};
-      allCollab[nCid]["aCTime"] = e.gsx$timestamp.$t;
-      allCollab[nCid]["aCCate"] = cate;
-      allCollab[nCid]["aCYear"] = year;
-      allCollab[nCid]["aCWher"] = e.gsx$where.$t;
-      allCollab[nCid]["aCDesc"] = e.gsx$description.$t;
+  loadJSON(sheets[12], async function(response) {
+
+    const f = JSON.parse(response);
+    const keys = mapToObj( await f.values[0]);
+
+    allCollab={};
+
+    for (let i in f.values) {
+      if ( i > 0 ) {
+        allCollab[String("id-"+makeID( await f.values[i][keys["year"]]+f.values[i][keys["category"]]))] = {
+          aCTime : await f.values[i][keys["timestamp"]],
+          aCCate : await f.values[i][keys["category"]],
+          aCYear : await f.values[i][keys["year"]],
+          aCWher : await f.values[i][keys["where"]],
+          aCDesc : await f.values[i][keys["description"]],
+        };
+      }
     }
   });
   //perfor
-  await loadJSON(sheets[7], async function(response)
-  {
-    var f, e, i, entry; 
-    f = JSON.parse(response);
-    entry = f.feed.entry;
-    allPerfor={};   
-    for (i in entry) {
-      e = entry[i];
-      var what = e.gsx$what.$t;
-      var when = e.gsx$when.$t;
-      var nPid = String("id-"+makeID(what+when));
-      allPerfor[nPid]={};
-      allPerfor[nPid]["aPTime"] = e.gsx$timestamp.$t;
-      allPerfor[nPid]["aPWhat"] = what;
-      allPerfor[nPid]["aPWhen"] = new Date(when);
-      allPerfor[nPid]["aPHoww"] = e.gsx$how.$t;
-      allPerfor[nPid]["aPWher"] = e.gsx$where.$t;
-      allPerfor[nPid]["aPInst"] = e.gsx$instrument.$t;
-      allPerfor[nPid]["aPWith"] = e.gsx$with.$t;
+  loadJSON(sheets[13], async function(response) {
+
+    const f = JSON.parse(response);
+    const keys = mapToObj( await f.values[0]);
+
+    allPerfor={};
+    for (let i in f.values) {
+      if ( i > 0 ) {
+
+        const what =  await f.values[i][keys["title"]];
+        const when =  await f.values[i][keys["dates"]];
+
+        allPerfor[String("id-"+makeID(what+when))] = {
+          aPTime : await f.values[i][keys["timestamp"]],
+          aPWhat : what,
+          aPWhen : new Date(when),
+          aPHoww : await f.values[i][keys["description"]],
+          aPWher : await f.values[i][keys["location"]],
+          aPInst : await f.values[i][keys["instrument"]],
+          aPWith : await f.values[i][keys["employer"]],
+          month: await f.values[i][keys["month"]],
+          year: await f.values[i][keys["year"]],
+          narrative: await f.values[i][keys["narrative"]],
+          header: await f.values[i][keys["header"]],
+          category: await f.values[i][keys["category"]],
+          url: await f.values[i][keys["url"]],
+        };
+      }
     }
     //console.log(Object.keys(allPerfor));
   });
-  await loadJSON(sheets[8], async function(response)
-  {
-    var f, e, i, entry; 
-    f = JSON.parse(response);
-    entry = f.feed.entry;
-    allPerfor={};   
-    for (i in entry) {
-      e = entry[i];
-      var nPid = String("id-"+makeID(e.gsx$timestamp.$t));
-      allProjects[nPid]={};
-      allProjects[nPid]["aPTime"]=e.gsx$timestamp.$t;
-      allProjects[nPid]["aPPart"]=e.gsx$participants.$t;
-      allProjects[nPid]["aPDesc"]=e.gsx$description.$t;
-      allProjects[nPid]["aPPpl1"]=e.gsx$p1.$t;
-      allProjects[nPid]["aPimg1"]=e.gsx$p1img.$t;
-      allProjects[nPid]["aPPpl2"]=e.gsx$p2.$t;
-      allProjects[nPid]["aPimg2"]=e.gsx$p2img.$t;
-      allProjects[nPid]["aPPpl3"]=e.gsx$p3.$t;
-      allProjects[nPid]["aPimg3"]=e.gsx$p3img.$t;
-      allProjects[nPid]["aPPpl4"]=e.gsx$p4.$t;
-      allProjects[nPid]["aPimg4"]=e.gsx$p4img.$t;
-      allProjects[nPid]["aPUrl1"]=e.gsx$link1.$t;
-      allProjects[nPid]["aPUrl2"]=e.gsx$link2.$t;
-      allProjects[nPid]["aP1UR1"]=e.gsx$p1link1.$t;
-      allProjects[nPid]["aP1UR2"]=e.gsx$p1link2.$t;
-      allProjects[nPid]["aP1UR3"]=e.gsx$p1link3.$t;
-      allProjects[nPid]["aP2UR1"]=e.gsx$p2link1.$t;
-      allProjects[nPid]["aP2UR2"]=e.gsx$p2link2.$t;
-      allProjects[nPid]["aP2UR3"]=e.gsx$p2link3.$t;
-      allProjects[nPid]["aP3UR1"]=e.gsx$p3link1.$t;
-      allProjects[nPid]["aP3UR2"]=e.gsx$p3link2.$t;
-      allProjects[nPid]["aP3UR3"]=e.gsx$p3link3.$t;
-      allProjects[nPid]["aP4UR1"]=e.gsx$p4link1.$t;
-      allProjects[nPid]["aP4UR2"]=e.gsx$p4link2.$t;
-      allProjects[nPid]["aP4UR3"]=e.gsx$p4link3.$t;
-    }
+  loadJSON(sheets[4], async function(response) {
+    const f = JSON.parse(response);
+    const keys = mapToObj( await f.values[0]);
+    allPerfor={};
+    for (let i in f.values) {
+      if ( i > 0 ) {
+        const timestamp = await f.values[i][keys["timestamp"]];
+        allProjects[String("id-"+makeID(timestamp))]= {
+          aPTime : timestamp,
+          aPPart : await f.values[i][keys["participants"]],
+          aPDesc : await f.values[i][keys["description"]],
+          aPPpl1 : await f.values[i][keys["p1"]],
+          aPimg1 : await f.values[i][keys["p1img"]],
+          aPPpl2 : await f.values[i][keys["p2"]],
+          aPimg2 : await f.values[i][keys["p2img"]],
+          aPPpl3 : await f.values[i][keys["p3"]],
+          aPimg3 : await f.values[i][keys["p3img"]],
+          aPPpl4 : await f.values[i][keys["p4"]],
+          aPimg4 : await f.values[i][keys["p4img"]],
+          aPUrl1 : await f.values[i][keys["link1"]],
+          aPUrl2 : await f.values[i][keys["link2"]],
+          aP1UR1 : await f.values[i][keys["p1link1"]],
+          aP1UR2 : await f.values[i][keys["p1link2"]],
+          aP1UR3 : await f.values[i][keys["p1link3"]],
+          aP2UR1 : await f.values[i][keys["p2link1"]],
+          aP2UR2 : await f.values[i][keys["p2link2"]],
+          aP2UR3 : await f.values[i][keys["p2link3"]],
+          aP3UR1 : await f.values[i][keys["p3link1"]],
+          aP3UR2 : await f.values[i][keys["p3link2"]],
+          aP3UR3 : await f.values[i][keys["p3link3"]],
+          aP4UR1 : await f.values[i][keys["p4link1"]],
+          aP4UR2 : await f.values[i][keys["p4link2"]],
+          aP4UR3 : await f.values[i][keys["p4link3"]]
+        };
+      }
     //console.log(Object.keys(allProjects));
+    }
   });
   // releases
-  await loadJSON(sheets[9], async function(response)
-  {
+  loadJSON(sheets[5], async function(response) {
     // console.log(sheets[9]);
-    var f, e, i, entry; 
-    f = JSON.parse(response);
-    entry = f.feed.entry;
+
+    const f = JSON.parse(response);
+    const keys = mapToObj( await f.values[0]);
+    
     allReleases={};   
-    for (i in entry) {
-      e = entry[i];
-      var nRid = String("id-"+makeID(e.gsx$timestamp.$t));
-      allReleases[nRid]={};
-      allReleases[nRid]["aRTime"]=e.gsx$timestamp.$t;
-      allReleases[nRid]["aRTitl"]=e.gsx$title.$t;
-      allReleases[nRid]["aRIfra"]=e.gsx$iframe.$t;
-      allReleases[nRid]["aRDate"]=e.gsx$date.$t;
+    for (let i in f.values) {
+      if ( i > 0 ) {
+        allReleases[String("id-"+makeID( await f.values[i][keys["timestamp"]]))] = {
+          aRTitl : await f.values[i][keys["title"]],
+          aRIfra : await f.values[i][keys["iframe"]],
+          aRDate : await f.values[i][keys["date"]],
+          aRTime : await f.values[i][keys["timestamp"]],
+        };
+      }
     }
-    //console.log(Object.keys(allProjects));
   });
-  // loaded = 1; //set it as loaded if it is loaded asynchronously
-
-  // callback();
-  // if(callback) callback();
-
-  return 1; //actually not checking if stuf loaded...
+  return;
 }
-
-if(!loaded) loaded = loadAll(allGS); // load asynchronously
+if(!loaded) {
+  console.log("Loading...");
+  loadAll(allGS).then(() => {
+    console.log("Done with load function.");
+    loaded = 1
+  }); // load asynchronously
+} else {
+  console.log("Loaded");
+}

@@ -21,14 +21,14 @@ async function display(x) {
   if(article) {
     switch (x) {
       case "games" :
-        await tuneUp(displayGames(article));
+        tuneUp( await displayGames(article));
         break;
       case "touch" :
-        await tuneUp(displayTouch(article));
+        tuneUp( await displayTouch(article));
         break;
       case "bio"   :
-        await tuneUp(displayBiogra(article));
-        await tuneUp(displayTouch(article));
+        tuneUp( await displayBiogra(article));
+        tuneUp( await displayTouch(article));
         break;
       case "work":
         //extra stuff for the category selectbox
@@ -46,32 +46,32 @@ async function display(x) {
           catDivTag.style.display = 'inline';
         }
 
-        await displayUnwork(article,allUnwork);
+        displayUnwork(article,allUnwork);
         break;
       case "writings":
-        await displayPapers(article,allPapers);
+        displayPapers(article,allPapers);
         break;
       case "news":
-        await displayEvents(article,allEvents);
+        displayEvents(article,allEvents);
         break;
       case "people":
-        await displayPeople(article,allPeople);
+        displayPeople(article,allPeople);
         break;
       case "cv"    :
         window.open(cv,"_top");
         break;
       case "video" :
-        await displayMedia(article,allVideos, 'video');
+        displayMedia(article,allVideos, 'video');
         break;
       case "audio" :
-        await displayMedia(article,allAudios, 'audio');
+        displayMedia(article,allAudios, 'audio');
         break;
       case "projects":
-        await displayProjects(article,allProjects);
+        displayProjects(article,allProjects);
         // window.open("https://fdch.github.io/projects","_top");
         break;
       case "releases":
-        await displayReleases(article, allReleases);
+        displayReleases(article, allReleases);
         // window.open("./releases","_top");
         break;
       case "code":
@@ -89,7 +89,7 @@ async function display(x) {
 }
 function resetDisplay(x){ 
   //remove previous stuff
-  var c;
+  // var c;
   if (removeChilds(mainTag)) {
     if( !x.localeCompare('init') ) {
         mainTag.style.marginLeft = "0px";
@@ -255,25 +255,25 @@ function displayGames(target)
   return sectTag;
 }
 
-function displayUnwork(target,source) {
+async function displayUnwork(target, source) {
   let sectTag = element('section');
   target.appendChild(sectTag);
   let keys = Object.keys(source);
   for (var i in keys) {
     let x = keys[i];
-    let titl = source[x]["awTitl"];
-    let time = source[x]["awTime"];
-    let date = source[x]["awDate"];
-    let perf = source[x]["awPerf"];
-    let cate = source[x]["awCate"];
-    let desc = source[x]["awDesc"];
-    let prog = source[x]["awProg"];
-    let iurl = source[x]["awIurl"];
-    let vurl = source[x]["awVurl"];
-    let aurl = source[x]["awAurl"];
-    let surl = source[x]["awSurl"];
-    let loca = source[x]["awLoca"];
-    let dura = source[x]["awDura"];
+    // let time = source[x]["awTime"];
+    // let dura = source[x]["awDura"];
+    let titl = await source[x]["awTitl"];
+    let date = await source[x]["awDate"];
+    let perf = await source[x]["awPerf"];
+    let cate = await source[x]["awCate"];
+    let desc = await source[x]["awDesc"];
+    let prog = await source[x]["awProg"];
+    let iurl = await source[x]["awIurl"];
+    let vurl = await source[x]["awVurl"];
+    let aurl = await source[x]["awAurl"];
+    let surl = await source[x]["awSurl"];
+    let loca = await source[x]["awLoca"];
 
     let divTag  = element("div",'', x);
     divTag.setAttribute('class', cate.join(" ")+" unworks");
@@ -326,9 +326,9 @@ function displayUnwork(target,source) {
      
     if (perf) footTag.appendChild(element("h5",perfMessage));
 
-
   }
-    centering(tuneUp(sectTag));
+  centering(sectTag);
+  tuneUp(sectTag);
 }
 function displayPapers(target,source) {
   var keys = Object.keys(source);
