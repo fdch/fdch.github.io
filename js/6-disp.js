@@ -1,5 +1,4 @@
 async function display(x) {
-  let section;
 
   if (typeof x == 'string' || x instanceof String) {
     x = x;
@@ -30,6 +29,7 @@ async function display(x) {
         tuneUp( await displayBiogra(article));
         tuneUp( await displayTouch(article));
         break;
+
       case "work":
         //extra stuff for the category selectbox
         
@@ -57,7 +57,7 @@ async function display(x) {
       case "people":
         displayPeople(article,allPeople);
         break;
-      case "cv"    :
+      case "cv":
         window.open(cv,"_top");
         break;
       case "video" :
@@ -79,6 +79,9 @@ async function display(x) {
         tuneUp(displayGames(article));
         break;
       default:
+        case "toros" :
+          window.open("https://fdch.github.io/toros","_blank");
+          main();
       break;
       }
     } else {

@@ -10,6 +10,7 @@ const mitem = [
   "code",
   "releases",
   "news",
+  "toros",
   // "cv",
   // "people",
   // "touch",
