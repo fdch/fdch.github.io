@@ -4,6 +4,7 @@
  */
 const mitem = [
   "init",
+  "blog",
   "bio",
   "work",
   "writings",
