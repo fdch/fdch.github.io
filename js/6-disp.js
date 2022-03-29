@@ -75,14 +75,18 @@ async function display(x) {
         // window.open("./releases","_top");
         break;
       case "code":
-        displayCode(article);
-        tuneUp(displayGames(article));
+        //displayCode(article);
+        //tuneUp(displayGames(article));
+        window.open("https://github.com/fdch","_blank");
+        break;
+      case "toros" :
+        window.open("https://fdch.github.io/toros","_blank");
+        break;
+      case "blog" :
+        window.open("https://fdch.github.io/blog","_blank");
         break;
       default:
-        case "toros" :
-          window.open("https://fdch.github.io/toros","_blank");
-          main();
-      break;
+        main();
       }
     } else {
       // myurl = featURL[pdRandom(featURL.length)];
