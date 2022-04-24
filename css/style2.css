@@ -124,11 +124,11 @@ figure {
   align-items: center;
   justify-content: center;
   margin: 0 auto;
-  max-width: 800px;
+  max-width: 800px !important;
 }
 
 img {
-  max-width: 100%;
+  max-width: 100% !important;
   height: auto;
   padding:0;
   margin:0 auto;

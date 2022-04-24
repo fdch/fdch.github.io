@@ -1,3 +1,8 @@
+function redirect(url)
+{
+  window.open(url,"_top");
+}
+
 async function display(x) {
 
   if (typeof x == 'string' || x instanceof String) {
@@ -77,13 +82,13 @@ async function display(x) {
       case "code":
         //displayCode(article);
         //tuneUp(displayGames(article));
-        window.open("https://github.com/fdch","_blank");
+        redirect("https://github.com/fdch");
         break;
       case "toros" :
-        window.open("https://fdch.github.io/toros","_blank");
+        redirect("https://fdch.github.io/toros");
         break;
       case "blog" :
-        window.open("https://fdch.github.io/blog","_blank");
+        redirect("https://fdch.github.io/blog");
         break;
       default:
         main();
