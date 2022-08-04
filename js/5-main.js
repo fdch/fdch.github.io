@@ -5,7 +5,9 @@
 //////           //////////        // //////////            //////////    ///
 //////           //////////       //  //////////            //////////    /// 
 //////           //////////////////   ////////////////////  //////////    ///
-function main(vid)
+let random_video = false;
+
+function main()
 {
   var v='';
   
@@ -44,12 +46,13 @@ function main(vid)
     bodyTag = document.getElementsByTagName('body')[0];
   }
 
-  if(!vid) {
+  if(random_video) {
     v = featURL[pdRandom(featURL.length)];
   } else {
-    v = featURL[featURL.length-1];
+    v = featURL[0];
+    random_video = true;
   }
-  console.log(v);
+
   if(!h1titlTag) {
     h1titlTag = document.getElementsByTagName('h1')[0];
     h1titlTag.style.display = "inline";

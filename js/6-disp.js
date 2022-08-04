@@ -1,6 +1,5 @@
-function redirect(url)
-{
-  window.open(url,"_top");
+function redirect(url) {
+  window.open(url, "_top");
 }
 
 async function display(x) {
@@ -13,127 +12,123 @@ async function display(x) {
 
   htmlTag.style.fontFamily = fonts[0];
   // htmlTag.style.fontFamily = fonts[pdRandom(fonts.length)];
-  
-  
-  // currpage = mitem.findIndex(item => item === x);
-  // console.log("Display \'"+x+"\', currpage: "+currpage);
-  // console.log(currpage);
 
-  
-  article = resetDisplay(x);
-  
-  if(article) {
-    switch (x) {
-      case "games" :
-        tuneUp( await displayGames(article));
-        break;
-      case "touch" :
-        tuneUp( await displayTouch(article));
-        break;
-      case "bio"   :
-        tuneUp( await displayBiogra(article));
-        tuneUp( await displayTouch(article));
-        break;
+  switch (x) {
+    case "games":
+      article = resetDisplay(x);
+      tuneUp(await displayGames(article));
+      break;
+    case "touch":
+      article = resetDisplay(x);
+      tuneUp(await displayTouch(article));
+      break;
+    case "bio":
+      article = resetDisplay(x);
+      tuneUp(await displayBiogra(article));
+      tuneUp(await displayTouch(article));
+      break;
 
-      case "work":
-        //extra stuff for the category selectbox
-        
-        if(!catDivTag)
-        {
-          catDivTag = document.createElement('nav');
-          catSelTag = makeDropdowns('category', catDivTag, uCategories, 'getValue(this)');
-          //makeDropdowns('title', formTag, allTitles);
-          catSelTag.autofocus = true;
-          catDivTag.className = "headtitle";
-          catDivTag.style.display = "inline";
-          navigaTag.appendChild(catDivTag)
-        } else {
-          catDivTag.style.display = 'inline';
-        }
-
-        displayUnwork(article,allUnwork);
-        break;
-      case "writings":
-        displayPapers(article,allPapers);
-        break;
-      case "news":
-        displayEvents(article,allEvents);
-        break;
-      case "people":
-        displayPeople(article,allPeople);
-        break;
-      case "cv":
-        window.open(cv,"_top");
-        break;
-      case "video" :
-        displayMedia(article,allVideos, 'video');
-        break;
-      case "audio" :
-        displayMedia(article,allAudios, 'audio');
-        break;
-      case "projects":
-        displayProjects(article,allProjects);
-        // window.open("https://fdch.github.io/projects","_top");
-        break;
-      case "releases":
-        displayReleases(article, allReleases);
-        // window.open("./releases","_top");
-        break;
-      case "code":
-        //displayCode(article);
-        //tuneUp(displayGames(article));
-        redirect("https://github.com/fdch");
-        break;
-      case "toros" :
-        redirect("https://fdch.github.io/toros");
-        break;
-      case "blog" :
-        redirect("https://fdch.github.io/blog");
-        break;
-      default:
-        main();
+    case "work":
+      //extra stuff for the category selectbox
+      article = resetDisplay(x);
+      if (!catDivTag) {
+        catDivTag = document.createElement('nav');
+        catSelTag = makeDropdowns('category', catDivTag, uCategories, 'getValue(this)');
+        //makeDropdowns('title', formTag, allTitles);
+        catSelTag.autofocus = true;
+        catDivTag.className = "headtitle";
+        catDivTag.style.display = "inline";
+        navigaTag.appendChild(catDivTag)
+      } else {
+        catDivTag.style.display = 'inline';
       }
-    } else {
-      // myurl = featURL[pdRandom(featURL.length)];
-      // console.log("running main("+featURL[pdRandom(featURL.length)]+")");
+
+      displayUnwork(article, allUnwork);
+      break;
+    case "writings":
+      article = resetDisplay(x);
+      displayPapers(article, allPapers);
+      break;
+    case "news":
+      article = resetDisplay(x);
+      displayEvents(article, allEvents);
+      break;
+    case "people":
+      article = resetDisplay(x);
+      displayPeople(article, allPeople);
+      break;
+    case "cv":
+      window.open(cv, "_top");
+      break;
+    case "video":
+      article = resetDisplay(x);
+      displayMedia(article, allVideos, 'video');
+      break;
+    case "audio":
+      article = resetDisplay(x);
+      displayMedia(article, allAudios, 'audio');
+      break;
+    case "projects":
+      article = resetDisplay(x);
+      displayProjects(article, allProjects);
+      // window.open("https://fdch.github.io/projects","_top");
+      break;
+    case "releases":
+      article = resetDisplay(x);
+      displayReleases(article, allReleases);
+      // window.open("./releases","_top");
+      break;
+    case "code":
+      //displayCode(article);
+      //tuneUp(displayGames(article));
+      redirect("https://github.com/fdch");
+      break;
+    case "toros":
+      redirect("https://fdch.github.io/toros");
+      break;
+    case "blog":
+      redirect("https://fdch.github.io/blog");
+      break;
+    default:
+      article = resetDisplay(x);
       main();
-    }
+  }
 }
-function resetDisplay(x){ 
+
+function resetDisplay(x) {
   //remove previous stuff
   // var c;
   if (removeChilds(mainTag)) {
-    if( !x.localeCompare('init') ) {
-        mainTag.style.marginLeft = "0px";
-        navSelTag.selectedIndex = 0;
-        if(catDivTag) catDivTag.style.display = "none";
-        return void 0; // we are on init page
-      } else {
-        //remove backvid
-        if (iframeTag) {
-          iframeTag.style.display = 'none';
-          iframeTag.src = '';
-        }
-        if(catDivTag) catDivTag.style.display = "none";
-        //the header
-        var headTag = element('header');
-        let htitleTag = element("h2", x, '', "display(\'"+x+"\')");
-        headTag.appendChild(htitleTag);
-        mainTag.appendChild(headTag);
-        //the article
-        var articlTag = element('article','', x);
-        mainTag.appendChild(articlTag);
-        articlTag.style.width = articleWidth(maxWidth)+"px";
-        return articlTag;
+    if (!x.localeCompare('init')) {
+      mainTag.style.marginLeft = "0px";
+      navSelTag.selectedIndex = 0;
+      if (catDivTag) catDivTag.style.display = "none";
+      return void 0; // we are on init page
+    } else {
+      //remove backvid
+      if (iframeTag) {
+        iframeTag.style.display = 'none';
+        iframeTag.src = '';
       }
+      if (catDivTag) catDivTag.style.display = "none";
+      //the header
+      var headTag = element('header');
+      let htitleTag = element("h2", x, '', "display(\'" + x + "\')");
+      headTag.appendChild(htitleTag);
+      mainTag.appendChild(headTag);
+      //the article
+      var articlTag = element('article', '', x);
+      mainTag.appendChild(articlTag);
+      articlTag.style.width = articleWidth(maxWidth) + "px";
+      return articlTag;
+    }
   } else {
     console.log("could not remove elements and create article");
     return void 0; //there was an error
   }
 }
 
-function displayTouch(target)
-{
+function displayTouch(target) {
   let sectTag = element('section');
   target.appendChild(sectTag);
 
@@ -142,45 +137,41 @@ function displayTouch(target)
   sectTag.appendChild(headTag);
   sectTag.appendChild(artiTag);
 
-  headTag.appendChild(element('h2','Contact'));
+  headTag.appendChild(element('h2', 'Contact'));
 
   let alltags = new Array();
-  
-  if(!userLang.localeCompare("es"))
-  {
-    alltags.push(element('p',contactMessage[0]));
-    alltags.push(element('p',contactMessage[1]));
-  } else
-  {
-    alltags.push(element('p',contactMessage[2]));
-    alltags.push(element('p',contactMessage[3]));
+
+  if (!userLang.localeCompare("es")) {
+    alltags.push(element('p', contactMessage[0]));
+    alltags.push(element('p', contactMessage[1]));
+  } else {
+    alltags.push(element('p', contactMessage[2]));
+    alltags.push(element('p', contactMessage[3]));
   }
   var lk = Object.keys(mylinks);
-  
+
   let divTag = element('div');
-  
-  for (let k in lk)
-  { 
+
+  for (let k in lk) {
     divTag.append(element(
-        "button",
-        lk[k],
-        '',
-        "window.open(\'"+mylinks[lk[k]]+"\', '_top');",
-        ""
+      "button",
+      lk[k],
+      '',
+      "window.open(\'" + mylinks[lk[k]] + "\', '_top');",
+      ""
     ));
     divTag.append(element('span', " | "));
   }
   alltags.push(divTag);
   // alltags.push(img(contactGif, articleWidth(maxWidth),"touch..."));
-  
-  for (let i in alltags) 
+
+  for (let i in alltags)
     artiTag.appendChild(alltags[i]);
-  
+
   return sectTag;
 }
 
-function displayBiogra(target)
-{
+function displayBiogra(target) {
   let sectTag = element('section');
   target.appendChild(sectTag);
 
@@ -191,36 +182,30 @@ function displayBiogra(target)
 
   let alltags = new Array();
 
-  if(!userLang.localeCompare("es"))
-  {
-    alltags.push(element('p',bio_es));
-    alltags.push(element('p',epigrafe));
-  } else 
-  {
-    alltags.push(element('p',bio_en));
-    alltags.push(element('p',epigraph));
+  if (!userLang.localeCompare("es")) {
+    alltags.push(element('p', bio_es));
+    alltags.push(element('p', epigrafe));
+  } else {
+    alltags.push(element('p', bio_en));
+    alltags.push(element('p', epigraph));
   }
   alltags.push(niceButton(
     "Curriculum Vitae",
     cvpdf,
-    "Download my CV")
-  );
+    "Download my CV"));
   alltags.push(niceButton(
     "Online CV",
     cv,
-    "Read my CV")
-  );
+    "Read my CV"));
 
-  alltags.push(img(bioImage, articleWidth(maxWidth),shortname));
-  
-  if(!userLang.localeCompare("es"))
-  {
-    for (let i in long_descripcion) 
-      alltags.push(element('p',long_descripcion[i]))
-  } else
-  {
-    for (let i in long_description) 
-      alltags.push(element('p',long_description[i]))   
+  alltags.push(img(bioImage, articleWidth(maxWidth), shortname));
+
+  if (!userLang.localeCompare("es")) {
+    for (let i in long_descripcion)
+      alltags.push(element('p', long_descripcion[i]))
+  } else {
+    for (let i in long_description)
+      alltags.push(element('p', long_description[i]))
   }
   // alltags.push(element("button","HQ photo",'', "window.open(\'"+bioImage+"\', '_top');"));
   for (let i in alltags) artiTag.appendChild(alltags[i]);
@@ -228,8 +213,7 @@ function displayBiogra(target)
   return sectTag;
 }
 
-function displayGames(target)
-{
+function displayGames(target) {
   let sectTag = element('section');
   target.appendChild(sectTag);
 
@@ -241,7 +225,7 @@ function displayGames(target)
   artiTag.appendChild(element('h3', 'Games'));
   artiTag.appendChild(element('p', 'Below are some computer games I made when I was learning code. I leave them here because some are still fun!'));
 
-  for (var i=0;i<allGames.length;i++) {
+  for (var i = 0; i < allGames.length; i++) {
     let subArticle = element("section");
     artiTag.appendChild(subArticle);
 
@@ -249,19 +233,16 @@ function displayGames(target)
       "h4",
       allGames[i]["name"],
       "",
-      allGames[i]["url"])
-    );
+      allGames[i]["url"]));
     subArticle.appendChild(img(
       allGames[i]['image'],
       articleWidth(maxWidth),
-      allGames[i]["name"])
-    );
-    subArticle.appendChild(element('p',allGames[i]["description"]));
+      allGames[i]["name"]));
+    subArticle.appendChild(element('p', allGames[i]["description"]));
     subArticle.appendChild(niceButton(
       allGames[i]["name"],
       allGames[i]['url'],
-      "Click here to play")
-    );
+      "Click here to play"));
 
   }
   return sectTag;
@@ -287,8 +268,8 @@ async function displayUnwork(target, source) {
     let surl = await source[x]["awSurl"];
     let loca = await source[x]["awLoca"];
 
-    let divTag  = element("div",'', x);
-    divTag.setAttribute('class', cate.join(" ")+" unworks");
+    let divTag = element("div", '', x);
+    divTag.setAttribute('class', cate.join(" ") + " unworks");
     sectTag.appendChild(divTag);
     let headTag = element('header');
     divTag.appendChild(headTag);
@@ -299,50 +280,48 @@ async function displayUnwork(target, source) {
 
     applyTune(divTag);
 
-    let htitle = element("h3",titl);
-    let hstitl = element("h4",desc);
+    let htitle = element("h3", titl);
+    let hstitl = element("h4", desc);
     headTag.appendChild(htitle);
     headTag.appendChild(hstitl);
 
-    var perfMessage = "Premiered by "+perf+" on "+date.toDateString()+", at "+loca;
+    var perfMessage = "Premiered by " + perf + " on " + date.toDateString() + ", at " + loca;
 
     var aaa = new Array();
-    
-    if (iurl) aaa.push(img(iurl, articleWidth(maxWidth)-mypad*2,titl));
-    
+
+    if (iurl) aaa.push(img(iurl, articleWidth(maxWidth) - mypad * 2, titl));
+
     if (aurl) {
       aaa.push(niceButton(
         "Sound",
         aurl,
-        "Click here to listen")
-      );
+        "Click here to listen"));
     }
     if (vurl) {
       aaa.push(niceButton(
         "Video",
         vurl,
-        "Click here to watch")
-      );
+        "Click here to watch"));
     }
     if (surl) {
       aaa.push(niceButton(
         "Score / Code",
         surl,
-        "Click here to open the score (or code) ")
-      );
+        "Click here to open the score (or code) "));
     }
 
-    if (prog) aaa.push(element('p',prog));
+    if (prog) aaa.push(element('p', prog));
 
     for (let i in aaa) artiTag.appendChild(aaa[i]);
-     
-    if (perf) footTag.appendChild(element("h5",perfMessage));
+
+    if (perf) footTag.appendChild(element("h5", perfMessage));
 
   }
   centering(sectTag);
   tuneUp(sectTag);
 }
-function displayPapers(target,source) {
+
+function displayPapers(target, source) {
   var keys = Object.keys(source);
   for (var i in keys) {
     let x = keys[i];
@@ -355,7 +334,7 @@ function displayPapers(target,source) {
     let date = source[x]["apDate"];
     var iurl = source[x]["apiURL"];
 
-    let sectTag = element('section','', x);
+    let sectTag = element('section', '', x);
     target.appendChild(sectTag);
 
     let headTag = element('header');
@@ -365,36 +344,37 @@ function displayPapers(target,source) {
     let footTag = element('footer');
     sectTag.appendChild(footTag);
 
-    let htitle = element("h3",titl+" ("+date+")",'',"window.open(\'"+link+"\',\'_top\');");
+    let htitle = element("h3", titl + " (" + date + ")", '', "window.open(\'" + link + "\',\'_top\');");
     headTag.appendChild(htitle);
 
-    if(iurl)
-    {
-      let imagen = img(iurl,articleWidth(maxWidth),titl);
-      artiTag.appendChild(imagen); 
+    if (iurl) {
+      let imagen = img(iurl, articleWidth(maxWidth), titl);
+      artiTag.appendChild(imagen);
     }
 
-    let descrip = element('p',desc);
+    let descrip = element('p', desc);
     artiTag.appendChild(descrip);
 
     var aaa = [];
-    
-    if(publ) aaa.push(element('p',publ));
+
+    if (publ) aaa.push(element('p', publ));
 
     if (down) {
       aaa.push(niceButton(
         "Download",
         down,
-        "Click here to get the full text")
-      );
+        "Click here to get the full text"));
     }
 
     // aaa.push(element('h6',time));
-    for (let j in aaa) {footTag.appendChild(aaa[j]);}
+    for (let j in aaa) {
+      footTag.appendChild(aaa[j]);
+    }
     tuneUp(sectTag);
   }
 }
-function displayEvents(target,source) {
+
+function displayEvents(target, source) {
   var keys = Object.keys(source);
   for (var i in keys) {
     // console.log(i);
@@ -408,7 +388,7 @@ function displayEvents(target,source) {
     var iurl = source[x]["aeIURL"];
     //console.log(x + ": "+ titl + " "+ desc + " "+ when + " "+ wher + " "+ time);
 
-    let sectTag = element('section','', x);
+    let sectTag = element('section', '', x);
     target.appendChild(sectTag);
 
     let headTag = element('header');
@@ -419,10 +399,12 @@ function displayEvents(target,source) {
     // sectTag.appendChild(footTag);
 
 
-    headTag.appendChild(element("h3",titl));
-    artiTag.appendChild(img(iurl,articleWidth(maxWidth),titl)); 
-    artiTag.appendChild(element("h4", when.getFullYear() + " " + when.toLocaleString('default', { month: 'long' }) + " " + when.getDate()+ " - " +wher));
-    artiTag.appendChild(element('blockquote',desc));
+    headTag.appendChild(element("h3", titl));
+    artiTag.appendChild(img(iurl, articleWidth(maxWidth), titl));
+    artiTag.appendChild(element("h4", when.getFullYear() + " " + when.toLocaleString('default', {
+      month: 'long'
+    }) + " " + when.getDate() + " - " + wher));
+    artiTag.appendChild(element('blockquote', desc));
     artiTag.appendChild(niceButton(
       "Info",
       eurl,
@@ -434,7 +416,8 @@ function displayEvents(target,source) {
     tuneUp(sectTag);
   }
 }
-function displayPeople(target,source) {
+
+function displayPeople(target, source) {
   var keys = Object.keys(source);
   for (var i in keys) {
     let x = keys[i];
@@ -443,7 +426,7 @@ function displayPeople(target,source) {
     let time = source[x]["aPTime"];
     let webs = source[x]["aPWebs"];
 
-    let sectTag = element('section','', x);
+    let sectTag = element('section', '', x);
     target.appendChild(sectTag);
 
     let headTag = element('header');
@@ -461,12 +444,12 @@ function displayPeople(target,source) {
         break;
     }
 
-    let htitle = element("button",name,'',"window.open(\'"+webs+"\', \'_top\');");
+    let htitle = element("button", name, '', "window.open(\'" + webs + "\', \'_top\');");
     headTag.appendChild(htitle);
-   }
+  }
 }
 
-function displayProjects(target,source) {
+function displayProjects(target, source) {
   var keys = Object.keys(source);
   for (var i in keys) {
     var x = keys[i];
@@ -497,7 +480,7 @@ function displayProjects(target,source) {
     var ur43 = source[x]["aP4UR3"];
 
 
-    let sectTag = element('section','', x);
+    let sectTag = element('section', '', x);
     target.appendChild(sectTag);
 
     let headTag = element('header');
@@ -508,20 +491,20 @@ function displayProjects(target,source) {
     sectTag.appendChild(footTag);
 
     let aaa = new Array();
-    aaa.push(element("h3",titl));
-    aaa.push(element("h4",wher));
-    aaa.push(element("h5",when.toDateString()));
-    aaa.push(element("button",'more','',"window.open(\'"+eurl+"\', \'_top\');"));
+    aaa.push(element("h3", titl));
+    aaa.push(element("h4", wher));
+    aaa.push(element("h5", when.toDateString()));
+    aaa.push(element("button", 'more', '', "window.open(\'" + eurl + "\', \'_top\');"));
     for (let j in aaa) headTag.appendChild(aaa[j]);
-    
 
-    let imagen = img(iurl,articleWidth(maxWidth),titl);
-    artiTag.appendChild(imagen); 
 
-    let descrip = element('p',desc);
+    let imagen = img(iurl, articleWidth(maxWidth), titl);
+    artiTag.appendChild(imagen);
+
+    let descrip = element('p', desc);
     artiTag.appendChild(descrip);
 
-    let footer = element('h6',time);
+    let footer = element('h6', time);
     footTag.appendChild(footer);
     tuneUp(sectTag);
   }
@@ -529,46 +512,45 @@ function displayProjects(target,source) {
 
 function displayCV(x) {
   var headerTag = element('header');
-  let htitleTag = element("h2", x, '', "toggle('"+x+"');");
+  let htitleTag = element("h2", x, '', "toggle('" + x + "');");
   headerTag.appendChild(htitleTag);
   mainTag.appendChild(headerTag);
   //the article
-  var articlTag = element('article','', x);
+  var articlTag = element('article', '', x);
   mainTag.appendChild(articlTag);
 
-  articlTag.style.width = articleWidth(maxWidth)+"px";
-  
+  articlTag.style.width = articleWidth(maxWidth) + "px";
+
   switch (x) {
-    case "Personal" :
-      tuneUp(displayCVPerson(articlTag,g,x.toLowerCase()));
+    case "Personal":
+      tuneUp(displayCVPerson(articlTag, g, x.toLowerCase()));
       break;
-    case "Teachings" :
-      displayCVTeachi(articlTag,allTeachi,x.toLowerCase());
+    case "Teachings":
+      displayCVTeachi(articlTag, allTeachi, x.toLowerCase());
       break;
-    case "Awards"   :
-      displayCVAwards(articlTag,allAwards,x.toLowerCase());
+    case "Awards":
+      displayCVAwards(articlTag, allAwards, x.toLowerCase());
       break;
     case "Unworks":
-      displayCVUnwork(articlTag,allUnwork,x.toLowerCase());
+      displayCVUnwork(articlTag, allUnwork, x.toLowerCase());
       break;
     case "Collaborations":
-      displayCVCollab(articlTag,allCollab,x.toLowerCase());
+      displayCVCollab(articlTag, allCollab, x.toLowerCase());
       break;
     case "Performances":
-      displayCVPerfor(articlTag,allPerfor,x.toLowerCase());
+      displayCVPerfor(articlTag, allPerfor, x.toLowerCase());
       break
     default:
       // removeChilds(mainTag);
       // mainCV();
-    break;
+      break;
   }
   console.log(x);
   return 1;
 }
 
-function displayCVPerson(target,source,id)
-{
-  let sectTag = element('section','',id);
+function displayCVPerson(target, source, id) {
+  let sectTag = element('section', '', id);
   target.appendChild(sectTag);
 
   let headTag = element('header');
@@ -580,59 +562,57 @@ function displayCVPerson(target,source,id)
   let tableTag = element('table');
   artiTag.appendChild(tableTag);
 
-  let row=[];
-  for (let i=0;i<10;i++)
-  {
+  let row = [];
+  for (let i = 0; i < 10; i++) {
     row.push(element('tr'));
     tableTag.appendChild(row[i]);
   }
-  
-  row[0].appendChild(element("td","Full Name"));
-  row[1].appendChild(element("td","Date of Birth"));
-  row[2].appendChild(element("td","Nationality"));
-  row[3].appendChild(element("td","Mailing Address"));
-  row[4].appendChild(element("td","Phone Number"));
-  row[5].appendChild(element("td","E-mail"));
-  row[6].appendChild(element("td","Website"));
-  row[7].appendChild(element("td","Job Experience"));
-  row[8].appendChild(element("td","Graduate Education"));
-  row[9].appendChild(element("td","Undergraduate Education"));
+
+  row[0].appendChild(element("td", "Full Name"));
+  row[1].appendChild(element("td", "Date of Birth"));
+  row[2].appendChild(element("td", "Nationality"));
+  row[3].appendChild(element("td", "Mailing Address"));
+  row[4].appendChild(element("td", "Phone Number"));
+  row[5].appendChild(element("td", "E-mail"));
+  row[6].appendChild(element("td", "Website"));
+  row[7].appendChild(element("td", "Job Experience"));
+  row[8].appendChild(element("td", "Graduate Education"));
+  row[9].appendChild(element("td", "Undergraduate Education"));
 
 
-  if(!userLang.localeCompare("es"))
-  {
-    row[0].appendChild(element("td","Nombre Completo"));
-    row[1].appendChild(element("td","Fecha de Nacimiento"));
-    row[2].appendChild(element("td","Nacionalidad"));
-    row[3].appendChild(element("td","Dirección Postal"));
-    row[4].appendChild(element("td","Número de Teléfono"));
-    row[5].appendChild(element("td","Correo electrónico"));
-    row[6].appendChild(element("td","Sitio Web"));
-    row[7].appendChild(element("td","Trabajo"));
-    row[8].appendChild(element("td","Educación de Posgrado"));
-    row[9].appendChild(element("td","Educación de Grado"));
+  if (!userLang.localeCompare("es")) {
+    row[0].appendChild(element("td", "Nombre Completo"));
+    row[1].appendChild(element("td", "Fecha de Nacimiento"));
+    row[2].appendChild(element("td", "Nacionalidad"));
+    row[3].appendChild(element("td", "Dirección Postal"));
+    row[4].appendChild(element("td", "Número de Teléfono"));
+    row[5].appendChild(element("td", "Correo electrónico"));
+    row[6].appendChild(element("td", "Sitio Web"));
+    row[7].appendChild(element("td", "Trabajo"));
+    row[8].appendChild(element("td", "Educación de Posgrado"));
+    row[9].appendChild(element("td", "Educación de Grado"));
   }
 
   // let mydate = new Date(g["bday"]);
-  let linkdate = element("span",mydate,'',"window.open(\'"+g["may8th"]+"\')");
+  let linkdate = element("span", mydate, '', "window.open(\'" + g["may8th"] + "\')");
   linkdate.style.cursor = "pointer";
-  let website = anchor(g["url"],g["url"]);
+  let website = anchor(g["url"], g["url"]);
   website.style.color = "lightblue";
   let job = element("ul");
   let grad = element("ul");
   let under = element("ul");
-  job.appendChild(element("li",g["grad"][0]));
-  grad.appendChild(element("li",g["grad"][1]));
-  under.appendChild(element("li",g["undergrad"]));
+  job.appendChild(element("li", g["grad"][0]));
+  grad.appendChild(element("li", g["grad"][1]));
+  under.appendChild(element("li", g["undergrad"]));
 
 
 
-  row[0].appendChild(element("td",g["fullname"]));
+  row[0].appendChild(element("td", g["fullname"]));
   row[1].appendChild(element("td").appendChild(linkdate));
-  row[2].appendChild(element("td",g["nationality"]));
-  row[3].appendChild(element("td",g["address"]));
-  row[4].appendChild(element("td",g["phone"]));
-  row[5].appendChild(element("td",g["email"]));
+  row[2].appendChild(element("td", g["nationality"]));
+  row[3].appendChild(element("td", g["address"]));
+  row[4].appendChild(element("td", g["phone"]));
+  row[5].appendChild(element("td", g["email"]));
   row[6].appendChild(element("td").appendChild(website));
   row[7].appendChild(element("td").appendChild(job));
   row[8].appendChild(element("td").appendChild(grad));
@@ -642,9 +622,8 @@ function displayCVPerson(target,source,id)
 }
 
 
-function displayCVTeachi(target,source,id)
-{
-  let sectTag = element('section','',id);
+function displayCVTeachi(target, source, id) {
+  let sectTag = element('section', '', id);
   target.appendChild(sectTag);
 
   let keys = Object.keys(source);
@@ -658,8 +637,8 @@ function displayCVTeachi(target,source,id)
     let dept = source[x]["aTDept"];
     let term = source[x]["aTTerm"];
     let year = source[x]["aTYear"];
-    
-    let divTag  = element("div");
+
+    let divTag = element("div");
     sectTag.appendChild(divTag);
     let headTag = element('header');
     divTag.appendChild(headTag);
@@ -671,12 +650,12 @@ function displayCVTeachi(target,source,id)
     // let footTag = element('footer');
     // sectTag.appendChild(footTag);
 
-    let titl = year+tilde+type + ". (" + term + ")";
-    let htitle = element("h3",titl);
+    let titl = year + tilde + type + ". (" + term + ")";
+    let htitle = element("h3", titl);
     headTag.appendChild(htitle);
 
     let job = clas + " at " + dept + " of " + inst;
-    let descrip = element("p",job);
+    let descrip = element("p", job);
 
     artiTag.appendChild(descrip);
 
@@ -686,8 +665,9 @@ function displayCVTeachi(target,source,id)
     // tuneUp(sectTag);
   }
 }
-function displayCVAwards(target,source,id){
-  var sectTag = element('section','',id);
+
+function displayCVAwards(target, source, id) {
+  var sectTag = element('section', '', id);
   target.appendChild(sectTag);
 
   var keys = Object.keys(source);
@@ -703,7 +683,7 @@ function displayCVAwards(target,source,id){
     var desc = source[x]["aADesc"];
     var urll = source[x]["aAUrll"];
 
-    let divTag  = element("div");
+    let divTag = element("div");
     sectTag.appendChild(divTag);
     let headTag = element('header');
     divTag.appendChild(headTag);
@@ -712,18 +692,19 @@ function displayCVAwards(target,source,id){
 
     applyTune(divTag);
 
-    let awar = titl+" for "+dura+" in "+wher+" ("+type+")";
-    let htitle = element("h3",awar);
+    let awar = titl + " for " + dura + " in " + wher + " (" + type + ")";
+    let htitle = element("h3", awar);
     headTag.appendChild(htitle);
 
-    let descrip = element("p",desc);
-    let refer = element("i", whoo, "", "window.open("+urll+",\'_top\')");
+    let descrip = element("p", desc);
+    let refer = element("i", whoo, "", "window.open(" + urll + ",\'_top\')");
     descrip.appendChild(refer);
     artiTag.appendChild(descrip);
   }
 }
-function displayCVUnwork(target,source,id){
-  var sectTag = element('section','',id);
+
+function displayCVUnwork(target, source, id) {
+  var sectTag = element('section', '', id);
   target.appendChild(sectTag);
 
   var keys = Object.keys(source);
@@ -742,12 +723,12 @@ function displayCVUnwork(target,source,id){
     let aurl = source[x]["awAurl"];
     let surl = source[x]["awSurl"];
     let loca = source[x]["awLoca"];
-    let dura = source[x]["awDura"]; 
+    let dura = source[x]["awDura"];
 
     let divTag = element("div");
     applyTune(divTag);
     sectTag.appendChild(divTag);
-    
+
 
     let headTag = element('header');
     divTag.appendChild(headTag);
@@ -757,35 +738,36 @@ function displayCVUnwork(target,source,id){
     // sectTag.appendChild(footTag);
 
 
-    let htitle = element("h3",titl);
-    let hstitl = element("h4",desc);
+    let htitle = element("h3", titl);
+    let hstitl = element("h4", desc);
     headTag.appendChild(htitle);
     headTag.appendChild(hstitl);
 
     var lis = [
-      "Duration: "+dura+" minutes.",
-      "Premiered by: "+perf,
-      "Date: "+date.toDateString(),
-      "Place: "+loca,
-      "Keywords: "+cate
+      "Duration: " + dura + " minutes.",
+      "Premiered by: " + perf,
+      "Date: " + date.toDateString(),
+      "Place: " + loca,
+      "Keywords: " + cate
     ];
 
     let ulTag = element("ul");
     ulTag.style.listStyle = "none";
-    for (let j in lis){
+    for (let j in lis) {
       let liTag = element("li", lis[j]);
       ulTag.appendChild(liTag);
     }
 
     artiTag.appendChild(ulTag);
-     
+
     // let timest = element('h6',time);
     // footTag.appendChild(timest);
     // tuneUp(divTag);
   }
 }
-function displayCVCollab(target,source,id){
-  var sectTag = element('section','',id);
+
+function displayCVCollab(target, source, id) {
+  var sectTag = element('section', '', id);
   target.appendChild(sectTag);
 
   var keys = Object.keys(source);
@@ -798,7 +780,7 @@ function displayCVCollab(target,source,id){
     var wher = source[x]["aCWher"];
     var desc = source[x]["aCDesc"];
 
-    let divTag  = element("div");
+    let divTag = element("div");
     sectTag.appendChild(divTag);
     let headTag = element('header');
     divTag.appendChild(headTag);
@@ -807,24 +789,24 @@ function displayCVCollab(target,source,id){
 
     applyTune(divTag);
 
-    let colla = year+tilde+cate+" in "+wher;
-    if(!userLang.localeCompare("es"))
-    {
-      colla = year+tilde+cate+" en "+wher;
+    let colla = year + tilde + cate + " in " + wher;
+    if (!userLang.localeCompare("es")) {
+      colla = year + tilde + cate + " en " + wher;
     }
 
-    let htitle = element("h3",colla);
+    let htitle = element("h3", colla);
     headTag.appendChild(htitle);
 
-    let descrip = element("p",desc);
+    let descrip = element("p", desc);
     artiTag.appendChild(descrip);
 
 
 
   }
 }
-function displayCVPerfor(target,source,id){
-  var sectTag = element('section','',id);
+
+function displayCVPerfor(target, source, id) {
+  var sectTag = element('section', '', id);
   target.appendChild(sectTag);
 
   var keys = Object.keys(source);
@@ -839,7 +821,7 @@ function displayCVPerfor(target,source,id){
     var inst = source[x]["aPInst"];
     var witt = source[x]["aPWith"];
 
-    let divTag  = element("div");
+    let divTag = element("div");
     sectTag.appendChild(divTag);
     let headTag = element('header');
     divTag.appendChild(headTag);
@@ -848,33 +830,33 @@ function displayCVPerfor(target,source,id){
 
     applyTune(divTag);
 
-    let event = when.toDateString()+tilde+what +" at "+wher+", with "+witt;
-    
-    if(!userLang.localeCompare("es"))
-    {
-      event = when.toDateString()+tilde+what +" en "+wher+", con "+witt;
+    let event = when.toDateString() + tilde + what + " at " + wher + ", with " + witt;
+
+    if (!userLang.localeCompare("es")) {
+      event = when.toDateString() + tilde + what + " en " + wher + ", con " + witt;
     }
-    let htitle = element("h3",event);
+    let htitle = element("h3", event);
     headTag.appendChild(htitle);
 
-    let descrip = element("p",howw);
-    let perfor = element("i", "Performed: "+inst+".");
+    let descrip = element("p", howw);
+    let perfor = element("i", "Performed: " + inst + ".");
     artiTag.appendChild(descrip);
     descrip.appendChild(perfor);
 
   }
 }
-function displayMedia(target,source,type) {
-  for (let i=0; i<=source.length-1 ; i=i+2) {
+
+function displayMedia(target, source, type) {
+  for (let i = 0; i <= source.length - 1; i = i + 2) {
     //var elem = element('h4',source[i])
     let medi = element(type);
-    medi.src = source[i+1];
-    medi.width = target.clientWidth/2;
-    medi.style.border   = "none";
-    medi.style.padding  = "none";
-    medi.style.margin   = "none";
+    medi.src = source[i + 1];
+    medi.width = target.clientWidth / 2;
+    medi.style.border = "none";
+    medi.style.padding = "none";
+    medi.style.margin = "none";
     medi.style.position = "relative";
-    medi.style.float    = "left";
+    medi.style.float = "left";
 
     // video.overflow = false;
     // video.scrolling = "no";
@@ -887,15 +869,15 @@ function displayMedia(target,source,type) {
 }
 
 function displayAllCV(x) {
-// async function displayAllCV(x) {
-  for (let i=0; i<x.length; i++) {
+  // async function displayAllCV(x) {
+  for (let i = 0; i < x.length; i++) {
     displayCV(x[i]);
     // const cont = await displayCV(x[i]);
     // if (cont) continue;
   }
 }
 
-function displayReleases(target,source) {
+function displayReleases(target, source) {
   var keys = Object.keys(source);
   for (var i in keys) {
     var x = keys[i];
@@ -905,57 +887,57 @@ function displayReleases(target,source) {
     var ifra = source[x]["aRIfra"];
     var when = source[x]["aRDate"];
 
-    let sectTag = element('section','', x);
+    let sectTag = element('section', '', x);
     target.appendChild(sectTag);
 
     let headTag = element('header');
     sectTag.appendChild(headTag);
-    sectTag.setAttribute('class','release-section');
-    
+    sectTag.setAttribute('class', 'release-section');
+
     let artiTag = element('article');
     sectTag.appendChild(artiTag);
-    
+
     let footTag = element('footer');
     sectTag.appendChild(footTag);
 
-    headTag.appendChild(element("h3",titl));
+    headTag.appendChild(element("h3", titl));
 
-    artiTag.insertAdjacentHTML('beforeend',ifra);
+    artiTag.insertAdjacentHTML('beforeend', ifra);
 
-    footTag.appendChild(element('h6',time));
+    footTag.appendChild(element('h6', time));
 
     tuneUp(sectTag);
   }
 }
-function displayCode(target){
-  let sectTag = element('section','', "");
+
+function displayCode(target) {
+  let sectTag = element('section', '', "");
   target.appendChild(sectTag);
 
   let headTag = element('header');
   sectTag.appendChild(headTag);
   headTag.appendChild(element('h3', "Github Repository"));
-    
+
   let artiTag = element('article');
   sectTag.appendChild(artiTag);
 
   artiTag.appendChild(niceButton(
     "Github",
     g['repo'],
-    "Check out my code on Github")
-  );
+    "Check out my code on Github"));
   tuneUp(sectTag);
 
 }
 
-function niceButton(name,url,description) {
+function niceButton(name, url, description) {
   let e = element('p');
 
-  e.appendChild(element('span', description+" --> "));
+  e.appendChild(element('span', description + " --> "));
   e.appendChild(element(
     "button",
     name,
     '',
-    "window.open(\'"+url+"\', '_blank');",
+    "window.open(\'" + url + "\', '_blank');",
     ""
   ));
   return e;

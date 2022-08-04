@@ -128,6 +128,8 @@ const youtube = [
 ];
 
 const featURL = [
+  youtube[0] + "vnEYecQjJH4" + youtube[1],
+  youtube[0] + "74wdsiK_jUU" + youtube[1],
   youtube[0] + "hXONutQ_vYc" + youtube[1],
   youtube[0] + "GA0_ieFjpuM" + youtube[1],
   youtube[0] + "gErNVvwsOdI" + youtube[1],
