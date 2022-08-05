@@ -45,7 +45,7 @@ async function display(x) {
 
       displayUnwork(article, allUnwork);
       break;
-    case "writings":
+    case "research":
       article = resetDisplay(x);
       displayPapers(article, allPapers);
       break;

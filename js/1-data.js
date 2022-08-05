@@ -7,7 +7,7 @@ const mitem = [
   "blog",
   "bio",
   "work",
-  "writings",
+  "research",
   "code",
   "releases",
   "news",
@@ -31,7 +31,7 @@ const allCVsections = [
 const webSections = [
   "People",
   "Events",
-  "Writings"
+  "Research"
 ]
 const fonts = [
   "Courier",
