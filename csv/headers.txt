@@ -1,0 +1,6 @@
+events.csv, Timestamp,where,what,when,description,imgURL,eventURL
+papers.csv, Timestamp,Description,Title,Link,Published,Download,Date,ImageURL
+people.csv, Timestamp,Surname,Name,Website
+projects.csv, Timestamp,participants,description,,p1,p1img,p2,p2img,p3,p3img,p4,p4img,link1,link2,p1link1,p1link2,p1link3,p2link1,p2link2,p2link3,p3link1,p3link2,p3link3,p4link1,p4link2,p4link3
+releases.csv, Timestamp,title,iframe,date,date
+works.csv, Timestamp,Title,Category,Performers,Date,Description,Program Notes,imageURL,videoURL,audioURL,scoreURL,Location,duration
