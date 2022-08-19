@@ -3,7 +3,7 @@ Berenice and Federico
 
 .. image::  bere_fede.jpg
   :width:   500
-  Berenice and Federico
+  Berenice and Federico in San Martin de los Andes, Neuquén, Argentina
  
 Hallo!
 ------
@@ -66,6 +66,6 @@ Berenice, Federico, Elektra and Panchita =)
 
 .. image::  elektra-panchita.jpeg
   :width:   500
-  Elektra and Panchita
+  Elektra and Panchita in Córdoba, Argentina
 
 
