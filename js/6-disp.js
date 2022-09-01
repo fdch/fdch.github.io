@@ -79,9 +79,10 @@ async function display(x) {
       // window.open("./releases","_top");
       break;
     case "code":
-      //displayCode(article);
-      //tuneUp(displayGames(article));
-      redirect("https://github.com/fdch");
+      article = resetDisplay(x);
+      displayCode(article, allRepos);
+      // tuneUp(displayGames(article));
+      // redirect("https://github.com/fdch");
       break;
     case "toros":
       redirect("https://fdch.github.io/toros");
@@ -910,23 +911,72 @@ function displayReleases(target, source) {
   }
 }
 
-function displayCode(target) {
-  let sectTag = element('section', '', "");
-  target.appendChild(sectTag);
 
-  let headTag = element('header');
-  sectTag.appendChild(headTag);
-  headTag.appendChild(element('h3', "Github Repository"));
+function displayCode(target, source) {
+  
+  target.appendChild(niceButton("Github", repo, "Follow me on Github"))
 
-  let artiTag = element('article');
-  sectTag.appendChild(artiTag);
+  
+  var keys = Object.keys(source);
+  for (var i in keys) {
+    var x = keys[i];
 
-  artiTag.appendChild(niceButton(
-    "Github",
-    g['repo'],
-    "Check out my code on Github"));
-  tuneUp(sectTag);
+    var titl = source[x]["aRTitl"];
+    var desc = source[x]["aRDesc"];
+    var time = source[x]["aRDate"];
+    var href = source[x]["aRHref"];
+    var website = source[x]["aRWebs"];
 
+    let sectTag = element('section', '', x);
+    target.appendChild(sectTag);
+
+    let headTag = element('header');
+    sectTag.appendChild(headTag);
+    sectTag.setAttribute('class', 'release-section');
+
+    let artiTag = element('article');
+    sectTag.appendChild(artiTag);
+
+    let footTag = element('footer');
+    sectTag.appendChild(footTag);
+
+    artiTag.appendChild(element("p", desc));
+    
+    artiTag.appendChild(niceButton(titl, href, "Code"));
+    
+    if (website !== '' && website !== undefined && website !== null) {      
+      // console.log("WEBSITE", website);
+      iframe = document.createElement('iframe');
+      // iframe.hidden = "hidden";
+      iframe.src = website;
+      iframe.id = titl;
+      iframe.width  = maxWidth + "px";
+      iframe.height  = maxHeight + "px";
+      artiTag.appendChild(iframe);
+      artiTag.appendChild(niceButton(titl, website, "Website"));
+      
+      // Leave this here for now
+      // LATER try to check if iframe loaded correctly
+
+      // iframe.onload = () => {
+        // console.log("Loaded", this.id);
+        // const content = iframe.contentDocument || iframe.contentWindow.document;
+        // ititle = content.title;
+        // if(ititle.indexOf("404")<0){
+          // iframe.removeAttribute('hidden')
+        // } 
+
+      // }
+    } else {
+      website = href
+    }
+
+    headTag.appendChild(element("h3", titl, '', "window.open(\'" + website + "\')"));
+
+    footTag.appendChild(element('h6', "Last Updated: " + time));
+
+    tuneUp(sectTag);
+  }
 }
 
 function niceButton(name, url, description) {
