@@ -111,6 +111,19 @@ function loadJSON(x,callback)
   xobj.send(null);  
 }
 
+// async function is_real(url, callback) {
+//   var xobj = new XMLHttpRequest();
+//   // xobj.open('GET', url, false);
+//   xobj.open('HEAD', url, false);
+//   xobj.onreadystatechange = () => {
+//     if (xobj.readyState == 4 && xobj.status == "200") {
+//       callback(xobj.status);
+//     }
+//   }
+//   xobj.send(null);
+// };
+
+
 // function randomVideo()
 // {
 //   let len = featURL.length;
@@ -451,4 +464,3 @@ function mapToObj(arr) {
     return m;
   }, {});
 }
-
