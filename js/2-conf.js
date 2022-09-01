@@ -7,7 +7,7 @@ var navSelTag, imgDivTag, catDivTag, catSelTag;
 var g={}, mylinks={};
 var allUnwork={}, allPapers={}, allEvents={}, allPeople={};
 var allPerfor={}, allAwards={}, allCollab={}, allTeachi={};
-var allProjects={}, allReleases={};
+var allProjects={}, allReleases={}, allRepos={};
 
 // data arrays
 var allCategories=[], allTitles=[], allWorkId=[], uCategories=[];
@@ -16,7 +16,7 @@ var submit=[], contactMessage=[];
 
 var allGames={};
 
-var bioImage, bkgImage, cv, contactGif, loadingUrl, userLang, mobile, cvpdf;
+var bioImage, bkgImage, cv, contactGif, loadingUrl, userLang, mobile, cvpdf, repo;
 
 // var rotImg=[], backImg, imgArray=[], rotImgTag;
 
@@ -53,8 +53,9 @@ async function loadGlobals(g)
 	 "Follow me on social media :)"
 	];
 	cvpdf       =  g["url"]+ "/cv/output/cv-latest.pdf";
-	cv   		=  g["url"]+ "/cv";
+	cv   		    =  g["url"]+ "/cv";
 	releases    =  g["url"]+ "/releases/";
+	repo        =  g["repo"];
 	contactGif 	=  g["raw"]+g["imgpath"] + "zissou.gif";
 	loadingUrl 	=  g["raw"]+g["imgpath"] + "fdch.gif";
 	submit = [

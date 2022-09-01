@@ -280,6 +280,37 @@ async function loadAll(sheets) {
       }
     }
   });
+  loadJSON("https://api.github.com/users/fdch/repos?per_page=200", async function(response) {
+
+    const f = JSON.parse(response);
+    console.log("Response", f);
+    
+    allRepos={};   
+    for (let i in f) {
+      if ( i > 0 ) {
+        // skip forked repos
+        if ( await f[i]['fork'] ) {
+          continue 
+        }
+        const repo_name = await f[i]["name"];
+        const web_url = await f[i]["homepage"];
+
+        allRepos[String("id-"+makeID( await repo_name))] = {
+          // >>> d = list(map(lambda x: {'url':x['html_url'], 'name':x['name'], 'description':x['description'], 'date':x['updated_at']}, data))
+
+          aRTitl : repo_name,
+          aRDesc : await f[i]["description"],
+          aRDate : await f[i]["updated_at"],
+          aRHref : await f[i]["html_url"],
+          aRWebs : await web_url,
+          // aRWebs : await is_real(web_url, s => {
+            // console.log("Status for", web_url, s)
+            // s !== "404" ? web_url : '';
+          // }),
+        };
+      }
+    }
+  });
   return;
 }
 if(!loaded) {
