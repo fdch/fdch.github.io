@@ -52,7 +52,7 @@ Elektra is our first kitty. She is a tricolor, audacious explorer, with a tenden
 Panchita
 --------
 
-Panchita used to be Elektra's slightly younger aunt, because Fede's mom adopted her after they'd adopted Elektra. From their early youth, they've moved from Panchita's to Elektra's and vice versa, on occasions staying together for weeks. So, they take care of each other, play together, eat together, and do everything in almost symmetrical ways. But, they have completely different personalities. Panchita, who has been with us since May 2022, was very nervous at first. We were supposed to keep her until we'd found another place for her, but we just loved her and could not leave her. Panchita is a hunter, fast, swift, and elastic as no other cat. She's white and gray, and quite elegant. At first, she was somewhat afraid of humans, being moved from home to home, and bit us often, but she's adjusted perfectly now. She stopped biting, and she's just a sweetie pie, purring her way through our hearts.
+Panchita used to be Elektra's slightly younger aunt, because Fede's mom adopted her after they'd adopted Elektra. From their early youth, they've moved from Panchita's to Elektra's and vice versa, on occasions staying together for weeks. So, they take care of each other, play together, eat together, and do everything in almost symmetrical ways. But, they have completely different personalities. Panchita, who has been with us since May 2022, was very nervous at first. We were supposed to keep her until we'd found another place for her, but we just loved her and could not leave her. Panchita is a hunter, fast, swift, and elastic as no other cat. She's white and gray, and quite elegant. At first, she was somewhat afraid of humans, being moved from home to home, and bit us often, but she's adjusted perfectly now. She stopped biting, and she's just a sweetie pie, purring her way through our hearts. 
 
 
 .. _berenice target:
@@ -73,7 +73,7 @@ Berenice is a composer and a DJ. She works independently in different artistic r
 Federico
 --------
 
-Federico is an artist as well, a composer coming from academia, and he is also a programmer. He has lived and studied in New York (PhD at NYU, 2013-2019) and worked in Ohio (Postdoc at OSU, 2019-20). For over 10 years, he has been developing new music and audio programming tools. His latest projects include cutting-edge machine learning research for audio.
+Federico is an artist as well, a composer coming from academia, and he is also a programmer. He has lived and studied in New York (PhD at NYU, 2013-2019) and worked in Ohio (Postdoc at OSU, 2019-20). For over 10 years, he has been developing new music and audio programming tools. His latest projects include cutting-edge machine learning research for audio. He also homebrews a `blog <https://fdch.github.io/blog>`_ where he blabs about things.
 
   Check out his work here: `fdch.github.io <https://fdch.github.io>`_
 
