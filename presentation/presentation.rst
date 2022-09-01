@@ -2,7 +2,7 @@ Berenice and Federico
 =====================
 
 .. image::  bere_fede.jpg
-  :width:   500
+  :width:   600
   Berenice and Federico in San Martin de los Andes, Neuquén, Argentina
  
 Hello!
@@ -10,7 +10,9 @@ Hello!
 
 We are Berenice and Federico, a couple of 34 year-old freelance Argentinian composers/artists with **two lovely cats** 🐈 🐈 💕, looking for the **long term lease** of our beloved, bright, warm, quiet, and ample place in Berlin with **Anmeldung**, starting **September/October**. What a dream!
 
-  We would like to introduce ourselves so that you can briefly get to know us.
+Feel free to go through our documents for more information, but our budget is comfortable: we have enough savings for a year and we estimate a total income of around 3.000 - 4.000 euro per month between the two.
+
+  Here, we would like to introduce ourselves so that you can briefly get to know us, our cats, why we came to Berlin, and what we want to do here.
 
 
 .. _newhope target:
@@ -92,7 +94,7 @@ Berenice, Federico, Elektra and Panchita =)
 
 
 .. image::  elektra-panchita.jpeg
-  :width:   500
+  :width:   600
   Elektra and Panchita in Córdoba, Argentina
 
 
