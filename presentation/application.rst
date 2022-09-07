@@ -8,16 +8,13 @@ Summary
 -------
 
 * Rent: Long Term w/Anmeldung
-* Total Expected income: **3-4k EUR** per month.
-* Total Savings: **22179.28 EUR**
+* Total Expected income: **3 - 4.000 EUR** per month.
+* Total Savings (aprox.) **22.000 EUR**
+* **Positive SCHUFA**
 * Pets: 2 cats (Fig. 8)
-* Move-in date: September 2022
+* Move-in date: September 25th 2022
 * Contact: camarafede@gmail.com
 
-::
-
-  NOTE: We have moved to Berlin in July 28th 2022,
-  so we currently are in the process of getting our Schufa.
 
 Ms. Sabrina Berenice Llorens
 ----------------------------
@@ -42,32 +39,32 @@ Dr. Federico N. Cámara Halac
 * Website: `fdch.github.io`_
 
 
-.. image::  .private/bere_pass.jpeg
+.. image::  private/bere_pass.jpeg
   :width:   500
   Figure 1. Ms. Llorens - Passport
 
 
-.. image::  .private/bere_visa.jpeg
+.. image::  private/bere_visa.jpeg
   :width:   500
   Figure 2. Ms. Llorens - Visum
 
 
-.. image::  .private/fede_pass.jpeg
+.. image::  private/fede_pass.jpeg
   :width:   500
   Figure 3. Dr. Cámara Halac - Passport
 
 
-.. image::  .private/fede_visa.jpeg
+.. image::  private/fede_visa.jpeg
   :width:   500
   Figure 4. Dr. Camara Halac - Visum
 
 
-.. image::  .private/bere_account.jpg
+.. image::  private/bere_account.jpg
   :width:   450
   Figure 5. Ms. Llorens - Account statement - N26
 
 
-.. image::  .private/fede_account.jpg
+.. image::  private/fede_account.jpg
   :width:   500
   Figure 6. Dr. Camara Halac - Account Statement - Bank of America
 
@@ -75,7 +72,7 @@ Dr. Federico N. Cámara Halac
 Berenice and Federico
 =====================
 
-.. image::  .private/bere_fede.jpg
+.. image::  bere_fede.jpg
   :width:   500
   Berenice and Federico in San Martin de los Andes, Neuquén, Argentina
  
@@ -87,21 +84,28 @@ We are Berenice and Federico, a couple of freelance composers/artists from Argen
 We are looking for our beloved, bright, warm, quiet, and ample place in Berlin
 We would like to introduce ourselves so that you can get a warm idea of whom you will rent your apartment.
 
+
+  We have made a website with a longer presentation so that you can briefly get to know us, our cats, why we came to Berlin, and what we want to do here. Please, check it out here: `fdch.github.io/presentation`_.
+
+
 We came to Germany to start a new life. 
 We have moved to Berlin in late July 2022, and we have enough savings to afford this new beginning. 
 Berenice is also a DJ and Federico is also a programmer. 
 Please, have a look at the rest of our information and documents in this application.
 
 For us, it is essential you know we come with our two kittens: Elektra and Panchita.
-We believe that taking responsibility for our actions is fundamental, that is why we decided to bring them. They are almost two years old, friendly and playful, and enjoy when we take them in their evening walks in the park.
+We believe that taking responsibility for our actions is fundamental, that is why we decided to bring them. They are almost two years old, very clean, friendly, and playful.
+They enjoy when we take them in their evening walks in the park.
+They are also very respectful of plants and furniture.
 
 At the moment, we live in a friend's apartment but soon we have to find our own.
 We can adapt to different spaces and places.
 Because we are musicians, at home **we practice silence**, and so we enjoy a quiet space.
 We sometimes work from home with headphones, but we prefer to make our music in studios and spaces with immersive sound systems.
 
-Together, we have a duo called **toros**. 
-Check it out if you are interested: `toros.github.io`_ 
+  Together, we have a duo called **toros**. 
+  Check it out if you are interested: `toros.github.io`_ 
+
 
 Here is something about each of us:
 
@@ -128,12 +132,13 @@ His latest projects include cutting-edge machine learning research for audio.
 
 Check out his work here: `fdch.github.io`_.
 
-Conslusion
-----------
+Thank you
+---------
 
 We want to find a beautiful place to live, to take care, and to start our lives in this great city.
 We hope that this presentation can serve as an introduction of your next tenants.
 
+We thank you very much for considering us. 
 Please, let us know if you need more information from us.
 
 Viele Grüße,
@@ -141,7 +146,7 @@ Viele Grüße,
 Berenice, Federico, Elektra and Panchita =)
 
 
-.. image::  .private/elektra-panchita.jpeg
+.. image::  elektra-panchita.jpeg
   :width:   500
   Elektra and Panchita in Córdoba, Argentina
 
@@ -149,4 +154,4 @@ Berenice, Federico, Elektra and Panchita =)
 .. _berenicellorens.github.io: https://berenicellorens.github.io
 .. _fdch.github.io: https://fdch.github.io
 .. _toros.github.io: https://toros.github.io
-
+.. _fdch.github.io/presentation: https://fdch.github.io/presentation
