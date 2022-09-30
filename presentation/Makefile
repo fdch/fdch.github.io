@@ -11,4 +11,7 @@ app:
 	make apptext
 	cd private && pdfconcat $(APP)
 
+redirect:
+	echo "<meta http-equiv=\"refresh\" content=\"0; url=https://fdch.github.io/\" />" > index.html 
+
 
