@@ -182,14 +182,16 @@ function displayBiogra(target) {
   sectTag.appendChild(artiTag);
 
   let alltags = new Array();
-
-  if (!userLang.localeCompare("es")) {
-    alltags.push(element('p', bio_es));
-    alltags.push(element('p', epigrafe));
-  } else {
-    alltags.push(element('p', bio_en));
-    alltags.push(element('p', epigraph));
-  }
+  loadJSON(globals, async function(response) { 
+    g = JSON.parse(response);
+    if (!userLang.localeCompare("es")) {
+        alltags.push(element('p', g['descripcion']));
+        alltags.push(element('p', g['epigrafe']));
+    } else {
+        alltags.push(element('p', g['description']));
+        alltags.push(element('p', g['epigraph']));
+    }
+  });
   alltags.push(niceButton(
     "Curriculum Vitae",
     cvpdf,
