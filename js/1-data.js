@@ -51,8 +51,8 @@ const color_preset = { // for randomColor()
   "rand": [255, 0, 255, 0]
 };
 
-const globals = "https://fdch.github.io/data/global.json"
-const games = "https://fdch.github.io/data/games.json"
+const globals = "https://fdch.ar/data/global.json"
+const games = "https://fdch.ar/data/games.json"
 
 const tday = new Date(); // today's date
 const maxWidth = 600; // maximum Width
