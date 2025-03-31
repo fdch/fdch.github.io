@@ -12,6 +12,7 @@ const mitem = [
   "releases",
   "news",
   "toros",
+  "cv",
   // "cv",
   // "people",
   // "touch",
@@ -72,7 +73,7 @@ let ee = blob;
 // const t           = 4333;    // delay time
 
 // latest biography pic
-const latest_bio_pic = "camarahalac_biopic-original.png";
+const latest_bio_pic = "fdch-bio-lq.jpg";
 // latest background pic
 const latest_bkg_pic = ['fdch.github.io', "imgone.png"];
 
