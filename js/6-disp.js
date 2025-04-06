@@ -58,7 +58,7 @@ async function display(x) {
       displayPeople(article, allPeople);
       break;
     case "cv":
-      window.open(cv, "_top");
+      window.open("/cv", "_top");
       break;
     case "video":
       article = resetDisplay(x);
@@ -182,14 +182,14 @@ function displayBiogra(target) {
   sectTag.appendChild(artiTag);
 
   let alltags = new Array();
-  loadJSON(globals, async function(response) { 
+  loadJSON(globals, async function(response) {
     g = JSON.parse(response);
     if (!userLang.localeCompare("es")) {
-        alltags.push(element('p', g['descripcion']));
-        alltags.push(element('p', g['epigrafe']));
+      alltags.push(element('p', g['descripcion']));
+      alltags.push(element('p', g['epigrafe']));
     } else {
-        alltags.push(element('p', g['description']));
-        alltags.push(element('p', g['epigraph']));
+      alltags.push(element('p', g['description']));
+      alltags.push(element('p', g['epigraph']));
     }
   });
   alltags.push(niceButton(
@@ -915,10 +915,10 @@ function displayReleases(target, source) {
 
 
 function displayCode(target, source) {
-  
+
   target.appendChild(niceButton("Github", repo, "Follow me on Github"))
 
-  
+
   var keys = Object.keys(source);
   for (var i in keys) {
     var x = keys[i];
@@ -943,30 +943,30 @@ function displayCode(target, source) {
     sectTag.appendChild(footTag);
 
     artiTag.appendChild(element("p", desc));
-    
+
     artiTag.appendChild(niceButton(titl, href, "Code"));
-    
-    if (website !== '' && website !== undefined && website !== null) {      
+
+    if (website !== '' && website !== undefined && website !== null) {
       // console.log("WEBSITE", website);
       iframe = document.createElement('iframe');
       // iframe.hidden = "hidden";
       iframe.src = website;
       iframe.id = titl;
-      iframe.width  = maxWidth + "px";
-      iframe.height  = maxHeight + "px";
+      iframe.width = maxWidth + "px";
+      iframe.height = maxHeight + "px";
       artiTag.appendChild(iframe);
       artiTag.appendChild(niceButton(titl, website, "Website"));
-      
+
       // Leave this here for now
       // LATER try to check if iframe loaded correctly
 
       // iframe.onload = () => {
-        // console.log("Loaded", this.id);
-        // const content = iframe.contentDocument || iframe.contentWindow.document;
-        // ititle = content.title;
-        // if(ititle.indexOf("404")<0){
-          // iframe.removeAttribute('hidden')
-        // } 
+      // console.log("Loaded", this.id);
+      // const content = iframe.contentDocument || iframe.contentWindow.document;
+      // ititle = content.title;
+      // if(ititle.indexOf("404")<0){
+      // iframe.removeAttribute('hidden')
+      // } 
 
       // }
     } else {
